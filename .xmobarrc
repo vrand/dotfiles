@@ -1,0 +1,15 @@
+Config  { font = "-xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1"
+        , bgColor = "black"
+        , fgColor = "grey"
+        , position = BottomW L 100
+        , commands =  [ Run MultiCpu ["-t", "CPUs: <total0>% <total1>%", "-L", "3", "-H", "50", "--normal", "green", "--high", "red"] 10 
+                      , Run Weather "EKBI" ["-t", "<skyCondition> <tempC>C"] 100
+                      , Run Memory ["-t", "Mem: <usedratio>%"] 10
+                      , Run Date "%a %b %_d %k:%M" "date" 10
+                      , Run Battery ["-t", "Batt: <left>%"] 10
+                      , Run StdinReader
+                      ]
+         , sepChar = "%"
+         , alignSep = "}{"
+         , template = "%StdinReader% }{ %multicpu% | %memory% | %battery% -  <fc=#ee9a00>%date%</fc> - %EKBI%"
+        }
