@@ -47,5 +47,8 @@ fi
 # Install
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~/dotfiles
 
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+
 # Set
 source ~/.bash_profile
