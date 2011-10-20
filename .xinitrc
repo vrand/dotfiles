@@ -14,7 +14,7 @@ fi
 # set the cursor
 xsetroot -cursor_name left_ptr
 
-# custom font
+# custom fonts
 xset fp+ /usr/share/fonts/local/
 xset fp rehash
 
