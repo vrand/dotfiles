@@ -1,10 +1,5 @@
-" Editor
-export EDITOR='vim'
-
-" Pager
-export PAGER='less'
-
-" Browser
+export EDITOR=vim
+export PAGER=less
 if [ -n "$DISPLAY" ]; then
     export BROWSER=firefox
 else
