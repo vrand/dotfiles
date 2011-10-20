@@ -97,7 +97,9 @@ set visualbell
 set ttyfast
 
 " save undo history for each file
+set undodir=~/.vim/undo
 set undofile
+set undolevels=1000
 
 " do incremental searching
 set incsearch	
