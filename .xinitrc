@@ -14,6 +14,10 @@ fi
 # set the cursor
 xsetroot -cursor_name left_ptr
 
+# custom font
+xset fp+ /usr/share/fonts/local/
+xset fp rehash
+
 # turn off the annoying beep
 xset b off
 
