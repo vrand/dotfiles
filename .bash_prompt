@@ -60,7 +60,7 @@ function parse_git_branch {
     echo "("${ref#refs/heads/}")"    
 }
 
-PS1="${CYAN}[${VIOLET}\w${CYAN}]${YELLOW}"'$(parse_git_branch)'"${NULL_BG} $"
+PS1="${CYAN}[${VIOLET}\w${CYAN}]${YELLOW}"'$(parse_git_branch)'"${NULL_BG}$ "
 
 # write previous line to disk whenever displaying the prompt
 export PROMPT_COMMAND='history -a'
