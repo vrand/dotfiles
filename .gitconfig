@@ -1,0 +1,19 @@
+[user]
+	name = Alejandro Gomez
+	email = alejandroogomez@gmail.com
+[core]
+	editor = vim
+[alias]
+	a = add
+	ap = add -p
+	b = branch -v
+	c = commit
+	cm = commit -m
+	co = checkout 
+    d = diff
+    m = merge
+    ph = push
+    pl = pull
+	s = status
+[color]
+	ui = true
