@@ -1,0 +1,13 @@
+" Editor
+export EDITOR='vim'
+export VISUAL='gvim'
+
+" Pager
+export PAGER='less'
+
+" Browser
+if [ -n "$DISPLAY" ]; then
+    export BROWSER=firefox
+else
+    export BROWSER=links
+fi

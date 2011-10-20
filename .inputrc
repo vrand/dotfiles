@@ -1,0 +1,20 @@
+set bell-style none
+
+# keyboard mappings
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# complete things typed in the wrong case
+set completion-ignore-case on
+
+# keep hidden files hidden when completing
+set match-hidden-files off
+
+# put / after directory names and * after executables
+set visible-stats on
+
+# completion of bang(!) commands usign space
+$if Bash
+  Space: magic-space
+$endif
+

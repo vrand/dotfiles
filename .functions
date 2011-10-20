@@ -1,0 +1,20 @@
+function grep
+{
+    command grep --color=auto "$@"
+}
+
+function ls
+{
+    command ls -AFG "$@"
+}
+
+function ll
+{
+    command ls -AFGhlps "$@"
+}
+
+function mkdir
+{
+    # create nested subdirectories if required
+    command mkdir -p "$@"
+}

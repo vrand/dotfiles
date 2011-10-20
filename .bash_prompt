@@ -1,0 +1,9 @@
+function parse_git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    echo "("${ref#refs/heads/}")"    
+}
+
+#PS1="${CYAN}[${VIOLET}\w${CYAN}]${RED_ON_WHITE}"'$(parse_git_branch)'"${NULL_BG}"
+
+# write previous line to disk whenever displaying the prompt
+export PROMPT_COMMAND='history -a'

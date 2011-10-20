@@ -1,0 +1,10 @@
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# Tools
+alias c='clear'
+alias g='git'
+alias s='sudo'
+alias sv='sudo vim'
+alias v='vim'
