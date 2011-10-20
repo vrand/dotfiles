@@ -18,5 +18,5 @@ shopt -s nocaseglob     # case insensitive globbing
 # Other settings
 for dotfile in $HOME/.{bash_prompt,aliases,functions,exports}
 do
-    [ -r "$dotfile" ] && source $dotfile
+    [ -r "$dotfile" ] && source "$dotfile"
 done
