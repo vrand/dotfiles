@@ -36,7 +36,7 @@ fi
 if [ -d ~/dotfiles ]; then
     echo ":: Updating repository"
     cd ~/dotfiles
-    git pull
+    git pull origin master
     git submodule init
     git submodule update
 else
@@ -46,3 +46,6 @@ fi
 
 # Install
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~/dotfiles
+
+# Set
+source ~/.bash_profile
