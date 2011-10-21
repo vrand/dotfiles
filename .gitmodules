@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vimwiki"]
 	path = .vim/bundle/vimwiki
 	url = https://github.com/vim-scripts/vimwiki.git
+[submodule ".vim/bundle/Conque"]
+	path = .vim/bundle/Conque
+	url = https://github.com/vim-scripts/Conque-Shell.git
