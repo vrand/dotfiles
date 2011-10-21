@@ -176,6 +176,8 @@ inoremap jj <Esc>
 " <Tab> for matching bracket pairs
 map <Tab> %
 
+" ================================================== "
+
 " NERDTree
 map <Leader>n :NERDTreeToggle<CR>
 
