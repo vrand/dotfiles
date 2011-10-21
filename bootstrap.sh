@@ -49,5 +49,9 @@ rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 
+mkdir -p ~/.pentadactyl/plugins
+curl -so ~/.pentadactyl/plugins/smooth-scroll.js http://dactyl.sourceforge.net/plugins/smooth-scroll.js
+curl -so ~/.pentadactyl/plugins/flashblock.js http://dactyl.sourceforge.net/plugins/flashblock.js
+
 # Set
 source ~/.bash_profile
