@@ -2,7 +2,7 @@
 
 function dependency {
     local installed i=true
-    type -p &> /dev/null || installed=false
+    type -p $1 &> /dev/null || installed=false
 
     if $installed ; then
         local version=$($1 --version | grep -oE -m 1 "[[:digit:]]+\.[[:digit:]]+\.?[[:digit:]]?")
