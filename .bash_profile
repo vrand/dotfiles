@@ -16,7 +16,7 @@ IGNOREEOF=1             # Ctrl-d twice to exit
 shopt -s nocaseglob     # case insensitive globbing
 
 # Other settings
-for dotfile in $HOME/.{bash_prompt,aliases,functions,exports}
+for dotfile in $HOME/.{bash_prompt,aliases,functions,exports,extra}
 do
     [ -r "$dotfile" ] && source "$dotfile"
 done
