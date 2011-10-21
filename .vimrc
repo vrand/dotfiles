@@ -178,3 +178,8 @@ map <Tab> %
 
 " NERDTree
 map <Leader>n :NERDTreeToggle<CR>
+
+" Conque-Term
+let g:ConqueTerm_Color = 1
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_ReadUnfocused = 1
