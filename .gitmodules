@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/Color-Sampler-Pack"]
 	path = .vim/bundle/Color-Sampler-Pack
 	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
+[submodule ".vim/bundle/vimwiki"]
+	path = .vim/bundle/vimwiki
+	url = https://github.com/vim-scripts/vimwiki.git
