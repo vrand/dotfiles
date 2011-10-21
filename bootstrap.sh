@@ -22,7 +22,6 @@ dependency "git" "1.7"
 dependency "vim" "7.3"
 dependency "rsync" "2.6"
 dependency "xmonad" "0.9"    # X 1.11
-dependency "xmobar" "0.13"
  
 if [ "${#missing[@]}" -gt "0" ]; then
     echo "ERROR: Missing dependencies"
