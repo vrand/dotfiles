@@ -167,6 +167,10 @@ nnoremap <Leader>h <C-w>s<C-w>j
 " save as superuser
 nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 
+" yank and put to/from the clipboard register
+nnoremap <Leader>y "*y
+nnoremap <Leader>p "*p
+
 " fold/unfold
 nnoremap <Space> za
 
