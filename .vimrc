@@ -130,29 +130,28 @@ set gdefault
 " ========
 "
 
-" fold/unfold
-nnoremap <Space> za
-
 " back to normal mode
-inoremap jj <Esc>
+imap jj <Esc>
 
 " autocompletion in insert mode
 imap kk <C-p>
 
+" don't show me the help if I don't ask for it
+imap <F1> <Esc>
+map <F1> <Esc>
+
+" fold/unfold
+map <Space> za
+
 " <Tab> for matching bracket pairs
 map <Tab> %
 
-" don't show me the help if I don't ask for it
-map <F1> <Esc>
-imap <F1> <Esc>
-
 " movement behaves as I like in wrapped lines
-nnoremap j gj
-nnoremap k gk
+nmap j gj
+nmap k gk
 
 " search regular expressions
-nnoremap / /\v
-vnoremap / /\v
+map / /\v
 
 " window movement
 map <C-j> <C-w>j	
@@ -165,11 +164,15 @@ map <C-o> <C-w>o
 
 let mapleader = ","
 
+" yank and put to/from the clipboard register
+map <Leader>y "*y
+map <Leader>p "*p
+
 " turn off search highlight untill next search
 map <Leader><Space> :noh<CR>
 
 " select the text that I've just putted
-nnoremap <Leader>s V']
+nmap <Leader>s V']
 
 " edit $MYVIMRC
 nnoremap <Leader>rc :vsp $MYVIMRC<CR>
@@ -183,10 +186,6 @@ nnoremap <Leader>h <C-w>s<C-w>j
 " save as superuser
 nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 
-" yank and put to/from the clipboard register
-nnoremap <Leader>y "*y
-nnoremap <Leader>p "*p
-
 " 
 " Plugins
 " =======
@@ -198,21 +197,29 @@ nnoremap <Leader>p "*p
 
 map <Leader>n :NERDTreeToggle<CR>
 
+let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.git$', '.DS_Store$']
+let NERDTreeQuitOnOpen = 1
+let NERDTreeShowHidden = 1
+let NERDTreeShowLineNumbers=1
+let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
+let NERDTreeWinSize = 25
+let NERDTreeMinimalUI = 1
+
 "
 " Conque-Term
 "
 
-let g:ConqueTerm_Color = 1
+let ConqueTerm_Color = 1
 
 " insert mode when switching to Conque buffers
-let g:ConqueTerm_InsertOnEnter = 1
+let ConqueTerm_InsertOnEnter = 1
 
 " refresh buffer when loses focus
-let g:ConqueTerm_ReadUnfocused = 1
+let ConqueTerm_ReadUnfocused = 1
 
 "
 " YankRing
 "
 
 " don't store one character yanks in the YankRing
-let g:yankring_min_element_lenght = 2
+let yankring_min_element_lenght = 2
