@@ -15,5 +15,7 @@
     ph = push
     pl = pull
 	s = status
+    st = stash
+    sta = stash apply
 [color]
 	ui = true
