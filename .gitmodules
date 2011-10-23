@@ -16,3 +16,9 @@
 [submodule ".vim/bundle/Conque"]
 	path = .vim/bundle/Conque
 	url = https://alejandrogomez@github.com/alejandrogomez/Conque-Shell.git
+[submodule ".vim/bundle/YankRing.vim"]
+	path = .vim/bundle/YankRing.vim
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule ".vim/bundle/git-vim"]
+	path = .vim/bundle/git-vim
+	url = https://github.com/motemen/git-vim.git
