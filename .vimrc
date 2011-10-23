@@ -130,7 +130,21 @@ set gdefault
 " ========
 "
 
-let mapleader = ","
+" fold/unfold
+nnoremap <Space> za
+
+" back to normal mode
+inoremap jj <Esc>
+
+" autocompletion in insert mode
+imap kk <C-p>
+
+" <Tab> for matching bracket pairs
+map <Tab> %
+
+" don't show me the help if I don't ask for it
+map <F1> <Esc>
+imap <F1> <Esc>
 
 " movement behaves as I like in wrapped lines
 nnoremap j gj
@@ -140,9 +154,6 @@ nnoremap k gk
 nnoremap / /\v
 vnoremap / /\v
 
-" turn off search highlight untill next search
-map <Leader><Space> :noh<CR>
-
 " window movement
 map <C-j> <C-w>j	
 map <C-k> <C-w>k	
@@ -151,6 +162,11 @@ map <C-l> <C-w>l
 
 " focus on current window
 map <C-o> <C-w>o
+
+let mapleader = ","
+
+" turn off search highlight untill next search
+map <Leader><Space> :noh<CR>
 
 " select the text that I've just putted
 nnoremap <Leader>s V']
@@ -170,19 +186,6 @@ nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 " yank and put to/from the clipboard register
 nnoremap <Leader>y "*y
 nnoremap <Leader>p "*p
-
-" fold/unfold
-nnoremap <Space> za
-
-" back to normal mode
-inoremap jj <Esc>
-
-" <Tab> for matching bracket pairs
-map <Tab> %
-
-" don't show me the help if I don't ask for it
-map <F1> <Esc>
-imap <F1> <Esc>
 
 " 
 " Plugins
