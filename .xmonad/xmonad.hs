@@ -8,14 +8,14 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 
  
-main = do
-xmproc <- spawnPipe "xmobar"
-xmonad $ defaultConfig
-    { manageHook = manageDocks <+> manageHook defaultConfig
-    , layoutHook = smartBorders . avoidStruts $ layoutHook defaultConfig
-    , logHook = dynamicLogWithPP xmobarPP
-                    { ppOutput = hPutStrLn xmproc
-                    , ppTitle = xmobarColor "green" "" . shorten 50
-                    }
-    , mod4Mask = modMask
-    }
+main = do xmproc <- spawnPipe "xmobar"
+          xmonad $ defaultConfig
+              { workspaces = ["1:wiki", "2:web", "3:dev"] ++ map show [4..9 :: Int] 
+              , manageHook = manageDocks <+> manageHook defaultConfig
+              , layoutHook = smartBorders . avoidStruts $ layoutHook defaultConfig
+              , logHook = dynamicLogWithPP xmobarPP
+                              { ppOutput = hPutStrLn xmproc
+                              , ppTitle = xmobarColor "green" "" . shorten 50
+                              }
+              , mod4Mask = modMask
+              }
