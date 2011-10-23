@@ -7,6 +7,15 @@ filetype plugin indent on
 " not compatible with Vi
 set nocompatible
 
+" enable syntax highlighting
+syntax on	
+
+" elegant colorscheme
+colorscheme wombat256
+
+" no annoying sounds
+set visualbell
+
 " prevent some security exploits with modelines
 set modelines=0
 
@@ -15,12 +24,6 @@ set encoding=utf-8
 
 " show relative line number
 set relativenumber	
-
-" enable syntax highlighting
-syntax on	
-
-" elegant colorscheme
-colorscheme wombat256
 
 " command line height
 set cmdheight=1
@@ -37,7 +40,7 @@ set laststatus=2
 " information about the document at the bottom
 set ruler
 
-" read changes to file outside Vim
+" read changes to files outside Vim
 set autoread	
 
 " highlight current line
@@ -65,7 +68,8 @@ set wildmode=list:full
 "  w : files in other windows
 "  b : files in loaded buffers, not in a window
 "  t : the `tags` file
-set complete=.,w,b,t
+"  i : current and included files
+set complete=.,w,b,t,i
 
 " move the cursor across empty characters
 set virtualedit=all
@@ -80,17 +84,14 @@ set hidden
 set scrolloff=3
 
 " number of lines to move with scroll commands
-" set scroll=10
+set scroll=15
 
-" number of lines to scroll when moving the cursor
-" off the top or bottom
-" set scrolljump=10
+" number of lines to scroll when moving the cursor off the top or bottom
+set scrolljump=10
 
 " put a $ character at the end of the text to replace
 set cpoptions+=$
 
-" no annoying sounds
-set visualbell
 
 " redraw instead of insert/delete 
 set ttyfast
@@ -106,8 +107,7 @@ set incsearch
 " ignore case
 set ignorecase	
 
-" override `ignorecase` when search 
-" pattern contains upper case characters
+" override `ignorecase` when search pattern contains upper case characters
 set smartcase	
 
 " highlight all matches with the search pattern
@@ -125,16 +125,16 @@ set colorcolumn=85
 " g flag automatically on with the substitute command
 set gdefault
 
-" ================================================== "
+" 
+" Mappings
+" ========
+"
 
 let mapleader = ","
 
 " movement behaves as I like in wrapped lines
 nnoremap j gj
 nnoremap k gk
-
-" type commands easier
-nnoremap ç :
 
 " search regular expressions
 nnoremap / /\v
@@ -176,12 +176,36 @@ inoremap jj <Esc>
 " <Tab> for matching bracket pairs
 map <Tab> %
 
-" ================================================== "
+" don't show me the help if I don't ask for it
+map <F1> <Esc>
+imap <F1> <Esc>
 
+" 
+" Plugins
+" =======
+" 
+
+"
 " NERDTree
+"
+
 map <Leader>n :NERDTreeToggle<CR>
 
+"
 " Conque-Term
+"
+
 let g:ConqueTerm_Color = 1
+
+" insert mode when switching to Conque buffers
 let g:ConqueTerm_InsertOnEnter = 1
+
+" refresh buffer when loses focus
 let g:ConqueTerm_ReadUnfocused = 1
+
+"
+" YankRing
+"
+
+" don't store one character yanks in the YankRing
+let g:yankring_min_element_lenght = 2
