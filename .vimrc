@@ -223,3 +223,12 @@ let ConqueTerm_ReadUnfocused = 1
 
 " don't store one character yanks in the YankRing
 let yankring_min_element_lenght = 2
+
+"
+" Fugitive
+"
+
+map <Leader>ga :Git add %<CR>
+map <Leader>gs :Gstatus<CR>
+map <Leader>gc :Gcommit<CR>
+map <Leader>gl :Glog<CR>
