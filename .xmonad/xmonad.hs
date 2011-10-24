@@ -35,7 +35,7 @@ myLayoutHook = smartBorders $ avoidStruts tiled ||| avoidStruts (Mirror tiled) |
                 tiled = Tall masterWindows ratio delta
                 masterWindows = 1
                 -- golden ratio
-                ratio = (2/(1 + toRational (sqrt 5 :: Double)))
+                ratio = (1 + toRational (sqrt 5.0))/2
                 -- percent of screen incremented when resizing panes
                 delta = 10%100
 
