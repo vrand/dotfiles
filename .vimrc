@@ -125,6 +125,9 @@ set colorcolumn=85
 " g flag automatically on with the substitute command
 set gdefault
 
+" custom status line
+set statusline=%<%F%y%m%35{fugitive#statusline()}%=%{&ff}\ \-\ [%l,%c]\ %P\ \-\ %{strftime(\"%l:%M\ %a,\ %e\ %b\ \")}
+
 " 
 " Mappings
 " ========
@@ -200,7 +203,7 @@ map <Leader>n :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.git$', '.DS_Store$']
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden = 1
-let NERDTreeShowLineNumbers=1
+let NERDTreeShowLineNumbers = 1
 let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
 let NERDTreeWinSize = 25
 let NERDTreeMinimalUI = 1
