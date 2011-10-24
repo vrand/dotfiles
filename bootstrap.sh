@@ -1,7 +1,9 @@
 #!/bin/bash
 
+current_dir=`pwd`
+
 function dependency {
-    local installed i=true
+    local installed=true
     type -p $1 &> /dev/null || installed=false
 
     if $installed ; then
@@ -35,15 +37,16 @@ fi
 if [ -d ~/dotfiles ]; then
     echo ":: Updating repository"
     cd ~/dotfiles
-    git pull origin master
-    git submodule init
-    git submodule update
+    git pull origin master &> /dev/null
+    git submodule init &> /dev/null
+    git submodule update &> /dev/null
 else
     echo ":: Downloading repository"
-    git clone https://dialelo@bitbucket.org/dialelo/dotfiles ~/dotfiles
+    git clone https://dialelo@bitbucket.org/dialelo/dotfiles ~/dotfiles &> /dev/null
 fi
 
 # Install
+echo ":: Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
@@ -53,5 +56,8 @@ mkdir -p ~/.pentadactyl/plugins
 curl -so ~/.pentadactyl/plugins/smooth-scroll.js http://dactyl.sourceforge.net/plugins/smooth-scroll.js
 curl -so ~/.pentadactyl/plugins/flashblock.js http://dactyl.sourceforge.net/plugins/flashblock.js
 
-# Set
+# Read settings
+echo ":: Reading settings"
 source ~/.bash_profile
+
+cd $current_dir
