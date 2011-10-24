@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout                
 import XMonad.Layout.NoBorders      (noBorders, smartBorders)
 import XMonad.Layout.Grid
+import XMonad.Layout.ResizableTile
 import XMonad.Util.Run              (spawnPipe)
 
  
@@ -32,12 +33,10 @@ main = do
 --
 myLayoutHook = smartBorders $ avoidStruts tiled ||| avoidStruts (Mirror tiled) ||| Full ||| avoidStruts Grid
             where
-                tiled = Tall masterWindows ratio delta
+                tiled = ResizableTall masterWindows delta ratio [] 
                 masterWindows = 1
-                -- golden ratio
-                ratio = (1 + toRational (sqrt 5.0))/2
-                -- percent of screen incremented when resizing panes
-                delta = 10%100
+                delta = 5/100
+                ratio = 1/2
 
 --
 -- application specific settings
