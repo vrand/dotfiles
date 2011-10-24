@@ -1,6 +1,26 @@
 #!/bin/bash
 
 current_dir=`pwd`
+ESC="\033"
+#FG_RED=31
+#FG_GREEN=32
+FG_CYAN=36
+#RED="$ESC[${FG_RED}m"
+#GREEN="$ESC[${FG_GREEN}m" 
+CYAN="$ESC[${FG_CYAN}m" 
+RESET="$ESC[0m"
+
+#function error {
+    #echo -e "${RED}$1${RESET}"
+#}
+
+#function ok {
+    #echo -e "${GREEN}$1${RESET}"
+#}
+
+function message {
+    echo -e "${CYAN}::${RESET} $1"
+}
 
 function dependency {
     local installed=true
@@ -19,7 +39,7 @@ function dependency {
 }
 
 # Check dependencies
-echo ":: Checking dependencies"
+message "Checking dependencies"
 dependency "git" "1.7"
 dependency "vim" "7.3"
 dependency "rsync" "2.6"
@@ -35,18 +55,18 @@ fi
 
 # Get latest version of the repo
 if [ -d ~/dotfiles ]; then
-    echo ":: Updating repository"
+    message "Updating repository"
     cd ~/dotfiles
     git pull origin master &> /dev/null
     git submodule init &> /dev/null
     git submodule update &> /dev/null
 else
-    echo ":: Downloading repository"
+    message "Downloading repository"
     git clone https://dialelo@bitbucket.org/dialelo/dotfiles ~/dotfiles &> /dev/null
 fi
 
 # Install
-echo ":: Synchronizing files"
+message "Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~ &> /dev/null
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
@@ -57,7 +77,7 @@ curl -so ~/.pentadactyl/plugins/smooth-scroll.js http://dactyl.sourceforge.net/p
 curl -so ~/.pentadactyl/plugins/flashblock.js http://dactyl.sourceforge.net/plugins/flashblock.js
 
 # Read settings
-echo ":: Reading settings"
+message "Reading settings"
 source ~/.bash_profile
 
 cd $current_dir
