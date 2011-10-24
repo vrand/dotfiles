@@ -1,13 +1,16 @@
+-- Haskell libraries
 import Data.Ratio                   ((%))
 import System.IO
 
 import XMonad
+-- Hooks
 import XMonad.Hooks.DynamicLog      (PP(..), dynamicLogWithPP, shorten, xmobarPP, xmobarColor)
 import XMonad.Hooks.ManageDocks
+-- Layout
 import XMonad.Layout                
 import XMonad.Layout.NoBorders      (noBorders, smartBorders)
 import XMonad.Layout.Grid
-import XMonad.Layout.ResizableTile
+-- Utils
 import XMonad.Util.Run              (spawnPipe)
 
  
@@ -33,7 +36,7 @@ main = do
 --
 myLayoutHook = smartBorders $ avoidStruts tiled ||| avoidStruts (Mirror tiled) ||| Full ||| avoidStruts Grid
             where
-                tiled = ResizableTall masterWindows delta ratio [] 
+                tiled = Tall masterWindows delta ratio
                 masterWindows = 1
                 delta = 5/100
                 ratio = 1/2
