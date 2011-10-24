@@ -1,13 +1,12 @@
-import Data.Ratio
+import Data.Ratio                   ((%))
 import System.IO
 
 import XMonad
 import XMonad.Hooks.DynamicLog      (PP(..), dynamicLogWithPP, shorten, xmobarPP, xmobarColor)
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout
+import XMonad.Layout                
 import XMonad.Layout.NoBorders      (noBorders, smartBorders)
 import XMonad.Layout.Grid
-import XMonad.Layout.ToggleLayouts
 import XMonad.Util.Run              (spawnPipe)
 
  
@@ -31,15 +30,14 @@ main = do
 -- 
 -- layouts
 --
--- !!! FIXME: `Full` layout doesn't work !!!
-myLayoutHook = toggleLayouts (noBorders Full) $ avoidStruts . smartBorders $ customTiled ||| customMirror ||| Grid
+myLayoutHook = smartBorders $ avoidStruts tiled ||| avoidStruts (Mirror tiled) ||| Full ||| avoidStruts Grid
             where
-                customTiled = Tall masterWindows ratio delta
+                tiled = Tall masterWindows ratio delta
                 masterWindows = 1
-                ratio = 3%100
+                -- golden ratio
+                ratio = (2/(1 + toRational (sqrt 5 :: Double)))
                 -- percent of screen incremented when resizing panes
                 delta = 10%100
-                customMirror = Mirror customTiled
 
 --
 -- application specific settings
