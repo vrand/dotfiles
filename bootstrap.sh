@@ -47,7 +47,7 @@ fi
 
 # Install
 echo ":: Synchronizing files"
-rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~
+rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~ &> /dev/null
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
