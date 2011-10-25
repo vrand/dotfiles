@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim
 [submodule ".vim/bundle/Color-Sampler-Pack"]
 	path = .vim/bundle/Color-Sampler-Pack
 	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
@@ -40,3 +37,6 @@
 [submodule ".vim/bundle/AutoComplPop"]
 	path = .vim/bundle/AutoComplPop
 	url = https://github.com/vim-scripts/AutoComplPop.git
+[submodule ".vim/bundle/snipMate"]
+	path = .vim/bundle/snipMate
+	url = https://dialelo@bitbucket.org/dialelo/snipmate.git
