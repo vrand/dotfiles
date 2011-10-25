@@ -96,6 +96,9 @@ set cpoptions+=$
 " redraw instead of insert/delete 
 set ttyfast
 
+" don't polute directories with swap files
+set directory=~/tmp,/tmp,/var/tmp
+
 " save undo history for each file
 set undodir=~/.vim/undo
 set undofile
