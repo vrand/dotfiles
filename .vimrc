@@ -242,7 +242,9 @@ map <Leader>gl :Glog<CR>
 " AutoComplPop
 "
 
-map <C-p> :AcpEnable
-map <C-l> :AcpDisable
+map <Leader>ae :AcpEnable<CR>
+map <Leader>ad :AcpDisable<CR>
 
 let g:acp_enableAtStartup = 0
+let g:acp_behaviorKeywordLength = 4
+let g:acp_behaviorPythonOmniLength = 3
