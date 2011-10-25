@@ -201,7 +201,6 @@ nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 map <Leader>n :NERDTreeToggle<CR>
 
 let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.git$', '.DS_Store$']
-let NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowLineNumbers = 1
 let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
