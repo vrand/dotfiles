@@ -242,4 +242,7 @@ map <Leader>gl :Glog<CR>
 " AutoComplPop
 "
 
-let acp_behaviorSnipmateLength = 1
+map <C-p> :AcpEnable
+map <C-l> :AcpDisable
+
+let g:acp_enableAtStartup = 0
