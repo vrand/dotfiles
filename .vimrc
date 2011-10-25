@@ -237,3 +237,9 @@ map <Leader>ga :Git add %<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gl :Glog<CR>
+
+"
+" AutoComplPop
+"
+
+let acp_behaviorSnipmateLength = 1
