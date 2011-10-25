@@ -23,9 +23,10 @@ set fullscreen
 set flashblock
 set fbwhitelist+=youtube.com
 set fbwhitelist+=vimeo.com
+set fbwhitelist+=ontwik.com
 
 " keys for hint labeling
-set hintkeys=asdf
+set hintkeys=dfghjk
 
 " timeout to follow a hint when is non-unique
 set hinttimeout=1000
@@ -34,7 +35,7 @@ set hinttimeout=1000
 set hlfind
 
 " mapleader
-set mapleader='º'
+set mapleader=','
 
 " wich command open pages in a new tab
 set newtab=all
