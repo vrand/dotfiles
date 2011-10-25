@@ -40,7 +40,7 @@ set mapleader='º'
 set newtab=all
 
 " pass these keys directly to Firefox
-set passkeys+=mail.google.com:acejko<CR>
+set passkeys+=mail.google.com:acejkor<CR>
 set passkeys+=plus.google.com:jk
 set passkeys+=submanga.me:<Left><Down><Up><Right>
 
