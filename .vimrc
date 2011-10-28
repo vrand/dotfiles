@@ -139,12 +139,10 @@ set statusline=%<%F%y%m%35{fugitive#statusline()}%=%{&ff}\ \-\ [%l,%c]\ %P\ \-\ 
 " back to normal mode
 imap jj <Esc>
 
-" autocompletion in insert mode
-imap kk <C-p>
-
 " don't show me the help if I don't ask for it
 imap <F1> <Esc>
 map <F1> <Esc>
+
 
 " fold/unfold
 map <Space> za
