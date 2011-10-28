@@ -10,6 +10,7 @@ GREEN="$ESC[${FG_GREEN}m"
 CYAN="$ESC[${FG_CYAN}m" 
 RESET="$ESC[0m"
 
+
 function message {
     echo -e "${CYAN}::${RESET} $1"
 }
