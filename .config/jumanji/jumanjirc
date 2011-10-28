@@ -9,7 +9,7 @@ script ~/.config/jumanji/scripts/hints.js
 searchengine y http://www.yubnub.org/parser/parse?command=%s
 
 # UI
-set font monospace normal 14
+set font monospace normal 10
 
 # key bindings
 map Q quit
