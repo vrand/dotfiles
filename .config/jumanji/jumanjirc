@@ -1,0 +1,15 @@
+# browser settings
+set homepage http://yubnub.org
+set auto_save 60
+
+# scripts
+script ~/.config/jumanji/scripts/hints.js
+
+# search engines
+searchengine y http://www.yubnub.org/parser/parse?command=%s
+
+# UI
+set font monospace normal 14
+
+# key bindings
+map Q quit
