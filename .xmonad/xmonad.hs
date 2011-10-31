@@ -10,6 +10,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout                
 import XMonad.Layout.NoBorders      (noBorders, smartBorders)
 import XMonad.Layout.Grid
+import XMonad.Layout.Tabbed
 -- Utils
 import XMonad.Util.Run              (spawnPipe)
 
@@ -34,7 +35,7 @@ main = do
 -- 
 -- layouts
 --
-myLayoutHook = smartBorders $ avoidStruts tiled ||| avoidStruts (Mirror tiled) ||| Full ||| avoidStruts Grid
+myLayoutHook = smartBorders . avoidStruts $ tiled ||| Mirror tiled ||| simpleTabbed ||| Full ||| Grid
             where
                 tiled = Tall masterWindows delta ratio
                 masterWindows = 1
