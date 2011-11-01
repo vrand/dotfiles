@@ -8,8 +8,8 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 -- Layout
 import XMonad.Layout                
+import XMonad.Layout.Accordion
 import XMonad.Layout.NoBorders      (noBorders, smartBorders)
-import XMonad.Layout.Grid
 import XMonad.Layout.Tabbed
 -- Utils
 import XMonad.Util.Font
@@ -27,7 +27,7 @@ main = do
             , workspaces = myWorkspaces
             , manageHook = myManageHook
             , layoutHook = myLayoutHook
-            , logHook = myXmobarPP bar
+            , logHook = dynamicLogWithPP $ myDzenBar bar
             , modMask = myModMask
             }
 
@@ -35,38 +35,44 @@ main = do
 -- xmonad 
 --
 myTerminal = "xterm"
-myWorkspaces = ["1:web", "2:wiki", "3:dev"] ++ map show [4..9 :: Int]
+myWorkspaces = ["main", "web", "dev", "test", "social", "media", "extra"] 
 myModMask = mod4Mask     -- Win or Cmd key 
 
 
+--
+-- aesthetics
+--
 myBorderWidth = 2
 myNormalBorderColor = "#CCCCCC"
 myFocusedBorderColor = "#FF0099"
+myFont = "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-1"
 
 --
--- UI
+-- status bar
 --
-myDzenPP = dzenPP
-myXmobarPP bar = dynamicLogWithPP xmobarPP
-                    { ppCurrent = xmobarColor "yellow" "" . wrap "|" "|"
-                    , ppHidden = xmobarColor "gray" ""
-                    {-, ppHiddenNoWindows = -}
-                    {-, ppUrgent = -}
+statusBarCmd = "dzen2 -bg '#1a1a1a' -fg '#777777' -h 16 -w 1280 -sa c -e '' -ta l -fn '-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-1'" 
+myBar = spawnPipe statusBarCmd
+
+myDzenBar bar = defaultPP
+                    { ppCurrent = dzenColor "yellow" "" . wrap "|" "|" 
+                    , ppHidden = dzenColor "gray" "" 
                     , ppSep = " - " 
                     , ppWsSep = "·" 
-                    , ppTitle = xmobarColor "black" "white" . shorten 50
-                    , ppLayout = xmobarColor "green" "" . wrap "_" "_"
-                    , ppOrder = \(ws:l:t:xs) -> [t,ws,l] ++ xs
-                    , ppExtras = [battery, date "%H:%M · %a %d.%m.%Y"]
+                    , ppTitle = dzenColor "white" "" . wrap "<" ">" . shorten 50
+                    , ppLayout = dzenColor "green" "" . wrap "_" "_"
+                    , ppOrder = \(ws:l:t:xs) -> [ws,l,t] ++ xs
+                    , ppExtras = [myBattery, myDate]
                     , ppOutput = hPutStrLn bar
                     }
+                    where
+                        myBattery = dzenColorL "red" "" battery
+                        myDate = dzenColorL "orange" "" $ fixedWidthL AlignRight "" 20 $ date "%H:%M %a %d.%m.%Y" 
 
-myBar = spawnPipe "xmobar"
 
 -- 
 -- layouts
 --
-myLayoutHook = smartBorders . avoidStruts $ tiled ||| Mirror tiled ||| Full ||| Grid
+myLayoutHook = smartBorders . avoidStruts $ tiled ||| Mirror tiled ||| Full ||| Accordion
             where
                 tiled = Tall masterWindows delta ratio
                 masterWindows = 1
