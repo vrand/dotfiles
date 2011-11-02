@@ -193,6 +193,43 @@ nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 " 
 
 "
+" Ack
+" 
+
+" TODO
+
+"
+" Command-T
+"
+
+"
+" Conque-Term
+"
+
+let ConqueTerm_Color = 1
+
+" TODO
+
+
+"
+" Gundo
+"
+
+" TODO
+
+"
+" MiniBufExplorer
+"
+
+" TODO
+
+" 
+" NERDCommenter
+"
+
+" TODO
+
+"
 " NERDTree
 "
 
@@ -205,17 +242,29 @@ let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
 let NERDTreeWinSize = 25
 let NERDTreeMinimalUI = 1
 
-"
-" Conque-Term
-"
-
-let ConqueTerm_Color = 1
-
 " insert mode when switching to Conque buffers
 let ConqueTerm_InsertOnEnter = 1
 
 " refresh buffer when loses focus
 let ConqueTerm_ReadUnfocused = 1
+
+"
+" Scratch
+"
+
+" TODO
+
+"
+" Syntastic
+"
+
+" TODO
+
+" 
+" TaskList
+" 
+
+" TODO
 
 "
 " YankRing
@@ -225,27 +274,39 @@ let ConqueTerm_ReadUnfocused = 1
 let yankring_min_element_lenght = 2
 
 "
-" Fugitive
+" Repeat
 "
 
+" TODO
+
+"
+" Surround
+"
+
+" TODO
+
+"
+" Fugitive
+"
 map <Leader>ga :Git add %<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gl :Glog<CR>
 
 "
-" AutoComplPop
-"
-
-map <Leader>ae :AcpEnable<CR>
-map <Leader>ad :AcpDisable<CR>
-
-let g:acp_enableAtStartup = 0
-let g:acp_behaviorKeywordLength = 4
-let g:acp_behaviorPythonOmniLength = 3
-
-"
 " pep8
 "
 
 "let g:pep8_map ='<leader>8'
+
+"
+" pydoc
+"
+
+" TODO
+
+"
+" ZoomWin
+"
+
+" TODO
