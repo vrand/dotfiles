@@ -142,7 +142,9 @@ set statusline=%<%F%y%m%{fugitive#statusline()}%=[%l,%c]\ %P\ \-\ %{strftime(\"%
 " avoid common mistakes
 cmap W w
 cmap Q q
+cmap WQ wq
 cmap Wq wq 
+cmap wQ wq 
 
 " back to normal mode
 imap jj <Esc>
@@ -150,6 +152,9 @@ imap jj <Esc>
 " don't show me the help if I don't ask for it
 imap <F1> <Esc>
 map <F1> <Esc>
+
+" increase/decrease window size
+" TODO
 
 " fold/unfold
 map <Space> za
