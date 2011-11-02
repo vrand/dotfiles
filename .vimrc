@@ -132,7 +132,7 @@ set colorcolumn=85
 set gdefault
 
 " custom status line
-set statusline=%<%F%y%m%35{fugitive#statusline()}%=%{&ff}\ \-\ [%l,%c]\ %P\ \-\ %{strftime(\"%l:%M\ %a,\ %e\ %b\ \")}
+set statusline=%<%F%y%m%{fugitive#statusline()}%=[%l,%c]\ %P\ \-\ %{strftime(\"%H:%M\ %a,\ %d\.%m\.%Y\")}
 
 " 
 " Key bindings
@@ -226,6 +226,12 @@ let ConqueTerm_Color = 1
 
 "
 " Gundo
+"
+
+" TODO
+
+"
+" Makegreen
 "
 
 " TODO
