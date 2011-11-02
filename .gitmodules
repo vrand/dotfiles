@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/pydoc.vim"]
 	path = .vim/bundle/pydoc.vim
 	url = https://github.com/vim-scripts/pydoc.vim.git
+[submodule ".vim/bundle/SuperTab"]
+	path = .vim/bundle/SuperTab
+	url = https://github.com/vim-scripts/SuperTab-continued..git
