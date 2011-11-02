@@ -71,6 +71,9 @@ set wildmode=list:full
 "  i : current and included files
 set complete=.,w,b,t,i
 
+" autocompletion visualization
+set completeopt=menuone,longest,preview
+
 " move the cursor across empty characters
 set virtualedit=all
 
@@ -132,9 +135,14 @@ set gdefault
 set statusline=%<%F%y%m%35{fugitive#statusline()}%=%{&ff}\ \-\ [%l,%c]\ %P\ \-\ %{strftime(\"%l:%M\ %a,\ %e\ %b\ \")}
 
 " 
-" Mappings
-" ========
+" Key bindings
+" ============
 "
+
+" avoid common mistakes
+cmap W w
+cmap Q q
+cmap Wq wq 
 
 " back to normal mode
 imap jj <Esc>
@@ -142,7 +150,6 @@ imap jj <Esc>
 " don't show me the help if I don't ask for it
 imap <F1> <Esc>
 map <F1> <Esc>
-
 
 " fold/unfold
 map <Space> za
@@ -186,6 +193,15 @@ nnoremap <Leader>h <C-w>s<C-w>j
 
 " save as superuser
 nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
+
+" 
+" Autocommands
+" ============
+" 
+
+" Python
+au FileType python set omnifunc=pythoncomplete#Complete
+
 
 " 
 " Plugins
@@ -300,6 +316,13 @@ map <Leader>gl :Glog<CR>
 "
 
 " TODO
+
+"
+" SuperTab
+"
+
+let g:SuperTabDefaultCompletionType="context"
+
 
 "
 " ZoomWin
