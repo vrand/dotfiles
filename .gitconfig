@@ -11,7 +11,7 @@
 	cm = commit -m
 	co = checkout 
     d = diff
-    log = log --pretty=oneline
+    l = log --pretty=oneline
     m = merge
     ph = push
     pl = pull
