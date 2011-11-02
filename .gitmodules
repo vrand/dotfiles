@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/scratch"]
 	path = .vim/bundle/scratch
 	url = https://github.com/vim-scripts/scratch.vim
+[submodule ".vim/bundle/TaskList"]
+	path = .vim/bundle/TaskList
+	url = https://github.com/vim-scripts/TaskList.vim.git
