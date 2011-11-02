@@ -199,10 +199,6 @@ nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 " TODO
 
 "
-" Command-T
-"
-
-"
 " Conque-Term
 "
 
