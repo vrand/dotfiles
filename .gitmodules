@@ -34,9 +34,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/AutoComplPop"]
-	path = .vim/bundle/AutoComplPop
-	url = https://github.com/vim-scripts/AutoComplPop.git
 [submodule ".vim/bundle/snipMate"]
 	path = .vim/bundle/snipMate
 	url = https://dialelo@bitbucket.org/dialelo/snipmate.git
