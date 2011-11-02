@@ -234,7 +234,8 @@ let ConqueTerm_Color = 1
 " Makegreen
 "
 
-" TODO
+" test Django app
+map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 
 "
 " MiniBufExplorer
