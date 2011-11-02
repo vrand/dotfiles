@@ -45,12 +45,19 @@ myModMask = mod4Mask     -- Win or Cmd key
 myBorderWidth = 2
 myNormalBorderColor = "#CCCCCC"
 myFocusedBorderColor = "#FF0099"
-myFont = "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-1"
+
+dzenFont = "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-1"
+dzenForegroundColor = "#777777"
+dzenBackgroundColor = "#090909"
 
 --
 -- status bar
 --
-statusBarCmd = "dzen2 -bg '#1a1a1a' -fg '#777777' -h 16 -w 1280 -sa c -e '' -ta l -fn '-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-1'" 
+statusBarCmd = "dzen2 " ++
+               "-bg '" ++ dzenBackgroundColor ++ "' " ++ 
+               "-fg '" ++ dzenForegroundColor ++ "' " ++
+               "-h 16 -w 1280 -sa c -ta l" ++
+               " -fn '" ++ dzenFont ++ "'"
 myBar = spawnPipe statusBarCmd
 
 myDzenBar bar = defaultPP
@@ -76,8 +83,8 @@ myLayoutHook = smartBorders . avoidStruts $ tiled ||| Mirror tiled ||| Full ||| 
             where
                 tiled = Tall masterWindows delta ratio
                 masterWindows = 1
-                delta = 5/100
-                ratio = 1/2
+                delta = 1/10
+                ratio = 3/4
 
 --
 -- hooks
