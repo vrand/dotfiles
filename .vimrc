@@ -163,9 +163,6 @@ map <C-k> <C-w>k
 map <C-h> <C-w>h	
 map <C-l> <C-w>l	
 
-" focus on current window
-map <C-o> <C-w>o
-
 let mapleader = ","
 
 " yank and put to/from the clipboard register
@@ -246,3 +243,9 @@ map <Leader>ad :AcpDisable<CR>
 let g:acp_enableAtStartup = 0
 let g:acp_behaviorKeywordLength = 4
 let g:acp_behaviorPythonOmniLength = 3
+
+"
+" pep8
+"
+
+"let g:pep8_map ='<leader>8'
