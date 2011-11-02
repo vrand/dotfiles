@@ -212,7 +212,8 @@ au FileType python set omnifunc=pythoncomplete#Complete
 " Ack
 " 
 
-" TODO
+" searches with ack the word under the cursor
+map <Leader>a :Ack!<CR>
 
 "
 " Conque-Term
@@ -316,6 +317,13 @@ map <Leader>gl :Glog<CR>
 "
 
 " TODO
+
+"
+" Rope
+"
+
+map <Leader>j :RopeGotoDefinition<CR>
+map <Leader>r :RopeRename<CR>
 
 "
 " SuperTab
