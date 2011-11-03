@@ -14,8 +14,8 @@
     l = log --pretty=oneline
     m = merge
     ph = push
-    pl = pull
-	s = status
+    pl = pull --rebase
+    s = status
     st = stash
     sta = stash apply
 [color]
