@@ -69,4 +69,4 @@
 	url = https://github.com/reinh/vim-makegreen.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
+	url = https://alejandrogomez@github.com/alejandrogomez/oh-my-zsh.git
