@@ -57,6 +57,7 @@ dependency "git" "1.7"
 dependency "vim" "7.3"
 dependency "rsync" "2.6"
 dependency "xmonad" "0.9"    # X 1.11
+dependency "zsh" "4.3"
  
 # Get latest version of the repo
 if [ -d ~/dotfiles ]; then
@@ -73,6 +74,7 @@ fi
 # Install
 message "Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~ &> /dev/null
+sh .oh-my-zsh/oh-my-zsh.sh
 rsync .zshrc ~ &> /dev/null
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
