@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
+# TODO convert this script to be compatible with zsh
 current_dir=`pwd`
 ESC="\033"
 FG_RED=31
@@ -72,6 +73,7 @@ fi
 # Install
 message "Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~ &> /dev/null
+rsync .zshrc ~ &> /dev/null
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
@@ -82,6 +84,6 @@ curl -so ~/.pentadactyl/plugins/flashblock.js http://dactyl.sourceforge.net/plug
 
 # Read settings
 message "Reading settings"
-source ~/.bash_profile
+source ~/.zshrc
 
 cd $current_dir

@@ -67,3 +67,6 @@
 [submodule ".vim/bundle/vim-makegreen"]
 	path = .vim/bundle/vim-makegreen
 	url = https://github.com/reinh/vim-makegreen.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
