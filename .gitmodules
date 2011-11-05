@@ -70,3 +70,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://alejandrogomez@github.com/alejandrogomez/oh-my-zsh.git
+[submodule ".vim/bundle/Tabular"]
+	path = .vim/bundle/Tabular
+	url = https://github.com/godlygeek/tabular.git
