@@ -44,6 +44,7 @@ set newtab=all
 set passkeys+=mail.google.com:acejkor<CR>
 set passkeys+=plus.google.com:jk
 set passkeys+=submanga.me:<Left><Down><Up><Right>
+set passkeys+=submanga.com:<Left><Down><Up><Right>
 
 " Smooth Scrollin Plugin settings
 set scrollsteps=10

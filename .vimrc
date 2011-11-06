@@ -343,6 +343,11 @@ map <Leader>r :RopeRename<CR>
 
 let g:SuperTabDefaultCompletionType="context"
 
+"
+" Tabular
+"
+
+let g:Tabular_loaded = 1
 
 "
 " ZoomWin
