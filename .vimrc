@@ -71,6 +71,9 @@ set wildmode=list:full
 "  i : current and included files
 set complete=.,w,b,t,i
 
+" autocompletion visualization
+set completeopt=menuone,longest,preview
+
 " move the cursor across empty characters
 set virtualedit=all
 
@@ -129,12 +132,19 @@ set colorcolumn=85
 set gdefault
 
 " custom status line
-set statusline=%<%F%y%m%35{fugitive#statusline()}%=%{&ff}\ \-\ [%l,%c]\ %P\ \-\ %{strftime(\"%l:%M\ %a,\ %e\ %b\ \")}
+set statusline=%<%F%y%m%{fugitive#statusline()}%=[%l,%c]\ %P\ \-\ %{strftime(\"%H:%M\ %a,\ %d\.%m\.%Y\")}
 
 " 
-" Mappings
-" ========
+" Key bindings
+" ============
 "
+
+" avoid common mistakes
+cmap W w
+cmap Q q
+cmap WQ wq
+cmap Wq wq 
+cmap wQ wq 
 
 " back to normal mode
 imap jj <Esc>
@@ -143,6 +153,8 @@ imap jj <Esc>
 imap <F1> <Esc>
 map <F1> <Esc>
 
+" increase/decrease window size
+" TODO
 
 " fold/unfold
 map <Space> za
@@ -162,9 +174,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k	
 map <C-h> <C-w>h	
 map <C-l> <C-w>l	
-
-" focus on current window
-map <C-o> <C-w>o
 
 let mapleader = ","
 
@@ -191,9 +200,59 @@ nnoremap <Leader>h <C-w>s<C-w>j
 nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 
 " 
+" Autocommands
+" ============
+" 
+
+" Python
+au FileType python set omnifunc=pythoncomplete#Complete
+
+
+" 
 " Plugins
 " =======
 " 
+
+"
+" Ack
+" 
+
+" searches with ack the word under the cursor
+map <Leader>a :Ack!<CR>
+
+"
+" Conque-Term
+"
+
+let ConqueTerm_Color = 1
+
+" TODO
+
+
+"
+" Gundo
+"
+
+" TODO
+
+"
+" Makegreen
+"
+
+" test Django app
+map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+
+"
+" MiniBufExplorer
+"
+
+" TODO
+
+" 
+" NERDCommenter
+"
+
+" TODO
 
 "
 " NERDTree
@@ -208,17 +267,29 @@ let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
 let NERDTreeWinSize = 25
 let NERDTreeMinimalUI = 1
 
-"
-" Conque-Term
-"
-
-let ConqueTerm_Color = 1
-
 " insert mode when switching to Conque buffers
 let ConqueTerm_InsertOnEnter = 1
 
 " refresh buffer when loses focus
 let ConqueTerm_ReadUnfocused = 1
+
+"
+" Scratch
+"
+
+" TODO
+
+"
+" Syntastic
+"
+
+" TODO
+
+" 
+" TaskList
+" 
+
+" TODO
 
 "
 " YankRing
@@ -228,21 +299,58 @@ let ConqueTerm_ReadUnfocused = 1
 let yankring_min_element_lenght = 2
 
 "
-" Fugitive
+" Repeat
 "
 
+" TODO
+
+"
+" Surround
+"
+
+" TODO
+
+"
+" Fugitive
+"
 map <Leader>ga :Git add %<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gl :Glog<CR>
 
 "
-" AutoComplPop
+" pep8
 "
 
-map <Leader>ae :AcpEnable<CR>
-map <Leader>ad :AcpDisable<CR>
+"let g:pep8_map ='<leader>8'
 
-let g:acp_enableAtStartup = 0
-let g:acp_behaviorKeywordLength = 4
-let g:acp_behaviorPythonOmniLength = 3
+"
+" pydoc
+"
+
+" TODO
+
+"
+" Rope
+"
+
+map <Leader>j :RopeGotoDefinition<CR>
+map <Leader>r :RopeRename<CR>
+
+"
+" SuperTab
+"
+
+let g:SuperTabDefaultCompletionType="context"
+
+"
+" Tabular
+"
+
+let g:Tabular_loaded = 1
+
+"
+" ZoomWin
+"
+
+" TODO

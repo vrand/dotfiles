@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
+# TODO convert this script to be compatible with zsh
 current_dir=`pwd`
 ESC="\033"
 FG_RED=31
@@ -56,6 +57,7 @@ dependency "git" "1.7"
 dependency "vim" "7.3"
 dependency "rsync" "2.6"
 dependency "xmonad" "0.9"    # X 1.11
+dependency "zsh" "4.3"
  
 # Get latest version of the repo
 if [ -d ~/dotfiles ]; then
@@ -72,6 +74,8 @@ fi
 # Install
 message "Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~ &> /dev/null
+sh .oh-my-zsh/oh-my-zsh.sh
+rsync .zshrc ~ &> /dev/null
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
@@ -82,6 +86,6 @@ curl -so ~/.pentadactyl/plugins/flashblock.js http://dactyl.sourceforge.net/plug
 
 # Read settings
 message "Reading settings"
-source ~/.bash_profile
+source ~/.zshrc
 
 cd $current_dir
