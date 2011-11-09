@@ -1,6 +1,9 @@
 loadplugins '\.(js|penta)$'
 group user
 
+" show toolbar
+set guioptions+=T
+
 " autocompletion 
 "   s: search engines
 "   l: firefox completion

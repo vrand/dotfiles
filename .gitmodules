@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule ".vim/bundle/rainbow_parentheses.vim"]
-	path = .vim/bundle/rainbow_parentheses.vim
-	url = https://github.com/vim-scripts/rainbow_parentheses.vim.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -67,9 +64,6 @@
 [submodule ".vim/bundle/vim-makegreen"]
 	path = .vim/bundle/vim-makegreen
 	url = https://github.com/reinh/vim-makegreen.git
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://alejandrogomez@github.com/alejandrogomez/oh-my-zsh.git
 [submodule ".vim/bundle/Tabular"]
 	path = .vim/bundle/Tabular
 	url = https://github.com/godlygeek/tabular.git
