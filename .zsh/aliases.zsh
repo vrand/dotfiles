@@ -4,6 +4,7 @@ alias -g ...='cd ../..'
 
 # Shortcuts
 alias cl=clear
+alias g=git
 alias s=sudo
 alias v=vim
 
