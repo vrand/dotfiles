@@ -27,8 +27,12 @@ xset b off
 # set Spanish keyboard layout
 setxkbmap -layout es
 
-# set the background color
-xsetroot -solid midnightblue
+# set the background
+if [[ -x ~/Images/archlinux.png ]]; then
+    feh --bg-scale ~/Images/archlinux.png
+else
+    xsetroot -solid midnightblue
+fi
 
 # custom X settings
 xrdb -merge ~/.Xresources

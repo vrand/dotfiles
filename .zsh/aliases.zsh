@@ -18,6 +18,7 @@ alias -s org=$BROWSER
 alias -s py=$EDITOR
 
 # Useful
+alias -g G='| grep'
 alias -g LC='| wc -l'
 alias -g DN='/dev/null'
 alias -g L='| less'
