@@ -2,6 +2,11 @@
 alias -g ..='cd ..'
 alias -g ...='cd ../..'
 
+# Shortcuts
+alias cl=clear
+alias s=sudo
+alias v=vim
+
 # Files by suffix
 alias -s c=$EDITOR
 alias -s com=$BROWSER
