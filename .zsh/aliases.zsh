@@ -5,16 +5,20 @@ alias -g ...='cd ../..'
 # Shortcuts
 alias cl=clear
 alias g=git
+alias ll='ls -lA'
 alias s=sudo
 alias v=vim
+alias yao=yaourt
 
 # Files by suffix
 alias -s c=$EDITOR
 alias -s com=$BROWSER
 alias -s h=$EDITOR
 alias -s html=$BROWSER
+alias -s jpg=feh
 alias -s js=$EDITOR
 alias -s org=$BROWSER
+alias -s png=feh
 alias -s py=$EDITOR
 
 # Useful
