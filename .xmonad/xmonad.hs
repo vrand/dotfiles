@@ -12,7 +12,6 @@ import XMonad.Layout.Accordion
 import XMonad.Layout.NoBorders      (noBorders, smartBorders)
 import XMonad.Layout.Tabbed
 -- Utils
-import XMonad.Util.Font
 import XMonad.Util.Run              (spawnPipe)
 import XMonad.Util.Loggers
 
@@ -35,7 +34,7 @@ main = do
 -- xmonad 
 --
 myTerminal   = "xterm"
-myWorkspaces = ["main", "web", "dev", "test", "social", "media", "extra"]
+myWorkspaces = ["main", "web", "dev", "test", "social", "media", "extra", "system"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
 
@@ -51,22 +50,26 @@ myFocusedBorderColor = "#FF0099"
 --
 myBar = spawnPipe "xmobar"
 
+-- ther is more customization to xmobar in the .xmobarrc file
 myXmobar bar = defaultPP
-                    { ppCurrent = xmobarColor "yellow" "" . wrap "|" "|"
-                    , ppHidden  = xmobarColor "gray" ""
-                    , ppSep     = " - "
-                    , ppWsSep   = "·"
-                    , ppTitle   = xmobarColor "white" "" . wrap "<" ">" . shorten 50
-                    , ppLayout  = xmobarColor "green" "" . wrap "_" "_"
-                    , ppOrder   = \(ws:l:t:xs) -> [ws,l,t] ++ xs
-                    , ppOutput  = hPutStrLn bar
-                    }
+                { ppCurrent = xmobarColor "gray" "blue" . wrap "|" "|"
+                , ppHidden  = xmobarColor "gray" ""
+                , ppSep     = " - "
+                , ppWsSep   = "·"
+                , ppTitle   = xmobarColor "white" "" . wrap "<" ">" . shorten 60
+                , ppLayout  = xmobarColor "green" "" . wrap "_" "_"
+                , ppOrder   = \(ws:l:t:xs) -> [ws,l,t] ++ xs
+                , ppOutput  = hPutStrLn bar
+                }
 
 
 -- 
 -- layouts
 --
-myLayoutHook = smartBorders . avoidStruts $ tiled ||| Mirror tiled ||| Full ||| Accordion
+myLayoutHook = smartBorders . avoidStruts $ tiled        |||
+                                            Mirror tiled |||
+                                            Full         |||
+                                            Accordion
             where
                 tiled         = Tall masterWindows delta ratio
                 masterWindows = 1

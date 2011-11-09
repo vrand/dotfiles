@@ -1,14 +1,16 @@
-Config  { font = "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-1"
-        , bgColor = "black"
-        , fgColor = "grey"
-        , position = BottomW L 100
-        , commands =  [ Run Cpu ["-t", "CPU: <total>%", "-L", "1", "-H", "50", "--normal", "green", "--high", "red"] 10 
-                      , Run Memory ["-t", "Mem: <usedratio>%"] 10
-                      , Run Date "%H:%M · %a %d.%m.%Y" "date" 10
-                      , Run Weather "EKBI" ["-t", "<skyCondition> <tempC>C", "-L", "10", "-H", "30", "--normal", "green", "--high", "red"] 100
+Config  { font      = "-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso8859-1"
+        , bgColor   = "black"
+        , fgColor   = "grey"
+        , position  = TopW L 100
+        , commands  = [ Run Date "%k:%M %a, %d.%m.%Y" "date" 10
+                      , Run Weather "EKBI" ["-t", "<skyCondition> <tempC>C", 
+                                            "-L", "10", "-H", "30", "--normal", 
+                                            "green", "--high", "red"] 100
+                      , Run Battery ["-t", "<left>%", "-L", "0", "-H", "40", 
+                                    "--normal", "red", "--high", "cyan"] 10
                       , Run StdinReader
                       ]
-         , sepChar = "%"
+         , sepChar  = "%"
          , alignSep = "}{"
-         , template = "%StdinReader% }{ %cpu% | %memory% - <fc=#ee9a00>%date%</fc> - %EKBI%"
+         , template = "%StdinReader% }{ <fc=#ee9a00>%date%</fc> - %EKBI% | %battery%"
         }
