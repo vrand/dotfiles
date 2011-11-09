@@ -9,9 +9,7 @@ set nocompatible
 
 " enable syntax highlighting
 syntax on	
-
-" elegant colorscheme
-colorscheme wombat256
+colorscheme molokai
 
 " no annoying sounds
 set visualbell
