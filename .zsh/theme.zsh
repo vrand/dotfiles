@@ -24,9 +24,15 @@ fi
 # Setup the prompt with pretty colors
 setopt prompt_subst
 
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
 local user='%{$fg[magenta]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$reset_color%}'
 local pwd='%{$fg[white]%}[%{$bg[blue]$fg[yellow]%}%~%{$reset_color%}%{$fg[white]%}]'
+local git='%{$fg[yellow]%}$(current_branch)%}'
 local datetime='%{$bg[white]$fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 
 PROMPT="${user}${pwd}%# "
-RPROMPT="${datetime}"
+RPROMPT="${git} ${datetime}"
