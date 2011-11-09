@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
  
 echo ">> Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~ &> /dev/null
