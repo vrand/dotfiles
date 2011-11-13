@@ -6,7 +6,7 @@ alias -g ...='cd ../..'
 alias cl=clear
 alias -g g=git
 alias ll='ls -lA'
-alias -g s=sudo
+alias s=sudo
 alias -g v=vim
 alias yao=yaourt
 
