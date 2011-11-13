@@ -1,7 +1,6 @@
 -- Global variables for luakit
 globals = {
-    homepage            = "http://luakit.org/",
- -- homepage            = "http://github.com/mason-larobina/luakit",
+    homepage            = "http://yubnub.org/",
     scroll_step         = 40,
     zoom_step           = 0.1,
     max_cmd_history     = 100,
@@ -57,30 +56,25 @@ search_engines = {
     debbugs     = "http://bugs.debian.org/%s",
     imdb        = "http://imdb.com/find?s=all&q=%s",
     sourceforge = "http://sf.net/search/?words=%s",
+    yubnub      = "http://yubnub.org/parser/parse?command=%s",
 }
 
--- Set google as fallback search engine
-search_engines.default = search_engines.google
+search_engines.default = search_engines.yubnub
 -- Use this instead to disable auto-searching
 --search_engines.default = "%s"
 
 -- Per-domain webview properties
 -- See http://webkitgtk.org/reference/webkitgtk-WebKitWebSettings.html
-domain_props = { --[[
+domain_props = { 
     ["all"] = {
-        ["enable-scripts"]          = false,
+        ["enable-scripts"]          = true,
         ["enable-plugins"]          = false,
         ["enable-private-browsing"] = false,
-        ["user-stylesheet-uri"]     = "",
     },
     ["youtube.com"] = {
         ["enable-scripts"] = true,
         ["enable-plugins"] = true,
     },
-    ["bbs.archlinux.org"] = {
-        ["user-stylesheet-uri"]     = "file://" .. luakit.data_dir .. "/styles/dark.css",
-        ["enable-private-browsing"] = true,
-    }, ]]
 }
 
 -- vim: et:sw=4:ts=8:sts=4:tw=80

@@ -4,17 +4,17 @@
 
 -- Binding aliases
 local key, buf, but = lousy.bind.key, lousy.bind.buf, lousy.bind.but
-local cmd, any = lousy.bind.cmd, lousy.bind.any
+local cmd, any      = lousy.bind.cmd, lousy.bind.any
 
 -- Util aliases
-local match, join = string.match, lousy.util.table.join
+local match, join  = string.match, lousy.util.table.join
 local strip, split = lousy.util.string.strip, lousy.util.string.split
 
 -- Globals or defaults that are used in binds
 local scroll_step = globals.scroll_step or 20
-local more, less = "+"..scroll_step.."px", "-"..scroll_step.."px"
-local zoom_step = globals.zoom_step or 0.1
-local homepage = globals.homepage or "http://luakit.org"
+local more, less  = "+"..scroll_step.."px", "-"..scroll_step.."px"
+local zoom_step   = globals.zoom_step or 0.1
+local homepage    = globals.homepage or "http://luakit.org"
 
 -- Add binds to a mode
 function add_binds(mode, binds, before)
@@ -208,6 +208,8 @@ add_binds("normal", {
     -- Tab
     key({"Control"}, "Page_Up",     function (w)       w:prev_tab() end),
     key({"Control"}, "Page_Down",   function (w)       w:next_tab() end),
+    key({"Control"}, "k",           function (w)       w:prev_tab() end),
+    key({"Control"}, "j",           function (w)       w:next_tab() end),
     key({"Control"}, "Tab",         function (w)       w:next_tab() end),
     key({"Shift","Control"}, "Tab", function (w)       w:prev_tab() end),
     buf("^gT$",                     function (w, b, m) w:prev_tab(m.count) end, {count=1}),
