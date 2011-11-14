@@ -68,7 +68,7 @@ search_engines.default = search_engines.yubnub
 domain_props = { 
     ["all"] = {
         ["enable-scripts"]          = true,
-        ["enable-plugins"]          = false,
+        ["enable-plugins"]          = true,
         ["enable-private-browsing"] = false,
     },
     ["youtube.com"] = {
