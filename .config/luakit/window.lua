@@ -465,14 +465,14 @@ window.methods = {
             loaded:hide()
         else
             loaded:show()
-            local pbar = {'>', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '} 
+            local pbar = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '} 
             for i=1,math.floor((p*10)) do 
                 if i ~= 10 then
                     pbar[i+1] = pbar[i]
                 pbar[i] = "="
             end
             end
-            local text = string.format("(%d%% %s)", p * 100, table.concat(pbar,""))
+            local text = string.format("[%d%% %s]", p * 100, table.concat(pbar,""))
             if loaded.text ~= text then loaded.text = text end
         end
     end,
