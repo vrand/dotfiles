@@ -468,7 +468,7 @@ window.methods = {
             local pbar = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '} 
             for i=1,math.floor((p*10)) do 
                 if i ~= 10 then
-                    pbar[i+1] = pbar[i]
+                    pbar[i+1] = '>'
                 pbar[i] = "="
             end
             end
