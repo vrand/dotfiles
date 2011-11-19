@@ -203,7 +203,10 @@ nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 " 
 
 " Python
-au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python     set omnifunc=pythoncomplete#Complete
+
+" Vagrant
+au BufRead Vagrantfile set filetype=ruby 
 
 
 " 
