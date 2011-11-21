@@ -18,5 +18,6 @@
     s = status -s
     st = stash
     sta = stash apply
+    unstage = reset HEAD -- 
 [color]
 	ui = true
