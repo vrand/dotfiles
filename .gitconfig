@@ -15,7 +15,7 @@
     m = merge
     ph = push
     pl = pull --rebase
-    s = status
+    s = status -s
     st = stash
     sta = stash apply
 [color]
