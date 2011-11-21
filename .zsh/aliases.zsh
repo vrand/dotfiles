@@ -20,7 +20,7 @@ alias -s jpg=feh
 alias -s js=$EDITOR
 alias -s org=$BROWSER
 alias -s png=feh
-alias -s py=$EDITOR
+alias -s py=python
 alias -s PKGBUILD=$EDITOR
 
 # Useful
