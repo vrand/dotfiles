@@ -11,7 +11,7 @@
 	cm = commit -m
 	co = checkout 
     d = diff
-    l = log --pretty=oneline
+    l = log --oneline --graph
     m = merge
     ph = push
     pl = pull --rebase
@@ -21,3 +21,5 @@
     unstage = reset HEAD -- 
 [color]
 	ui = true
+[merge]
+    tool = vimdiff
