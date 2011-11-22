@@ -11,12 +11,16 @@
 	cm = commit -m
 	co = checkout 
     d = diff
-    l = log --pretty=oneline
+    l = log --graph --decorate --no-merges --oneline
+    lp = log --graph --decorate --pretty=short -p
     m = merge
     ph = push
     pl = pull --rebase
-    s = status
+    s = status -s
     st = stash
     sta = stash apply
+    unstage = reset HEAD -- 
 [color]
 	ui = true
+[merge]
+    tool = vimdiff
