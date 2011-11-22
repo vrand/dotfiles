@@ -1,5 +1,5 @@
 [user]
-	name = Alejandro Gomez
+	name = Alejandro Gómez
 	email = alejandroogomez@gmail.com
 [core]
 	editor = vim
@@ -11,7 +11,8 @@
 	cm = commit -m
 	co = checkout 
     d = diff
-    l = log --oneline --graph
+    l = log --graph --decorate --no-merges --oneline
+    lp = log --graph --decorate --pretty=short -p
     m = merge
     ph = push
     pl = pull --rebase
