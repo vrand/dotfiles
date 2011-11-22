@@ -197,17 +197,6 @@ nnoremap <Leader>h <C-w>s<C-w>j
 " save as superuser
 nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 
-" 
-" Autocommands
-" ============
-" 
-
-" Python
-au FileType python     set omnifunc=pythoncomplete#Complete
-
-" Vagrant
-au BufRead Vagrantfile set filetype=ruby 
-
 
 " 
 " Plugins
