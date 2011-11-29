@@ -30,9 +30,9 @@ function current_branch() {
 }
 
 local user='%{$fg[magenta]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$reset_color%}'
-local pwd='%{$fg[white]%}[%{$bg[blue]$fg[white]%}%~%{$reset_color%}%{$fg[white]%}]'
-local git='%{$fg[yellow]%}$(current_branch)%}'
-local datetime='%{$bg[white]$fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
+local pwd='%{$fg[white]%}[%{$bg[blue]$fg[white]%}%~'
+local git='%{$bg[yellow]%}%{$fg[black]%}$(current_branch)%}%{$reset_color%}%{$fg[white]%}]'
+local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 
-PROMPT="${user}${pwd}%# "
-RPROMPT="${git} ${datetime}"
+PROMPT="${user}${pwd}${git} %# "
+#RPROMPT="${datetime}"
