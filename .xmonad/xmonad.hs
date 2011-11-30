@@ -1,5 +1,5 @@
 -- Haskell libraries
-import Data.Ratio                   ((%))
+import Data.Ratio
 import System.IO
 -- XMonad
 import XMonad
@@ -8,11 +8,10 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 -- Layout
 import XMonad.Layout                
-import XMonad.Layout.Accordion
-import XMonad.Layout.NoBorders      (noBorders, smartBorders)
+import XMonad.Layout.NoBorders     
 import XMonad.Layout.Tabbed
 -- Utils
-import XMonad.Util.Run              (spawnPipe)
+import XMonad.Util.Run             
 import XMonad.Util.Loggers
 
 
@@ -34,7 +33,7 @@ main = do
 -- xmonad 
 --
 myTerminal   = "xterm"
-myWorkspaces = ["main", "web", "dev", "test", "social", "media", "extra", "system"]
+myWorkspaces = ["dev", "test", "web", "mail", "media", "system", "extra"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
 
@@ -68,13 +67,12 @@ myXmobar bar = defaultPP
 --
 myLayoutHook = smartBorders . avoidStruts $ tiled        |||
                                             Mirror tiled |||
-                                            Full         |||
-                                            Accordion
-            where
-                tiled         = Tall masterWindows delta ratio
-                masterWindows = 1
-                delta         = 1/10
-                ratio         = 3/4
+                                            Full         
+                where
+                    tiled         = Tall masterWindows delta ratio
+                    masterWindows = 1
+                    delta         = 1/10
+                    ratio         = 3/4
 
 --
 -- hooks
