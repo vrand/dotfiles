@@ -2,7 +2,10 @@
 ! Custom xterm settings
 !
 
-XTerm*font:         -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
-XTerm*background:   black
-XTerm*foreground:   gray
-XTerm*cursorColor:  gray
+aterm*font:         -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
+aterm*background:   black
+aterm*foreground:   gray
+aterm*cursorColor:  gray
+aterm*transparent:  true
+aterm*shading:      100
+aterm*scrollBar:    false

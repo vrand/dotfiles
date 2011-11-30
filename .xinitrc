@@ -28,8 +28,8 @@ xset b off
 setxkbmap -layout es
 
 # set the background
-if [[ -f $HOME/Images/archlinux.png ]]; then
-    feh --bg-scale $HOME/Images/archlinux.png
+if [[ -f $HOME/images/archlinux.png ]]; then
+    feh --bg-scale $HOME/images/archlinux.png
 else
     xsetroot -solid midnightblue
 fi
