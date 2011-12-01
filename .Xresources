@@ -1,11 +1,13 @@
 !
-! Custom xterm settings
+! Custom X11 settings
 !
 
-aterm*font:         -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
-aterm*background:   black
-aterm*foreground:   gray
-aterm*cursorColor:  gray
-aterm*transparent:  true
-aterm*shading:      20
-aterm*scrollBar:    false
+URxvt*font:          -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
+URxvt*background:    black
+URxvt*foreground:    gray
+URxvt*cursorColor:   gray
+URxvt*transparent:   true
+URxvt*shading:       20
+URxvt*scrollBar:     off
+URxvt*urlLauncher:   /usr/bin/links
+URxvt*underlineURLs: true

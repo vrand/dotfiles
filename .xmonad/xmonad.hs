@@ -27,16 +27,17 @@ main = do
             , focusedBorderColor = myFocusedBorderColor
             , workspaces         = myWorkspaces
             , manageHook         = myManageHook
---            , keys               = myKeys
             , layoutHook         = myLayoutHook
             , logHook            = dynamicLogWithPP $ myXmobar bar
             , modMask            = myModMask
-            } `additionalKeys`
-            [((mod4Mask, xK_p), spawn myDmenuCmd)] 
+            } `removeKeys`         keysToDel
+              `additionalKeys`     keysToAdd 
+              
+
 --
 -- xmonad 
 --
-myTerminal   = "aterm"
+myTerminal   = "urxvt"
 myWorkspaces = ["dev", "test", "web", "mail", "media", "system", "extra"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
