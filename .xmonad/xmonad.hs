@@ -56,12 +56,12 @@ myBar = spawnPipe "xmobar"
 
 -- ther is more customization to xmobar in the .xmobarrc file
 myXmobar bar = defaultPP
-                { ppCurrent = xmobarColor "gray" "blue" . wrap "|" "|"
-                , ppHidden  = xmobarColor "gray" ""
+                { ppCurrent = xmobarColor "black" "gray"
+                , ppHidden  = xmobarColor "white" ""
                 , ppSep     = " - "
                 , ppWsSep   = "·"
-                , ppTitle   = xmobarColor "white" "" . wrap "<" ">" . shorten 60
-                , ppLayout  = xmobarColor "green" "" . wrap "_" "_"
+                , ppTitle   = xmobarColor "black" "#ee9a00" . shorten 60
+                , ppLayout  = xmobarColor "black" "cyan"
                 , ppOrder   = \(ws:l:t:xs) -> [ws,l,t] ++ xs
                 , ppOutput  = hPutStrLn bar
                 }

@@ -6,11 +6,15 @@ Config  { font      = "-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso8859
                       , Run Weather "EKBI" ["-t", "<skyCondition> <tempC>C", 
                                             "-L", "10", "-H", "30", "--normal", 
                                             "green", "--high", "red"] 100
+                      , Run Wireless "wlan0" ["-t", "<essid>"] 10
+                      , Run Network "wlan0" ["-t", "<rx>KB/s <tx>KB/s",
+                                            "-L", "0", "-H", "70", "--normal",
+                                            "green", "--high", "red"] 10
                       , Run Battery ["-t", "<left>%", "-L", "0", "-H", "40", 
                                     "--normal", "red", "--high", "cyan"] 10
                       , Run StdinReader
                       ]
          , sepChar  = "%"
          , alignSep = "}{"
-         , template = "%StdinReader% }{ <fc=#ee9a00>%date%</fc> - %EKBI% | %battery%"
+         , template = "%StdinReader% }{ %wlan0wi% %wlan0% | <fc=#ee9a00>%date%</fc> - %EKBI% | %battery%"
         }
