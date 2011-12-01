@@ -82,19 +82,19 @@ myLayoutHook = spacing 3 $ smartBorders . avoidStruts $ tiled        |||
 --
 -- keys
 --
-myDmenuCmd = "exe=`dmenu_run -i -b -nb cyan -nf black -sb yellow -sf black -l 5` && eval \"exec $exe\""
+myDmenuCmd = "exe=`dmenu_run -i -b -nb cyan -nf black -sb black -sf yellow -l 5` && eval \"exec $exe\""
 
-{-keysToDel x = [(mod4Mask, xK_p)]-}
-{---               (mod4Mask, xK_h),-}
-{---               (mod4Mask, xK_l)]-}
+keysToAdd = [((mod4Mask, xK_p), spawn myDmenuCmd), 
+             ((mod4Mask, xK_l), spawn "luakit"),   
+             ((mod4Mask, xK_f), spawn "firefox"),   
+             ((mod4Mask, xK_i), sendMessage Expand),
+             ((mod4Mask, xK_o), sendMessage Shrink)
+            ] 
 
-{-keysToAdd x = [((mod4Mask, xK_p), spawn myDmenuCmd)]-}
-
-{--- include custom keys-}
-{-newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))-}
-
-{--- delete unused keys-}
-{-myKeys x = foldr M.delete (newKeys x) (keysToDel x) -}
+keysToDel = [(mod4Mask, xK_p),
+             (mod4Mask, xK_h),
+             (mod4Mask, xK_l)
+            ]
 
 --
 -- hooks
