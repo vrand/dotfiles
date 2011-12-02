@@ -2,6 +2,12 @@
 ! Custom X11 settings
 !
 
+XTerm*font:          -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
+XTerm*background:    black
+XTerm*foreground:    gray
+XTerm*cursorColor:   gray
+XTerm*scrollBar:     off
+
 URxvt*font:          -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
 URxvt*background:    black
 URxvt*foreground:    gray
