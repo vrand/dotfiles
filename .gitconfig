@@ -16,7 +16,7 @@
     m = merge
     ph = push
     pl = pull --rebase
-    s = status -s
+    s = status -sb
     st = stash
     sta = stash apply
     unstage = reset HEAD -- 
