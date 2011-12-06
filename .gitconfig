@@ -4,15 +4,15 @@
 [core]
 	editor = vim
 [alias]
-	a = add
-	ap = add -p
-	b = branch -v
-	c = commit
-	cm = commit -m
-	co = checkout 
-    d = diff
+    a = add
+    ap = add -p
+    b = branch -v
+    c = commit
+    cm = commit -m
+    co = checkout 
+    d = diff --word-diff
     l = log --graph --decorate --no-merges --oneline
-    lp = log --graph --decorate --pretty=short -p
+    lp = log --graph --decorate --pretty=short -p --word-diff
     m = merge
     ph = push
     pl = pull --rebase
