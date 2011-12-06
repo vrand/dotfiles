@@ -19,6 +19,7 @@
     s = status -sb
     st = stash
     sta = stash apply
+    stp = stash pop
     unstage = reset HEAD -- 
 [color]
 	ui = true
@@ -26,3 +27,5 @@
     tool = vimdiff
 [push]
     default = tracking
+[branch]
+    autosetuprebase = always
