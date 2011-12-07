@@ -1,4 +1,11 @@
 #!/bin/zsh
+
+echo ">> Fetching latest versions of repos"
+git stash
+git pull --rebase
+git submodule init
+git submodule update
+git stash pop
  
 echo ">> Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README" -av . ~ &> /dev/null
