@@ -8,6 +8,7 @@ alias -g g=git
 alias ll='ls -lA'
 alias mkdir='mkdir -p'
 alias s=sudo
+alias tm='tmux attach'
 alias -g v=vim
 alias yao=yaourt
 
