@@ -214,20 +214,25 @@ map <Leader>a :Ack!<CR>
 " Conque-Term
 "
 
-let ConqueTerm_Color = 1
-
-" TODO
-
+let g:ConqueTerm_Color = 1
+let g:ConqueTerm_InsertOnEnter = 1
+let ConqueTerm_ReadUnfocused = 1
 
 "
 " Gundo
 "
 
-" TODO
+let g:gundo_help = 0
+let g:gundo_width = 30
+let g:gundo_preview_bottom = 1
+let g:gundo_right = 1
+let g:gundo_close_on_revert = 1
 
 "
 " Makegreen
 "
+
+" TODO
 
 " test Django app
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
@@ -242,7 +247,8 @@ map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 " NERDCommenter
 "
 
-" TODO
+let g:NERDCommentWholeLinesInVMode = 1
+
 
 "
 " NERDTree
@@ -257,12 +263,6 @@ let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
 let NERDTreeWinSize = 25
 let NERDTreeMinimalUI = 1
 
-" insert mode when switching to Conque buffers
-let ConqueTerm_InsertOnEnter = 1
-
-" refresh buffer when loses focus
-let ConqueTerm_ReadUnfocused = 1
-
 "
 " Scratch
 "
@@ -273,7 +273,7 @@ let ConqueTerm_ReadUnfocused = 1
 " Syntastic
 "
 
-" TODO
+let g:syntastic_auto_jump = 1
 
 " 
 " TaskList
@@ -312,7 +312,7 @@ map <Leader>gl :Glog<CR>
 " pep8
 "
 
-"let g:pep8_map ='<leader>8'
+let g:pep8_map ='<leader>8'
 
 "
 " pydoc
@@ -340,7 +340,7 @@ let g:SuperTabDefaultCompletionType="context"
 let g:Tabular_loaded = 1
 
 "
-" ZoomWin
+" Virtualenv
 "
 
-" TODO
+let g:virtualenv_stl_format = '<%n>'
