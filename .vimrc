@@ -130,7 +130,7 @@ set colorcolumn=85
 set gdefault
 
 " custom status line
-set statusline=%<%F%y%m%{fugitive#statusline()}%=[%l,%c]\ %P\ \-\ %{strftime(\"%H:%M\ %a,\ %d\.%m\.%Y\")}
+set statusline=%<%F%y%m%{VirtualEnvStatusline()}%=%{fugitive#statusline()}[%l,%c]\ %P}
 
 " 
 " Key bindings
