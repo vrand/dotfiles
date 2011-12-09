@@ -7,6 +7,7 @@ alias cl=clear
 alias -g g=git
 alias ll='ls -lA'
 alias mkdir='mkdir -p'
+alias pyclean='find . -name "*.pyc" -exec rm {} \;'
 alias s=sudo
 alias tm='tmux attach'
 alias -g v=vim
