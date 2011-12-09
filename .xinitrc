@@ -34,6 +34,9 @@ else
     xsetroot -solid midnightblue
 fi
 
+# xflux
+xflux -l 55.859531 -g 9.846015
+
 # custom X settings
 xrdb -merge ~/.Xresources
 
