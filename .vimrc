@@ -285,8 +285,8 @@ let g:syntastic_auto_jump = 1
 " YankRing
 "
 
-" don't store one character yanks in the YankRing
-let yankring_min_element_lenght = 2
+let g:yankring_min_element_lenght = 2
+let g:yankring_history_dir = '$HOME/.vim'
 
 "
 " Repeat
