@@ -176,8 +176,8 @@ map <C-l> <C-w>l
 let mapleader = ","
 
 " yank and put to/from the clipboard register
-map <Leader>y "*y
-map <Leader>p "*p
+map y "*y
+map p "*p
 
 " turn off search highlight untill next search
 map <Leader><Space> :noh<CR>
