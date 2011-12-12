@@ -2,6 +2,11 @@
 alias -g ..='cd ..'
 alias -g ...='cd ../..'
 
+# Most visited dirs
+alias blog='cd ~/src/blog'
+alias isp='cs ~/src/ISP'
+
+
 # Shortcuts
 alias cl=clear
 alias -g g=git
