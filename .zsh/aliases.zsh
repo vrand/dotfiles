@@ -4,7 +4,7 @@ alias -g ...='cd ../..'
 
 # Most visited dirs
 alias blog='cd ~/src/blog'
-alias isp='cs ~/src/ISP'
+alias isp='cd ~/src/ISP'
 
 
 # Shortcuts
