@@ -13,11 +13,13 @@ import XMonad.Hooks.ManageDocks
 -- Prompt
 import XMonad.Prompt
 import XMonad.Prompt.Man
-import XMonad.Prompt.Shell
+import XMonad.Prompt.RunOrRaise
+import XMonad.Prompt.Ssh
 import XMonad.Prompt.XMonad
 -- Layout
 import XMonad.Layout                
 import XMonad.Layout.NoBorders     
+import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 -- Utils
@@ -47,7 +49,7 @@ main = do
 -- xmonad 
 --
 myTerminal   = "urxvt"
-myWorkspaces = ["dev", "web"]
+myWorkspaces = ["console", "dev", "www", "nav", "media", "sys"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
 
@@ -71,8 +73,8 @@ myXmobar bar = defaultPP
                 , ppSep     = " - "
                 , ppWsSep   = "·"
                 , ppTitle   = xmobarColor "#FF6666" "" . shorten 60
-              --, ppLayout  = xmobarColor "black" "cyan"
-                , ppOrder   = \(ws:_:t:xs) -> [ws,t] ++ xs
+                , ppLayout  = xmobarColor "green" ""
+                , ppOrder   = \(ws:l:t:xs) -> [ws,l,t] ++ xs
                 , ppOutput  = hPutStrLn bar
                 }
 
@@ -80,14 +82,20 @@ myXmobar bar = defaultPP
 -- 
 -- layouts
 --
-myLayoutHook = spacing 3 $ avoidStruts . smartBorders $ tiled        |||
-                                                        Mirror tiled |||
-                                                        Full         
-                where
-                    tiled         = Tall masterWindows delta ratio
-                    masterWindows = 1
-                    delta         = 1/10
-                    ratio         = 3/4
+myLayoutHook = myTiledLayout       |||
+               myMirrorTiledLayout |||
+               myFullScreenLayout
+
+myTiledLayout       = renamed [Replace "t"] $ spacing 3 . avoidStruts . smartBorders $ tiled
+                        where
+                            tiled         = Tall masterWindows delta ratio
+                            masterWindows = 1
+                            delta         = 1/10
+                            ratio         = 3/4
+
+myMirrorTiledLayout = renamed [Replace "m"] $ spacing 3 . avoidStruts . smartBorders $ Mirror $ Tall 1 (1/10) (3/4) -- TODO
+
+myFullScreenLayout  = renamed [Replace "f"] $ noBorders Full
 
 --
 -- prompt
@@ -137,8 +145,10 @@ keysToAdd conf@(XConfig {modMask = modm}) =
             , ((mod4Mask,               xK_m)        , manPrompt myPrompt)
              -- prompt for XMonad actions 
             , ((mod4Mask,               xK_x)        , xmonadPrompt myPrompt)
-             -- shell
-            , ((mod4Mask,               xK_p)        , shellPrompt myPrompt)
+             -- run program or navigate to it if it's already running
+            , ((mod4Mask,               xK_p)        , runOrRaisePrompt myPrompt)
+             -- ssh prompt
+            , ((mod4Mask,               xK_c)        , sshPrompt myPrompt)
             ] 
 
 myKeys    = customKeys keysToDel keysToAdd
