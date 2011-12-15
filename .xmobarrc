@@ -1,12 +1,8 @@
 Config  { font      = "-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso8859-1"
         , bgColor   = "black"
         , fgColor   = "grey"
-        , position  = TopW L 100
+        , position  = BottomW L 95
         , commands  = [ Run Date "%k:%M %a, %d.%m.%Y" "date" 10
-                      , Run Weather "EKBI" ["-t", "<skyCondition> <tempC>C", 
-                                            "-L", "10", "-H", "30", "--normal", 
-                                            "green", "--high", "red"] 100
-                      , Run Wireless "wlan0" ["-t", "<essid>"] 10
                       , Run Network "wlan0" ["-t", "<rx>KB/s <tx>KB/s",
                                             "-L", "0", "-H", "70", "--normal",
                                             "green", "--high", "red"] 10
@@ -16,5 +12,5 @@ Config  { font      = "-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso8859
                       ]
          , sepChar  = "%"
          , alignSep = "}{"
-         , template = "%StdinReader% }{ %wlan0wi% %wlan0% | <fc=#ee9a00>%date%</fc> - %EKBI% | %battery%"
+         , template = "%StdinReader% }{ %wlan0% |<fc=#ee9a00>%date%</fc> | %battery%"
         }
