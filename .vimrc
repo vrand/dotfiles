@@ -219,6 +219,14 @@ let g:ConqueTerm_InsertOnEnter = 1
 let ConqueTerm_ReadUnfocused = 1
 
 "
+" FuzzyFinder
+"
+
+let g:fuf_enumeratingLimit = 10
+map <C-b> :FufBuffer<CR>
+map <C-o> :FufFile<CR>
+
+"
 " Gundo
 "
 
@@ -236,12 +244,6 @@ let g:gundo_close_on_revert = 1
 
 " test Django app
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
-
-"
-" MiniBufExplorer
-"
-
-" TODO
 
 " 
 " NERDCommenter
