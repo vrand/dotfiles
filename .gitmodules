@@ -34,9 +34,6 @@
 [submodule ".vim/bundle/snipMate"]
 	path = .vim/bundle/snipMate
 	url = https://dialelo@bitbucket.org/dialelo/snipmate.git
-[submodule ".vim/bundle/minibufexpl"]
-	path = .vim/bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim
 [submodule ".vim/bundle/ZoomWin"]
 	path = .vim/bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin.git
@@ -73,3 +70,9 @@
 [submodule ".vim/bundle/vim-virtualenv"]
 	path = .vim/bundle/vim-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule ".vim/bundle/FuzzyFinder"]
+	path = .vim/bundle/FuzzyFinder
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule ".vim/bundle/L9"]
+	path = .vim/bundle/L9
+	url = https://github.com/vim-scripts/L9.git
