@@ -27,6 +27,9 @@ xset b off
 # set Spanish keyboard layout
 setxkbmap -layout es
 
+# custom key mappings
+xmodmap ~/.Xmodmap
+
 # set the background
 if [[ -f $HOME/images/wallpaper ]]; then
     feh --bg-scale $HOME/images/wallpaper
@@ -39,6 +42,10 @@ xflux -l 55.859531 -g 9.846015
 
 # backlight
 xbacklight -set 50
+
+# tray
+trayer --edge bottom --align right --widthtype percent --width 5 --height 20 \
+      --transparent true  --tint black --SetDockType true &
 
 # custom X settings
 xrdb -merge ~/.Xresources
