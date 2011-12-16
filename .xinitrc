@@ -44,7 +44,7 @@ xflux -l 55.859531 -g 9.846015
 xbacklight -set 50
 
 # tray
-trayer --edge bottom --align right --widthtype percent --width 5 --height 20 \
+trayer --edge bottom --align right --widthtype percent --width 5 --height 24 \
       --transparent true  --tint black --SetDockType true &
 
 # custom X settings
