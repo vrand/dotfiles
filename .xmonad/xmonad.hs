@@ -24,11 +24,11 @@ import XMonad.Util.Run
 import XMonad.Util.CustomKeys
 import XMonad.Util.Loggers
 import XMonad.Util.Scratchpad
+import XMonad.Util.WorkspaceCompare
 
 -- TODO
---  scratchpad
---  key bindings for navigating to the workspaces
---
+--  explicit imports
+--  bindings for moving windows between workspaces
 
 main = do 
         bar <- myBar
@@ -71,6 +71,7 @@ myBar = spawnPipe "xmobar"
 myXmobar bar = defaultPP
                 { ppCurrent = xmobarColor "cyan" ""
                 , ppHidden  = xmobarColor "white" ""
+                , ppSort    = fmap (.scratchpadFilterOutWorkspace) getSortByTag
                 , ppSep     = " - "
                 , ppWsSep   = "·"
                 , ppTitle   = xmobarColor "#FF6666" "" . shorten 60
@@ -134,8 +135,10 @@ keysToAdd conf@(XConfig {modMask = modm}) =
             [ ((mod4Mask,               xK_f)        , spawn "firefox")                          
              -- toggle between last two workspaces
             , ((mod4Mask,               xK_a)        , toggleWS)                                 
+             -- open the scratchpad
+            , ((mod4Mask,               xK_s)        , scratchpad)                 
              -- prompt for a workspace's name and move to it
-            , ((mod4Mask,               xK_s)        , selectWorkspace myPrompt)                 
+            , ((mod4Mask .|. shiftMask, xK_w)        , selectWorkspace myPrompt)                 
              -- rename the current workspace
             , ((mod4Mask,               xK_comma)    , renameWorkspace myPrompt)                 
              -- add a workspace
@@ -143,7 +146,7 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- remove current workspace (potentially dangerous)
             , ((mod4Mask .|. shiftMask, xK_BackSpace), removeWorkspace)   
              -- quickly search for man pages 
-            , ((mod4Mask,               xK_m)        , manPrompt myPrompt)
+             --, ((mod4Mask,               xK_m)        , manPrompt myPrompt)
              -- prompt for XMonad actions 
             , ((mod4Mask,               xK_x)        , xmonadPrompt myPrompt)
              -- run program or navigate to it if it's already running
@@ -151,12 +154,14 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- ssh prompt
             , ((mod4Mask,               xK_c)        , sshPrompt myPrompt)
              -- navigation between workspaces
-            , ((mod4Mask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
-            , ((mod4Mask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
-            , ((mod4Mask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
-            , ((mod4Mask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
-            , ((mod4Mask .|. shiftMask, xK_s)        , windows $ W.greedyView "sys")
+            , ((mod4Mask              , xK_d)        , windows $ W.greedyView "dev")
+            , ((mod4Mask              , xK_t)        , windows $ W.greedyView "test")
+            , ((mod4Mask              , xK_w)        , windows $ W.greedyView "www")
+            , ((mod4Mask              , xK_m)        , windows $ W.greedyView "media")
+            , ((mod4Mask              , xK_h)        , windows $ W.greedyView "sys")
             ] 
+            where
+                scratchpad = scratchpadSpawnActionTerminal myTerminal
 
 myKeys    = customKeys keysToDel keysToAdd
 
@@ -168,7 +173,7 @@ myManageHook = composeAll
             [ className =? "Firefox" --> doShift "www"
             , className =? "luakit"  --> doShift "www"
             , className =? "Spotify" --> doShift "media"
-            , className =? "dia"     --> doFloat
+            --, className =? "dia"     --> doFloat
             , className =? "trayer"  --> doIgnore
             , manageDocks
             ] <+> manageScratchpad
