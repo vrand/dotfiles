@@ -1,16 +1,14 @@
-Config  { font      = "-xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1"
+Config  { font      = "-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso8859-1"
         , bgColor   = "black"
         , fgColor   = "grey"
         , position  = BottomW L 95
         , commands  = [ Run Date "%k:%M %a, %d.%m.%Y" "date" 10
-                      , Run Network "wlan0" ["-t", "<rx>KB/s <tx>KB/s",
-                                            "-L", "0", "-H", "70", "--normal",
-                                            "green", "--high", "red"] 10
+                      , Run Wireless "wlan0" ["-t", "<essid>"] 10
                       , Run Battery ["-t", "<left>%", "-L", "0", "-H", "40", 
                                     "--normal", "red", "--high", "cyan"] 10
                       , Run StdinReader
                       ]
          , sepChar  = "%"
          , alignSep = "}{"
-         , template = "%StdinReader% }{ %wlan0% |<fc=#ee9a00>%date%</fc> | %battery%"
+         , template = "%StdinReader% }{ %wlan0wi% | <fc=#ee9a00>%date%</fc> | %battery%"
         }
