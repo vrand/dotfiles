@@ -5,6 +5,7 @@ au FileType python     set omnifunc=pythoncomplete#Complete
 au BufRead,BufNewFile /etc/nginx/conf/* set filetype=nginx
 au BufRead,BufNewFile Vagrantfile set filetype=ruby 
 au BufRead,BufNewFile \.tmux\.conf set filetype=tmux
+au BufRead,BufNewFile \.xmobarrc set filetype=haskell
 
 " xmonad config 
 au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile
