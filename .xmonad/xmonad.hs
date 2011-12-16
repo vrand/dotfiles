@@ -23,6 +23,7 @@ import qualified XMonad.StackSet as W
 import XMonad.Util.Run
 import XMonad.Util.CustomKeys
 import XMonad.Util.Loggers
+import XMonad.Util.Scratchpad
 
 -- TODO
 --  scratchpad
@@ -49,7 +50,7 @@ main = do
 -- xmonad 
 --
 myTerminal   = "urxvt"
-myWorkspaces = ["console", "dev", "www", "nav", "media", "sys"]
+myWorkspaces = ["dev", "test", "www", "media", "sys"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
 
@@ -150,7 +151,11 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- ssh prompt
             , ((mod4Mask,               xK_c)        , sshPrompt myPrompt)
              -- navigation between workspaces
-            , ((mod4Mask .|. shiftMask, xK_s),       , windows $ W.greedyView "sys")
+            , ((mod4Mask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
+            , ((mod4Mask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
+            , ((mod4Mask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
+            , ((mod4Mask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
+            , ((mod4Mask .|. shiftMask, xK_s)        , windows $ W.greedyView "sys")
             ] 
 
 myKeys    = customKeys keysToDel keysToAdd
@@ -166,4 +171,11 @@ myManageHook = composeAll
             , className =? "dia"     --> doFloat
             , className =? "trayer"  --> doIgnore
             , manageDocks
-            ]
+            ] <+> manageScratchpad
+
+manageScratchpad = scratchpadManageHook (W.RationalRect left top width height)
+            where
+                height = 0.3            -- 30%
+                width  = 1              -- 100%
+                top    = 1 - height     -- distance from top
+                left   = 1 - width      -- distance from left
