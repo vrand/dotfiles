@@ -6,8 +6,8 @@ alias -g ...='cd ../..'
 alias blog='cd ~/src/blog'
 alias isp='cd ~/src/ISP'
 
-
 # Shortcuts
+alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias cl=clear
 alias -g g=git
 alias ll='ls -lA'
