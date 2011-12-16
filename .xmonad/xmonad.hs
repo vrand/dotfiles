@@ -1,7 +1,3 @@
--- Haskell libraries
-import Data.Ratio
-import System.IO
-import qualified Data.Map as M
 -- XMonad
 import XMonad
 -- Actions
@@ -10,24 +6,28 @@ import XMonad.Actions.CycleWS
 -- Hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+-- Layout
+import XMonad.Layout                
+import XMonad.Layout.NoBorders     
+import XMonad.Layout.Renamed
+import XMonad.Layout.Spacing
 -- Prompt
 import XMonad.Prompt
 import XMonad.Prompt.Man
 import XMonad.Prompt.RunOrRaise
 import XMonad.Prompt.Ssh
 import XMonad.Prompt.XMonad
--- Layout
-import XMonad.Layout                
-import XMonad.Layout.NoBorders     
-import XMonad.Layout.Renamed
-import XMonad.Layout.Spacing
-import XMonad.Layout.Tabbed
+-- StackSet
+import qualified XMonad.StackSet as W
 -- Utils
+import XMonad.Util.Run
 import XMonad.Util.CustomKeys
-import XMonad.Util.EZConfig
-import XMonad.Util.Run             
 import XMonad.Util.Loggers
 
+-- TODO
+--  scratchpad
+--  key bindings for navigating to the workspaces
+--
 
 main = do 
         bar <- myBar
@@ -86,12 +86,12 @@ myLayoutHook = myTiledLayout       |||
                myMirrorTiledLayout |||
                myFullScreenLayout
 
-myTiledLayout       = renamed [Replace "t"] $ spacing 3 . avoidStruts . smartBorders $ tiled
-                        where
-                            tiled         = Tall masterWindows delta ratio
-                            masterWindows = 1
-                            delta         = 1/10
-                            ratio         = 3/4
+myTiledLayout = renamed [Replace "t"] $ spacing 3 . avoidStruts . smartBorders $ tiled
+                where
+                    tiled         = Tall masterWindows delta ratio
+                    masterWindows = 1
+                    delta         = 1/10
+                    ratio         = 3/4
 
 myMirrorTiledLayout = renamed [Replace "m"] $ spacing 3 . avoidStruts . smartBorders $ Mirror $ Tall 1 (1/10) (3/4) -- TODO
 
@@ -149,6 +149,8 @@ keysToAdd conf@(XConfig {modMask = modm}) =
             , ((mod4Mask,               xK_p)        , runOrRaisePrompt myPrompt)
              -- ssh prompt
             , ((mod4Mask,               xK_c)        , sshPrompt myPrompt)
+             -- navigation between workspaces
+            , ((mod4Mask .|. shiftMask, xK_s),       , windows $ W.greedyView "sys")
             ] 
 
 myKeys    = customKeys keysToDel keysToAdd
@@ -157,4 +159,11 @@ myKeys    = customKeys keysToDel keysToAdd
 --
 -- hooks
 --
-myManageHook = manageDocks <+> manageHook defaultConfig 
+myManageHook = composeAll
+            [ className =? "Firefox" --> doShift "www"
+            , className =? "luakit"  --> doShift "www"
+            , className =? "Spotify" --> doShift "media"
+            , className =? "dia"     --> doFloat
+            , className =? "trayer"  --> doIgnore
+            , manageDocks
+            ]
