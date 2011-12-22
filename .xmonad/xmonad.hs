@@ -8,6 +8,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 -- Layout
 import XMonad.Layout                
+import XMonad.Layout.Circle
 import XMonad.Layout.NoBorders     
 import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
@@ -20,15 +21,16 @@ import XMonad.Prompt.XMonad
 -- StackSet
 import qualified XMonad.StackSet as W
 -- Utils
-import XMonad.Util.Run
+import XMonad.Util.EZConfig
 import XMonad.Util.CustomKeys
 import XMonad.Util.Loggers
+import XMonad.Util.Run
 import XMonad.Util.Scratchpad
 import XMonad.Util.WorkspaceCompare
 
 -- TODO
 --  explicit imports
---  bindings for moving windows between workspaces
+--  bindings for volume control
 
 main = do 
         bar <- myBar
@@ -69,14 +71,14 @@ myBar = spawnPipe "xmobar"
 
 -- there is more customization to xmobar in the .xmobarrc file
 myXmobar bar = defaultPP
-                { ppCurrent = xmobarColor "cyan" ""
+                { ppCurrent = xmobarColor "cyan" "" . wrap "[" "]"
                 , ppHidden  = xmobarColor "white" ""
                 , ppSort    = fmap (.scratchpadFilterOutWorkspace) getSortByTag
                 , ppSep     = " - "
                 , ppWsSep   = "·"
-                , ppTitle   = xmobarColor "#FF6666" "" . shorten 60
+                --, ppTitle   = xmobarColor "#FF6666" "" . shorten 60
                 , ppLayout  = xmobarColor "green" ""
-                , ppOrder   = \(ws:l:t:xs) -> [ws,l,t] ++ xs
+                , ppOrder   = \(ws:l:_) -> [ws,l]
                 , ppOutput  = hPutStrLn bar
                 }
 
@@ -86,18 +88,21 @@ myXmobar bar = defaultPP
 --
 myLayoutHook = myTiledLayout       |||
                myMirrorTiledLayout |||
-               myFullScreenLayout
+               myFullScreenLayout  |||
+               myCircleLayout
 
-myTiledLayout = renamed [Replace "t"] $ spacing 3 . avoidStruts . smartBorders $ tiled
+myTiledLayout = renamed [Replace "tiled"] $ spacing 3 . avoidStruts . smartBorders $ tiled
                 where
                     tiled         = Tall masterWindows delta ratio
                     masterWindows = 1
                     delta         = 1/10
                     ratio         = 3/4
 
-myMirrorTiledLayout = renamed [Replace "m"] $ spacing 3 . avoidStruts . smartBorders $ Mirror $ Tall 1 (1/10) (3/4) -- TODO
+myMirrorTiledLayout = renamed [Replace "mirror"] $ spacing 3 . avoidStruts . smartBorders $ Mirror $ Tall 1 (1/10) (3/4) -- TODO
 
-myFullScreenLayout  = renamed [Replace "f"] $ noBorders Full
+myFullScreenLayout  = renamed [Replace "full"] $ noBorders Full
+
+myCircleLayout = renamed [Replace "circle"] Circle
 
 --
 -- prompt
@@ -138,7 +143,7 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- open the scratchpad
             , ((mod4Mask,               xK_s)        , scratchpad)                 
              -- prompt for a workspace's name and move to it
-            , ((mod4Mask .|. shiftMask, xK_w)        , selectWorkspace myPrompt)                 
+            , ((mod4Mask .|. shiftMask, xK_s)        , selectWorkspace myPrompt)                 
              -- rename the current workspace
             , ((mod4Mask,               xK_comma)    , renameWorkspace myPrompt)                 
              -- add a workspace
@@ -146,24 +151,33 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- remove current workspace (potentially dangerous)
             , ((mod4Mask .|. shiftMask, xK_BackSpace), removeWorkspace)   
              -- quickly search for man pages 
-             --, ((mod4Mask,               xK_m)        , manPrompt myPrompt)
+            , ((mod4Mask,               xK_i)        , manPrompt myPrompt)
              -- prompt for XMonad actions 
             , ((mod4Mask,               xK_x)        , xmonadPrompt myPrompt)
              -- run program or navigate to it if it's already running
             , ((mod4Mask,               xK_p)        , runOrRaisePrompt myPrompt)
              -- ssh prompt
             , ((mod4Mask,               xK_c)        , sshPrompt myPrompt)
+             -- TODO avoid redundancy
              -- navigation between workspaces
             , ((mod4Mask              , xK_d)        , windows $ W.greedyView "dev")
             , ((mod4Mask              , xK_t)        , windows $ W.greedyView "test")
             , ((mod4Mask              , xK_w)        , windows $ W.greedyView "www")
             , ((mod4Mask              , xK_m)        , windows $ W.greedyView "media")
-            , ((mod4Mask              , xK_h)        , windows $ W.greedyView "sys")
+            , ((mod4Mask              , xK_y)        , windows $ W.greedyView "sys")
+             -- shift windows to workspaces
+            , ((mod4Mask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
+            , ((mod4Mask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
+            , ((mod4Mask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
+            , ((mod4Mask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
+            , ((mod4Mask .|. shiftMask, xK_y)        , windows $ W.greedyView "sys")
+            -- volume control
+            -- TODO
             ] 
             where
                 scratchpad = scratchpadSpawnActionTerminal myTerminal
 
-myKeys    = customKeys keysToDel keysToAdd
+myKeys = customKeys keysToDel keysToAdd
 
 
 --
@@ -180,7 +194,7 @@ myManageHook = composeAll
 
 manageScratchpad = scratchpadManageHook (W.RationalRect left top width height)
             where
-                height = 0.3            -- 30%
+                height = 0.4            -- 40%
                 width  = 1              -- 100%
-                top    = 1 - height     -- distance from top
-                left   = 1 - width      -- distance from left
+                top    = 0              -- distance from top
+                left   = 0              -- distance from left
