@@ -5,6 +5,7 @@ alias -g ...='cd ../..'
 # Most visited dirs
 alias blog='cd ~/src/blog'
 alias isp='cd ~/src/ISP'
+alias video='cd /mnt/data/video'
 
 # Shortcuts
 alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
