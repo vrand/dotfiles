@@ -14,6 +14,7 @@ import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
 -- Prompt
 import XMonad.Prompt
+import XMonad.Prompt.AppendFile
 import XMonad.Prompt.Man
 import XMonad.Prompt.RunOrRaise
 import XMonad.Prompt.Ssh
@@ -30,7 +31,6 @@ import XMonad.Util.WorkspaceCompare
 
 -- TODO
 --  explicit imports
---  bindings for volume control
 
 main = do 
         bar <- myBar
@@ -63,6 +63,11 @@ myBorderWidth        = 2
 myNormalBorderColor  = "#CCCCCC"
 myFocusedBorderColor = "#FF0099"
 myFont               = "-xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1"
+
+-- 
+-- misc
+--
+myNotes = "/home/dialelo/vimwiki/process.wiki"
 
 --
 -- status bar
@@ -137,41 +142,45 @@ keysToDel XConfig {modMask = modm} =
 
 keysToAdd :: XConfig l -> [((KeyMask, KeySym), X ())]
 keysToAdd conf@(XConfig {modMask = modm}) = 
-            [ ((mod4Mask,               xK_f)        , spawn "firefox")                          
+            [ ((myModMask,               xK_f)        , spawn "firefox")                          
              -- toggle between last two workspaces
-            , ((mod4Mask,               xK_a)        , toggleWS)                                 
+            , ((myModMask,               xK_a)        , toggleWS)                                 
              -- open the scratchpad
-            , ((mod4Mask,               xK_s)        , scratchpad)                 
+            , ((myModMask,               xK_s)        , scratchpad)                 
              -- prompt for a workspace's name and move to it
-            , ((mod4Mask .|. shiftMask, xK_s)        , selectWorkspace myPrompt)                 
+            , ((myModMask .|. shiftMask, xK_s)        , selectWorkspace myPrompt)                 
              -- rename the current workspace
-            , ((mod4Mask,               xK_comma)    , renameWorkspace myPrompt)                 
-             -- add a workspace
-            , ((mod4Mask,               xK_n)        , withWorkspace myPrompt addHiddenWorkspace)
-             -- remove current workspace (potentially dangerous)
-            , ((mod4Mask .|. shiftMask, xK_BackSpace), removeWorkspace)   
+            , ((myModMask,               xK_comma)    , renameWorkspace myPrompt)                 
+             -- add a note to process it later
+            , ((myModMask,               xK_g)        , appendFilePrompt myPrompt myNotes)
              -- quickly search for man pages 
-            , ((mod4Mask,               xK_i)        , manPrompt myPrompt)
+            , ((myModMask,               xK_i)        , manPrompt myPrompt)
              -- prompt for XMonad actions 
-            , ((mod4Mask,               xK_x)        , xmonadPrompt myPrompt)
+            , ((myModMask,               xK_x)        , xmonadPrompt myPrompt)
              -- run program or navigate to it if it's already running
-            , ((mod4Mask,               xK_p)        , runOrRaisePrompt myPrompt)
+            , ((myModMask,               xK_p)        , runOrRaisePrompt myPrompt)
              -- ssh prompt
-            , ((mod4Mask,               xK_c)        , sshPrompt myPrompt)
+            , ((myModMask,               xK_c)        , sshPrompt myPrompt)
+             -- add a workspace
+            , ((myModMask,               xK_n)        , withWorkspace myPrompt addHiddenWorkspace)
+             -- remove current workspace (potentially dangerous)
+            , ((myModMask .|. shiftMask, xK_BackSpace), removeWorkspace)   
              -- TODO avoid redundancy
              -- navigation between workspaces
-            , ((mod4Mask              , xK_d)        , windows $ W.greedyView "dev")
-            , ((mod4Mask              , xK_t)        , windows $ W.greedyView "test")
-            , ((mod4Mask              , xK_w)        , windows $ W.greedyView "www")
-            , ((mod4Mask              , xK_m)        , windows $ W.greedyView "media")
-            , ((mod4Mask              , xK_y)        , windows $ W.greedyView "sys")
+            , ((myModMask              , xK_d)        , windows $ W.greedyView "dev")
+            , ((myModMask              , xK_t)        , windows $ W.greedyView "test")
+            , ((myModMask              , xK_w)        , windows $ W.greedyView "www")
+            , ((myModMask              , xK_m)        , windows $ W.greedyView "media")
+            , ((myModMask              , xK_y)        , windows $ W.greedyView "sys")
              -- shift windows to workspaces
-            , ((mod4Mask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
-            , ((mod4Mask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
-            , ((mod4Mask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
-            , ((mod4Mask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
-            , ((mod4Mask .|. shiftMask, xK_y)        , windows $ W.greedyView "sys")
+            , ((myModMask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
+            , ((myModMask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
+            , ((myModMask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
+            , ((myModMask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
+            , ((myModMask .|. shiftMask, xK_y)        , windows $ W.greedyView "sys")
             -- volume control
+            -- TODO
+            -- bindings for switching between layouts
             -- TODO
             ] 
             where
