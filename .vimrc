@@ -50,8 +50,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" smart indenting for C-like languages
-set smartindent
+" indentation behaviour
+set autoindent
+set copyindent
 
 " folding 
 set foldmethod=indent
@@ -78,7 +79,7 @@ set virtualedit=all
 " allow backspacing over everything on insert mode
 set backspace=indent,eol,start
 
-" hide a buffer when is abandoned
+" hide a buffer instead of closing it
 set hidden
 
 " offset when scrolling to the top or bottom
@@ -98,7 +99,8 @@ set cpoptions+=$
 set ttyfast
 
 " don't polute directories with swap files
-set directory=~/tmp,/tmp,/var/tmp
+set nobackup
+set noswapfile
 
 " save undo history for each file
 set undodir=~/.vim/undo
@@ -147,6 +149,9 @@ cmap wQ wq
 " back to normal mode
 imap jj <Esc>
 
+" paste from OS clipboard
+imap pp <C-r>+
+
 " don't show me the help if I don't ask for it
 imap <F1> <Esc>
 map <F1> <Esc>
@@ -180,7 +185,7 @@ map y "*y
 map p "*p
 
 " turn off search highlight untill next search
-map <Leader><Space> :noh<CR>
+map <Leader><Space> :nohlsearch<CR>
 
 " select the text that I've just putted
 nmap <Leader>s V']
@@ -288,7 +293,9 @@ let g:syntastic_auto_jump = 1
 "
 
 let g:yankring_min_element_lenght = 2
+let g:yankring_max_history = 1000
 let g:yankring_history_dir = '$HOME/.vim'
+let g:yankring_history_file = 'yankring_history'
 
 "
 " Repeat
