@@ -9,7 +9,7 @@ set nocompatible
 
 " enable syntax highlighting
 syntax on	
-colorscheme molokai
+colorscheme xemacs
 
 " no annoying sounds
 set visualbell
