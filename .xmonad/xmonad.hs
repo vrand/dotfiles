@@ -67,7 +67,7 @@ myFont               = "-xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859
 -- 
 -- misc
 --
-myNotes = "/home/dialelo/vimwiki/process.wiki"
+myNotes = "/home/dialelo/wiki/process.wiki"
 
 --
 -- status bar
