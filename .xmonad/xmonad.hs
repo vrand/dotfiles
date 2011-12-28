@@ -8,10 +8,10 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 -- Layout
 import XMonad.Layout                
-import XMonad.Layout.Circle
 import XMonad.Layout.NoBorders     
 import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
+import XMonad.Layout.ToggleLayouts
 -- Prompt
 import XMonad.Prompt
 import XMonad.Prompt.AppendFile
@@ -93,8 +93,7 @@ myXmobar bar = defaultPP
 --
 myLayoutHook = myTiledLayout       |||
                myMirrorTiledLayout |||
-               myFullScreenLayout  |||
-               myCircleLayout
+               myFullScreenLayout  
 
 myTiledLayout = renamed [Replace "tiled"] $ spacing 3 . avoidStruts . smartBorders $ tiled
                 where
@@ -107,7 +106,6 @@ myMirrorTiledLayout = renamed [Replace "mirror"] $ spacing 3 . avoidStruts . sma
 
 myFullScreenLayout  = renamed [Replace "full"] $ noBorders Full
 
-myCircleLayout = renamed [Replace "circle"] Circle
 
 --
 -- prompt
@@ -181,7 +179,9 @@ keysToAdd conf@(XConfig {modMask = modm}) =
             -- volume control
             -- TODO
             -- bindings for switching between layouts
-            -- TODO
+            --  TODO full
+            --  TODO tiled
+            --  TODO mirror
             ] 
             where
                 scratchpad = scratchpadSpawnActionTerminal myTerminal
