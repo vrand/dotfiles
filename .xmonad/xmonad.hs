@@ -52,7 +52,7 @@ main = do
 -- xmonad 
 --
 myTerminal   = "urxvt"
-myWorkspaces = ["dev", "test", "www", "media", "sys"]
+myWorkspaces = ["dev", "extra", "www", "media", "sys"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
 
@@ -166,13 +166,13 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- TODO avoid redundancy
              -- navigation between workspaces
             , ((myModMask              , xK_d)        , windows $ W.greedyView "dev")
-            , ((myModMask              , xK_t)        , windows $ W.greedyView "test")
+            , ((myModMask              , xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask              , xK_w)        , windows $ W.greedyView "www")
             , ((myModMask              , xK_m)        , windows $ W.greedyView "media")
             , ((myModMask              , xK_y)        , windows $ W.greedyView "sys")
              -- shift windows to workspaces
             , ((myModMask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
-            , ((myModMask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
+            , ((myModMask .|. shiftMask, xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
             , ((myModMask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
             , ((myModMask .|. shiftMask, xK_y)        , windows $ W.greedyView "sys")
