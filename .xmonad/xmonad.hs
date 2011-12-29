@@ -52,7 +52,7 @@ main = do
 -- xmonad 
 --
 myTerminal   = "urxvt"
-myWorkspaces = ["dev", "extra", "www", "media", "sys"]
+myWorkspaces = ["dev", "org", "www", "extra", "media", "sys"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
 
@@ -166,14 +166,16 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- TODO avoid redundancy
              -- navigation between workspaces
             , ((myModMask              , xK_d)        , windows $ W.greedyView "dev")
-            , ((myModMask              , xK_e)        , windows $ W.greedyView "extra")
+            , ((myModMask              , xK_o)        , windows $ W.greedyView "org")
             , ((myModMask              , xK_w)        , windows $ W.greedyView "www")
+            , ((myModMask              , xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask              , xK_m)        , windows $ W.greedyView "media")
             , ((myModMask              , xK_y)        , windows $ W.greedyView "sys")
              -- shift windows to workspaces
             , ((myModMask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
-            , ((myModMask .|. shiftMask, xK_e)        , windows $ W.greedyView "extra")
+            , ((myModMask .|. shiftMask, xK_o)        , windows $ W.greedyView "org")
             , ((myModMask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
+            , ((myModMask .|. shiftMask, xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
             , ((myModMask .|. shiftMask, xK_y)        , windows $ W.greedyView "sys")
             -- volume control
