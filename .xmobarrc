@@ -5,10 +5,11 @@ Config  { font      = "-xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso8859-
         , commands  = [ Run Date "%k:%M %a, %d.%m.%Y" "date" 10
                       , Run StdinReader
                       , Run Wireless "wlan0" ["-t", "<essid>"] 10
+                      , Run CommandReader "~/.pymodoro/pymodoro.py" "pomodoro"
                       , Run Battery ["-t", "<left>%", "-L", "0", "-H", "40", 
                                      "--normal", "red", "--high", "cyan"] 10
                       ]
          , sepChar  = "%"
          , alignSep = "}{"
-         , template = "<fc=#ee9a00>%date%</fc> }%StdinReader%{ %wlan0wi% | %battery%"
+         , template = "<fc=#ee9a00>%date%</fc> }%StdinReader% %pomodoro% { %wlan0wi% | %battery%"
         }
