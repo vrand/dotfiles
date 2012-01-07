@@ -52,7 +52,7 @@ main = do
 -- xmonad 
 --
 myTerminal   = "urxvt"
-myWorkspaces = ["dev", "org", "www", "extra", "media", "sys"]
+myWorkspaces = ["dev", "test", "org", "www", "social", "media", "sys"]
 myModMask    = mod4Mask     -- Win or Cmd key
 
 
@@ -81,7 +81,6 @@ myXmobar bar = defaultPP
                 , ppSort    = fmap (.scratchpadFilterOutWorkspace) getSortByTag
                 , ppSep     = " - "
                 , ppWsSep   = "·"
-                --, ppTitle   = xmobarColor "#FF6666" "" . shorten 60
                 , ppLayout  = xmobarColor "green" ""
                 , ppOrder   = \(ws:l:_) -> [ws,l]
                 , ppOutput  = hPutStrLn bar
@@ -164,17 +163,22 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- remove current workspace (potentially dangerous)
             , ((myModMask .|. shiftMask, xK_BackSpace), removeWorkspace)   
              -- TODO avoid redundancy
+             -- TODO shift windows to workspaces
              -- navigation between workspaces
             , ((myModMask              , xK_d)        , windows $ W.greedyView "dev")
+            , ((myModMask              , xK_t)        , windows $ W.greedyView "test")
             , ((myModMask              , xK_o)        , windows $ W.greedyView "org")
             , ((myModMask              , xK_w)        , windows $ W.greedyView "www")
+            , ((myModMask              , xK_l)        , windows $ W.greedyView "social")
             , ((myModMask              , xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask              , xK_m)        , windows $ W.greedyView "media")
             , ((myModMask              , xK_y)        , windows $ W.greedyView "sys")
              -- shift windows to workspaces
             , ((myModMask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
+            , ((myModMask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
             , ((myModMask .|. shiftMask, xK_o)        , windows $ W.greedyView "org")
             , ((myModMask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
+            , ((myModMask .|. shiftMask, xK_l)        , windows $ W.greedyView "social")
             , ((myModMask .|. shiftMask, xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
             , ((myModMask .|. shiftMask, xK_y)        , windows $ W.greedyView "sys")
