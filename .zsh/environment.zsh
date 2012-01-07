@@ -14,4 +14,4 @@ fi
 export WWW_HOME=http://dialelo.com
 
 # path
-export PATH=$HOME/bin:/usr/local/bin/android-sdk-linux/tools:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin/android-sdk-linux/platform-tools:/usr/local/bin/android-sdk-linux/tools:$HOME/.cabal/bin:$PATH
