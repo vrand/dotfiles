@@ -149,8 +149,7 @@ cmap wQ wq
 " back to normal mode
 imap jj <Esc>
 
-" paste from OS clipboard
-imap pp <C-r>+
+" TODO toggle paste/nopaste
 
 " don't show me the help if I don't ask for it
 imap <F1> <Esc>
