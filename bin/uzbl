@@ -1,0 +1,4 @@
+#!/bin/sh
+
+uzbl-event-manager
+uzbl-tabbed
