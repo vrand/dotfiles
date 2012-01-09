@@ -147,7 +147,7 @@ cmap Wq wq
 cmap wQ wq 
 
 " back to normal mode
-imap jj <Esc>
+imap jk <Esc>
 
 " TODO toggle paste/nopaste
 
