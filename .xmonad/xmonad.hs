@@ -140,6 +140,7 @@ keysToDel XConfig {modMask = modm} =
 keysToAdd :: XConfig l -> [((KeyMask, KeySym), X ())]
 keysToAdd conf@(XConfig {modMask = modm}) = 
             [ ((myModMask,               xK_f)        , spawn "firefox")                          
+            , ((myModMask,               xK_u)        , spawn "/home/dialelo/bin/uzbl")                           
              -- toggle between last two workspaces
             , ((myModMask,               xK_a)        , toggleWS)                                 
              -- open the scratchpad
@@ -163,22 +164,21 @@ keysToAdd conf@(XConfig {modMask = modm}) =
              -- remove current workspace (potentially dangerous)
             , ((myModMask .|. shiftMask, xK_BackSpace), removeWorkspace)   
              -- TODO avoid redundancy
-             -- TODO shift windows to workspaces
              -- navigation between workspaces
             , ((myModMask              , xK_d)        , windows $ W.greedyView "dev")
             , ((myModMask              , xK_t)        , windows $ W.greedyView "test")
             , ((myModMask              , xK_o)        , windows $ W.greedyView "org")
             , ((myModMask              , xK_w)        , windows $ W.greedyView "www")
-            , ((myModMask              , xK_l)        , windows $ W.greedyView "social")
+            , ((myModMask              , xK_b)        , windows $ W.greedyView "social")
             , ((myModMask              , xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask              , xK_m)        , windows $ W.greedyView "media")
             , ((myModMask              , xK_y)        , windows $ W.greedyView "sys")
-             -- shift windows to workspaces
+             -- TODO shift windows to workspaces
             , ((myModMask .|. shiftMask, xK_d)        , windows $ W.greedyView "dev")
             , ((myModMask .|. shiftMask, xK_t)        , windows $ W.greedyView "test")
             , ((myModMask .|. shiftMask, xK_o)        , windows $ W.greedyView "org")
             , ((myModMask .|. shiftMask, xK_w)        , windows $ W.greedyView "www")
-            , ((myModMask .|. shiftMask, xK_l)        , windows $ W.greedyView "social")
+            , ((myModMask .|. shiftMask, xK_b)        , windows $ W.greedyView "social")
             , ((myModMask .|. shiftMask, xK_e)        , windows $ W.greedyView "extra")
             , ((myModMask .|. shiftMask, xK_m)        , windows $ W.greedyView "media")
             , ((myModMask .|. shiftMask, xK_y)        , windows $ W.greedyView "sys")
