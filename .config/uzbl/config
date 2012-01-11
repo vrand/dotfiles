@@ -128,9 +128,9 @@ set title_format_long = \@keycmd_prompt \@raw_modcmd \@raw_keycmd \@TITLE - Uzbl
 # %d = done, %p = pending %c = percent done, %i = int done, %s = spinner,
 # %t = percent pending, %o = int pending, %r = sprite scroll
 set progress.width      = 8
-set progress.format     = [%d>%p]%c
-set progress.done       = =
-set progress.pending    =
+set progress.format     = [%d%p]%c
+set progress.done       = |
+set progress.pending    = ·
 
 # === Useragent setup ========================================================
 
@@ -342,7 +342,7 @@ set ebind     = @mode_bind global,-insert
 @cbind  u  = spawn @scripts_dir/load_url_from_bookmarks.sh
 
 # Temporary bookmarks
-@cbind  <Ctrl>d  = spawn @scripts_dir/insert_temp.sh
+@cbind  <Ctrl>D  = spawn @scripts_dir/insert_temp.sh
 @cbind  D        = spawn @scripts_dir/load_url_from_temps.sh
 
 # Link following (similar to vimperator and konqueror)
