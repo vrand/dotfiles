@@ -41,10 +41,13 @@ xflux -l 55.859531 -g 9.846015
 xbacklight -set 50
 
 # tray
-trayer --edge top --align right --widthtype percent --width 5 --height 24 \
-      --transparent true  --tint black --SetDockType true &
+trayer --edge top --align right --widthtype percent --width 5 --height 22 \
+      --transparent true  --alpha 100 --tint black --padding 5 --SetDockType true &
 
 # custom X settings
 xrdb -merge ~/.Xresources
+
+# terminal
+urxvt &
 
 xmonad
