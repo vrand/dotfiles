@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#
+# Script for outputting the wireless network SSID. 
+#
+
+ESSID=`iwconfig wlan0 | grep -o "\".*\"" | cut -d '"' -f 2`
+
+if [[ "" == "$ESSID" ]]
+then
+    echo "N/A"
+else
+    echo "$ESSID"
+fi
