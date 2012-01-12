@@ -1,7 +1,7 @@
 Config  { font      = "-xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso8859-1"
         , bgColor   = "black"
         , fgColor   = "grey"
-        , position  = BottomW L 95
+        , position  = TopW L 95
         , commands  = [ Run Date "%k:%M %a, %d.%m.%Y" "date" 10
                       , Run StdinReader
                       , Run Wireless "wlan0" ["-t", "<essid>"] 10
@@ -12,5 +12,5 @@ Config  { font      = "-xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso8859-
                       ]
          , sepChar  = "%"
          , alignSep = "}{"
-         , template = "<fc=#ee9a00>%date%</fc> }%StdinReader% %pomodoro% { %wlan0wi% %wlan0% | %battery%"
+         , template = "%StdinReader% :: %pomodoro%} {<fc=#ee9a00>%date%</fc> | %wlan0wi% %wlan0% | %battery%"
         }
