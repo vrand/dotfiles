@@ -1,0 +1,95 @@
+#!/bin/python
+
+from os import path
+from urllib2 import urlopen
+
+from BeautifulSoup import BeautifulSoup
+
+
+BASE_URL = 'http://submanga.com'
+
+def soup(url):
+    response = urlopen(url)
+    return BeautifulSoup(response.read())
+
+def last_episode(serie):
+    "Returns a tuple with the last episode's number and URL for the given serie."
+    serie_url   = '/'.join([BASE_URL, serie])
+    html        = soup(serie_url)    
+    us          = html.findAll(attrs={'class': 'u'})
+    episode_num = us[0].a.strong.text
+    episode_url = us[0].a['href']
+    return int(episode_num), episode_url
+
+def episode_pages_url(episode_url):
+    "Receives the URL of an episode and returns the URL where the episode pages are located."
+    html = soup(episode_url)
+    url  = html.findAll(attrs={'id': 'l'})
+    return url[0]['href'] if url else u''
+
+def download_episode(episode_pages_url):
+    "Downloads the episode located in the given URL."
+    html = soup(episode_pages_url)
+    pages = page_urls(episode_pages_url)
+    map(download_page, pages)
+
+def page_urls(episode_pages_url):
+    "Returns a list with all the URLs corresponding to the given episode's pages."
+    urls     = [episode_pages_url]
+    next_url = lambda url: soup(url).div.a['href']
+    page_url = next_url(episode_pages_url)
+    while has_manga_page(page_url):
+        urls.append(page_url)
+        page_url = next_url(page_url)
+    return urls
+
+def has_manga_page(page_url):
+    html = soup(page_url)
+    return not(bool(html.findAll(attrs={'id': 'v'})))
+
+def download_page(episode_page_url):
+    "Downloads the image of the manga page."
+    html        = soup(episode_page_url)
+    img         = html.div.a.img['src']
+    img_content = urlopen(img).read()
+    name        = img.split('/')[-1]
+    written_img = open(name, 'w')
+    written_img.write(img_content)
+    written_img.close()
+
+def create_episode_dir(serie, num):
+    from os import getcwd, chdir, mkdir, path
+    serie_dir   = path.join(getcwd(), serie) 
+    episode_dir = path.join(serie_dir, str(num))
+    try:
+        mkdir(serie_dir)
+    except OSError:
+        pass
+    try:
+        mkdir(episode_dir)
+    except OSError:
+        print '>> Looks like you already have downloaded the episode... aborting'
+        exit(1)
+    chdir(episode_dir)
+
+def download_last_episode(serie):
+    num, url    = last_episode(serie)
+    create_episode_dir(serie, num)
+    pages_url   = episode_pages_url(url)
+    if pages_url:
+        download_episode(pages_url)
+    else:
+        print '/!\\ Something went wrong /!\\'
+
+
+if __name__ == '__main__':
+    from sys import argv
+
+    if len(argv) > 1:
+        serie = argv[1]
+    else:
+        exit(1)
+
+    print '>> Downloading last episode of %s' % serie
+    download_last_episode(serie)
+    exit(0)
