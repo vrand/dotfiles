@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+# Script for enabling wi-fi connection.
+#
+
+##
+# Constants
+##
+
+ESC="\033"
+FG_RED=31
+FG_CYAN=36
+RED="$ESC[${FG_RED}m"
+CYAN="$ESC[${FG_CYAN}m" 
+RESET="$ESC[0m"
+
+##
+# Helper functions
+##
+
+function error {
+    echo -e "${RED}ERROR: ${RESET}$1"
+}
+
+function message {
+    echo -e "${CYAN}::${RESET} $1"
+}
+
+##
+# Script
+##
+
+if [[ $UID -ne 0 ]]; then
+    error 'Run this script as root'
+    exit 1
+fi
+
+message 'Setting up the interface'
+ifconfig wlan0 up              
+
+# wpa_supplicant
+killall wpa_supplicant &> /dev/null
+
+message 'Trying to connect' 
+wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlan0 &> /dev/null
+
+# dhcpcd
+if [[ -f "/var/run/dhcpcd-wlan0.pid" ]]
+then
+    kill -9 `cat /var/run/dhcpcd-wlan0.pid`
+    rm /var/run/dhcpcd-wlan0.pid 
+fi
+
+message 'Starting dhcp'
+dhcpcd -t 1000 wlan0
