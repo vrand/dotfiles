@@ -62,7 +62,6 @@ myModMask    = mod4Mask     -- Win or Cmd key
 myBorderWidth        = 2
 myNormalBorderColor  = "#CCCCCC"
 myFocusedBorderColor = "#FF0099"
-myFont               = "-xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1"
 
 -- 
 -- misc
@@ -109,6 +108,7 @@ myFullScreenLayout  = renamed [Replace "full"] $ noBorders Full
 --
 -- prompt
 --
+myPromptFont          = "-xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso8859-1"
 myPromptBgColor       = "#CCCCCC"
 myPromptFgColor       = "#000000"
 myPromptBgHLightColor = "#000000"
@@ -120,7 +120,7 @@ myPromptHeight        = 25
 myPrompt :: XPConfig
 myPrompt = defaultXPConfig
             { position          = Top
-            , font              = myFont
+            , font              = myPromptFont
             , bgColor           = myPromptBgColor
             , fgColor           = myPromptFgColor
             , fgHLight          = myPromptFgHLightColor
