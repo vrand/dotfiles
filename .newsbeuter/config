@@ -1,0 +1,7 @@
+## 
+browser w3m
+pager   less
+
+## Settings ##
+mark-as-read-on-hover  yes
+show-read-articles     no
