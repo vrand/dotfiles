@@ -18,7 +18,7 @@ alias s=sudo
 alias tm='tmux attach'
 alias -g v=vim
 alias yao=yaourt
-alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort | uniq'
+alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
 
 # Files by suffix
 alias -s c=$EDITOR
