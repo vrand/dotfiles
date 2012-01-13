@@ -42,7 +42,7 @@ xbacklight -set 50
 
 # tray
 trayer --edge top --align right --widthtype percent --width 5 --height 22 \
-      --transparent true  --alpha 100 --tint black --padding 5 --SetDockType true &
+      --transparent true  --alpha 0 --tint black --padding 5 --SetDockType true &
 
 # custom X settings
 xrdb -merge ~/.Xresources
