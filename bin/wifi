@@ -41,7 +41,7 @@ ifconfig wlan0 up
 # wpa_supplicant
 killall wpa_supplicant &> /dev/null
 
-message 'Trying to connect' 
+message 'Running wpa_supplicant'
 wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlan0 &> /dev/null
 
 # dhcpcd
@@ -52,4 +52,4 @@ then
 fi
 
 message 'Starting dhcp'
-dhcpcd -t 1000 wlan0
+dhcpcd -t 1000 wlan0 &> /dev/null
