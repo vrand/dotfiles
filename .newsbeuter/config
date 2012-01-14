@@ -1,7 +1,7 @@
-## 
+## External programs ##
 browser w3m
 pager   less
 
-## Settings ##
+## Behaviour ##
 mark-as-read-on-hover  yes
 show-read-articles     no
