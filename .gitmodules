@@ -10,9 +10,6 @@
 [submodule ".vim/bundle/vimwiki"]
 	path = .vim/bundle/vimwiki
 	url = https://github.com/vim-scripts/vimwiki.git
-[submodule ".vim/bundle/Conque"]
-	path = .vim/bundle/Conque
-	url = https://alejandrogomez@github.com/alejandrogomez/Conque-Shell.git
 [submodule ".vim/bundle/YankRing.vim"]
 	path = .vim/bundle/YankRing.vim
 	url = https://github.com/vim-scripts/YankRing.vim.git
@@ -31,9 +28,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/snipMate"]
-	path = .vim/bundle/snipMate
-	url = https://dialelo@bitbucket.org/dialelo/snipmate.git
 [submodule ".vim/bundle/ZoomWin"]
 	path = .vim/bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin.git
@@ -46,21 +40,9 @@
 [submodule ".vim/bundle/Gundo"]
 	path = .vim/bundle/Gundo
 	url = https://github.com/vim-scripts/Gundo.git
-[submodule ".vim/bundle/pep8"]
-	path = .vim/bundle/pep8
-	url = https://github.com/vim-scripts/pep8.git
-[submodule ".vim/bundle/pydoc.vim"]
-	path = .vim/bundle/pydoc.vim
-	url = https://github.com/vim-scripts/pydoc.vim.git
 [submodule ".vim/bundle/SuperTab"]
 	path = .vim/bundle/SuperTab
 	url = https://github.com/vim-scripts/SuperTab-continued..git
-[submodule ".vim/bundle/rope-vim"]
-	path = .vim/bundle/rope-vim
-	url = https://github.com/sontek/rope-vim.git
-[submodule ".vim/bundle/vim-makegreen"]
-	path = .vim/bundle/vim-makegreen
-	url = https://github.com/reinh/vim-makegreen.git
 [submodule ".vim/bundle/Tabular"]
 	path = .vim/bundle/Tabular
 	url = https://github.com/godlygeek/tabular.git
