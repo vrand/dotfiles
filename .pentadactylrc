@@ -61,3 +61,6 @@ set titlestring=""
 
 " no annoying sounds
 set visualbell
+
+" new tabs
+set newtab=all
