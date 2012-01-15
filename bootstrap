@@ -4,12 +4,19 @@ echo ">> Synchronizing files"
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap" --exclude "README.md" -av . ~ &> /dev/null
 
 # grab last version of pathogen VIM plugin
+echo ">> Grabbing last version of pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim &
 
 # grab last versions of some pentadactyl plugins
+echo ">> Grabbing last version of pentadactyl plugins"
 mkdir -p ~/.pentadactyl/plugins
 curl -so ~/.pentadactyl/plugins/smooth-scroll.js http://dactyl.sourceforge.net/plugins/smooth-scroll.js &
 curl -so ~/.pentadactyl/plugins/flashblock.js http://dactyl.sourceforge.net/plugins/flashblock.js &
+
+# pull last versions of the submodules
+echo ">> Pulling git repos"
+git submodule init
+git submodule update
 
 source ~/.zshrc
