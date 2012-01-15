@@ -131,9 +131,6 @@ set colorcolumn=85
 " g flag automatically on with the substitute command
 set gdefault
 
-" custom status line
-set statusline=%<%F%y%m%{VirtualEnvStatusline()}%=%{fugitive#statusline()}[%l,%c]\ %P}
-
 " 
 " Key bindings
 " ============
