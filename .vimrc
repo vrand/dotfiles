@@ -212,14 +212,6 @@ nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 map <Leader>a :Ack!<CR>
 
 "
-" Conque-Term
-"
-
-let g:ConqueTerm_Color = 1
-let g:ConqueTerm_InsertOnEnter = 1
-let ConqueTerm_ReadUnfocused = 1
-
-"
 " FuzzyFinder
 "
 
@@ -236,15 +228,6 @@ let g:gundo_width = 30
 let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_close_on_revert = 1
-
-"
-" Makegreen
-"
-
-" TODO
-
-" test Django app
-map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 
 " 
 " NERDCommenter
@@ -267,6 +250,12 @@ let NERDTreeWinSize = 25
 let NERDTreeMinimalUI = 1
 
 "
+" Powerline
+"
+
+let g:Powerline_symbols='unicode'
+
+"
 " Scratch
 "
 
@@ -277,12 +266,6 @@ let NERDTreeMinimalUI = 1
 "
 
 let g:syntastic_auto_jump = 1
-
-" 
-" TaskList
-" 
-
-" TODO
 
 "
 " YankRing
@@ -314,25 +297,6 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gl :Glog<CR>
 
 "
-" pep8
-"
-
-let g:pep8_map ='<leader>8'
-
-"
-" pydoc
-"
-
-" TODO
-
-"
-" Rope
-"
-
-map <Leader>j :RopeGotoDefinition<CR>
-map <Leader>r :RopeRename<CR>
-
-"
 " SuperTab
 "
 
@@ -348,4 +312,4 @@ let g:Tabular_loaded = 1
 " Virtualenv
 "
 
-let g:virtualenv_stl_format = '<%n>'
+"let g:virtualenv_stl_format = '<%n>'
