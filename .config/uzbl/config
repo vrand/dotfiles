@@ -448,6 +448,7 @@ set default_mode = command
 # === Webjumps ===============================================================
 
 @cbind gm = uri http://mail.google.com
+@cbind gh = uri http://github.com
 
 # === Post-load misc commands ================================================
 sync_spawn_exec @scripts_dir/load_cookies.sh
