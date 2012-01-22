@@ -343,7 +343,7 @@ set ebind     = @mode_bind global,-insert
 
 # Temporary bookmarks
 @cbind  <Ctrl>D  = spawn @scripts_dir/insert_temp.sh
-@cbind  D        = spawn @scripts_dir/load_url_from_temps.sh
+#@cbind  D        = spawn @scripts_dir/load_url_from_temps.sh
 
 # Link following (similar to vimperator and konqueror)
 # Set custom keys you wish to use for navigation. Some common examples:
@@ -376,7 +376,7 @@ set formfiller = spawn @scripts_dir/formfiller.sh
 @cbind  gO<uri:>_       = event NEW_TAB_NEXT %s
 
 # Closing / resting
-@cbind  d               = exit
+@cbind  D               = exit
 @cbind  gQ              = event CLEAN_TABS
 
 # Tab navigating
