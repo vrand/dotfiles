@@ -1,11 +1,13 @@
 # Directory tree navigation
 alias -g ..='cd ..'
 alias -g ...='cd ../..'
+alias -g ....='cd ../../..' 
+alias -g .....='cd ../../../..' 
 
 # Most visited dirs
-alias blog='cd ~/src/blog'
-alias isp='cd ~/src/ISP'
+alias blog='cd ~/blog'
 alias video='cd /mnt/data/video'
+alias books='cd /mnt/data/books'
 
 # Shortcuts
 alias cl=clear
@@ -17,6 +19,7 @@ alias pyclean='find . -name "*.pyc" -exec rm {} \;'
 alias s=sudo
 alias tm='tmux attach'
 alias -g v=vim
+alias vi=vim
 alias yao=yaourt
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
 
@@ -38,4 +41,4 @@ alias -g G='| grep'
 alias -g LC='| wc -l'
 alias -g DN='/dev/null'
 alias -g L='| less'
-alias -g NUL='> /dev/null 2>&1'
+alias -g NUL='&> /dev/null'
