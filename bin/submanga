@@ -1,9 +1,10 @@
-#!/bin/python
+#!/usr/bin/env python
 
 from os import path
 from urllib2 import urlopen
 
 from BeautifulSoup import BeautifulSoup
+from clint.textui import progress, puts, indent, colored
 
 
 BASE_URL = 'http://submanga.com'
@@ -31,7 +32,8 @@ def download_episode(episode_pages_url):
     "Downloads the episode located in the given URL."
     html = soup(episode_pages_url)
     pages = page_urls(episode_pages_url)
-    map(download_page, pages)
+    for page in progress.bar(it=pages, label='>> Fetching images: '):
+        download_page(page)
 
 def page_urls(episode_pages_url):
     "Returns a list with all the URLs corresponding to the given episode's pages."
@@ -68,7 +70,7 @@ def create_episode_dir(serie, num):
     try:
         mkdir(episode_dir)
     except OSError:
-        print '>> Looks like you already have downloaded the episode... aborting'
+        puts('>> Looks like you already have downloaded the episode... aborting')
         exit(1)
     chdir(episode_dir)
 
@@ -79,7 +81,7 @@ def download_last_episode(serie):
     if pages_url:
         download_episode(pages_url)
     else:
-        print '/!\\ Something went wrong /!\\'
+        puts(colored.red('/!\\ Something went wrong /!\\'))
 
 
 if __name__ == '__main__':
@@ -90,6 +92,6 @@ if __name__ == '__main__':
     else:
         exit(1)
 
-    print '>> Downloading last episode of %s' % serie
+    puts('>> Downloading last episode of %s' % serie)
     download_last_episode(serie)
     exit(0)
