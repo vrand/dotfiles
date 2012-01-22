@@ -8,12 +8,18 @@ XTerm*foreground:    gray
 XTerm*cursorColor:   gray
 XTerm*scrollBar:     off
 
-URxvt*font:          -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
-URxvt*background:    black
-URxvt*foreground:    gray
-URxvt*cursorColor:   gray
-URxvt*transparent:   true
-URxvt*shading:       20
-URxvt*scrollBar:     off
-URxvt*urlLauncher:   /usr/bin/links
-URxvt*underlineURLs: true
+!Font
+URxvt*font:            -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
+! Colors
+URxvt*background:      black
+URxvt*foreground:      gray
+URxvt*cursorColor:     gray
+! Appearance
+URxvt*transparent:     true
+URxvt*shading:         20
+URxvt*scrollBar:       off
+! URLs
+URxvt*perl-ext-common: default,matcher
+URxvt*urlLauncher:     /usr/bin/links
+URxvt*underlineURLs:   true
+URxvt.matcher.button:  1
