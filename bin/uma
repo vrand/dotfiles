@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Script for enabling wi-fi connection.
+# Connect to the university's network.
 #
 
 ##
@@ -34,6 +34,8 @@ if [[ $UID -ne 0 ]]; then
     error 'Run this script as root'
     exit 1
 fi
+
+export HTTP_PROXY=http://proxy.wifi.uma.es:3128/
 
 message 'Setting up the interface'
 ifconfig wlan0 up              
