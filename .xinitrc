@@ -35,7 +35,9 @@ else
 fi
 
 # xflux
+# xflux -l 55.859531 -g 9.846015 #Horsens
 xflux -l 55.859531 -g 9.846015
+
 
 # backlight
 xbacklight -set 50
