@@ -80,24 +80,26 @@
 *color7: S_base2
 *color15: S_base3
 
-XTerm*font:          -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
-XTerm*background:    black
-XTerm*foreground:    gray
-XTerm*cursorColor:   gray
-XTerm*scrollBar:     off
+!
+! XTerm
+!
+
+XTerm*font:             xft:terminus:bold:pixelsize=22
+XTerm*scrollBar:        off
+
+!
+! URxvt
+!
 
 !Font
-URxvt*font:            -xos4-terminus-bold-r-normal--22-220-72-72-c-110-iso8859-1
-! Colors
-URxvt*background:      black
-URxvt*foreground:      gray
-URxvt*cursorColor:     gray
+URxvt*font:            xft:terminus:bold:pixelsize=22
+URxvt*foreground:      white
 ! Appearance
-URxvt*transparent:     true
-URxvt*shading:         20
+URxvt*depth:           32
+URxvt*background:      rgba:0000/0000/0000/aaaa
 URxvt*scrollBar:       off
 ! URLs
 URxvt*perl-ext-common: default,matcher
-URxvt*urlLauncher:     /usr/bin/links
+URxvt*urlLauncher:     /usr/bin/w3m
 URxvt*underlineURLs:   true
 URxvt.matcher.button:  1
