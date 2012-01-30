@@ -1,14 +1,15 @@
-Config  { font      = "-xos4-terminus-bold-r-normal--18-180-72-72-c-100-iso8859-1"
+Config  { font      = "xft:terminus:bold:pixelsize=18"
         , bgColor   = "black"
         , fgColor   = "grey"
-        , position  = TopW L 95
-        , commands  = [ Run Date "%k:%M %a, %d.%m.%Y" "date" 10
-                      , Run StdinReader
+        , alpha     = 200
+        , position  = TopW L 90
+        , commands  = [ Run StdinReader
                       , Run CommandReader "~/.pymodoro/pymodoro.py" "pomodoro"
                       , Run Battery ["-t", "<left>%", "-L", "0", "-H", "40", 
                                      "--normal", "red", "--high", "cyan"] 10
+                      , Run Date "%k:%M %a, %d.%m.%Y" "date" 60
                       ]
          , sepChar  = "%"
          , alignSep = "}{"
-         , template = "%StdinReader% <fc=yellow>-</fc> %pomodoro%} {%battery%<fc=yellow> - </fc><fc=#dd0066>%date%</fc>"
+         , template = "%StdinReader%}%pomodoro%{%battery%   <fc=#dd0066>%date%</fc>"
         }
