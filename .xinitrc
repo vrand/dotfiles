@@ -36,21 +36,27 @@ fi
 
 # xflux
 # xflux -l 55.859531 -g 9.846015 #Horsens
-xflux -l 55.859531 -g 9.846015
+xflux -l 36.725384 -g -4.414939 # Málaga
 
 
 # backlight
 xbacklight -set 50
 
 # tray
-trayer --edge top --align right --widthtype percent --width 5 --height 22 \
-      --transparent true  --alpha 0 --tint black --padding 5 --SetDockType true &
+trayer --edge top --align right --widthtype percent --width 10 --height 22 \
+      --transparent true  --alpha 55 --tint black --padding 5 --SetDockType true &
 
 # wicd
 wicd-client &
 
+# alsa-tray
+alsa-tray &
+
 # custom X settings
 xrdb -merge ~/.Xresources
+
+# xcompmgr
+xcompmgr -cCfF -D 4 &
 
 # terminal
 urxvt &
