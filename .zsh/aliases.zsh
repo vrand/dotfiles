@@ -8,20 +8,30 @@ alias -g .....='cd ../../../..'
 alias blog='cd ~/blog'
 alias video='cd /mnt/data/video'
 alias books='cd /mnt/data/books'
+alias src='cd ~/repos'
 
 # Shortcuts
 alias cl=clear
-alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias -g g=git
 alias ll='ls -lA'
 alias mkdir='mkdir -p'
-alias pyclean='find . -name "*.pyc" -exec rm {} \;'
 alias s=sudo
 alias tm='tmux attach'
 alias -g v=vim
 alias vi=vim
-alias yao=yaourt
+alias y=yaourt
+alias wk=workon
+
+# Useful
+alias pyclean='find . -name "*.pyc" -exec rm {} \;'
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
+alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
+alias mostused='cat ~/.history | sort | uniq -c | sort -nr' 
+
+# pip
+alias pips='pip search'
+alias pipi='pip install'
+alias pipu='pip uninstall'
 
 # Files by suffix
 alias -s c=$EDITOR
