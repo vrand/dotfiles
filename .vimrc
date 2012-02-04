@@ -9,7 +9,8 @@ set nocompatible
 
 " enable syntax highlighting
 syntax on	
-colorscheme xemacs
+set background=dark
+colorscheme solarized
 
 " no annoying sounds
 set visualbell
@@ -179,6 +180,9 @@ let mapleader = ","
 " yank and put to/from the clipboard register
 map y "*y
 map p "*p
+
+" toggle paste mode
+map <F2> :set invpaste<CR>
 
 " turn off search highlight untill next search
 map <Leader><Space> :nohlsearch<CR>
