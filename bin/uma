@@ -3,33 +3,6 @@
 # Connect to the university's network.
 #
 
-##
-# Constants
-##
-
-ESC="\033"
-FG_RED=31
-FG_CYAN=36
-RED="$ESC[${FG_RED}m"
-CYAN="$ESC[${FG_CYAN}m" 
-RESET="$ESC[0m"
-
-##
-# Helper functions
-##
-
-function error {
-    echo -e "${RED}ERROR: ${RESET}$1"
-}
-
-function message {
-    echo -e "${CYAN}::${RESET} $1"
-}
-
-##
-# Script
-##
-
 if [[ $UID -ne 0 ]]; then
     error 'Run this script as root'
     exit 1
@@ -37,28 +10,13 @@ fi
 
 export HTTP_PROXY=http://proxy.wifi.uma.es:3128/
 
-message 'Setting up the interface'
 ifconfig wlan0 up              
+
+# stop wicd daemon
+rc.d stop wicd
 
 # wpa_supplicant
 killall wpa_supplicant &> /dev/null
+rm /var/run/wpa_supplicant/wlan0 &> /dev/null
 
-message 'Running wpa_supplicant'
-wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlan0 &> /dev/null
-
-# dhcpcd
-if [[ -f "/var/run/dhcpcd-wlan0.pid" ]]
-then
-    kill -9 `cat /var/run/dhcpcd-wlan0.pid` &> /dev/null
-    rm /var/run/dhcpcd-wlan0.pid &> /dev/null
-fi
-
-message 'Starting dhcpcd'
-dhcpcd -t 1000 wlan0 &> /dev/null
-if [[ "$?" -eq 0 ]]
-then
-    ESSID=`wireless`
-    message "Connected to $ESSID"
-else
-    error "Not connected"
-fi
+wpa_supplicant -c /etc/wpa_supplicant.conf -i wlan0
