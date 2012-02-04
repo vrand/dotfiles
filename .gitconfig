@@ -16,6 +16,7 @@
     m = merge
     ph = push
     pl = pull --rebase
+    rm = rm --cached
     s = status -sb
     st = stash
     sta = stash apply
