@@ -1,3 +1,4 @@
+import Data.List
 -- XMonad
 import XMonad
 -- Actions
@@ -37,8 +38,8 @@ main = do
         xmonad $ defaultConfig
             { terminal           = myTerminal
             , borderWidth        = myBorderWidth
-            , normalBorderColor  = myNormalBorderColor
-            , focusedBorderColor = myFocusedBorderColor
+            {-, normalBorderColor  = myNormalBorderColor-}
+            {-, focusedBorderColor = myFocusedBorderColor-}
             , workspaces         = myWorkspaces
             , manageHook         = myManageHook
             , keys               = myKeys
@@ -59,9 +60,7 @@ myModMask    = mod4Mask     -- Win or Cmd key
 --
 -- aesthetics
 --
-myBorderWidth        = 2
-myNormalBorderColor  = "#CCCCCC"
-myFocusedBorderColor = "#FF0099"
+myBorderWidth        = 0
 
 -- 
 -- misc
@@ -72,16 +71,17 @@ myNotes = "/home/dialelo/wiki/process.wiki"
 -- status bar
 --
 myBar = spawnPipe "xmobar"
+toggleStrutsKey XConfig {modMask = myModMask} = (myModMask, xK_z)
 
 -- there is more customization to xmobar in the .xmobarrc file
 myXmobar bar = defaultPP
-                { ppCurrent = xmobarColor "cyan" "" . wrap "[" "]"
+                { ppCurrent = xmobarColor "cyan" ""
                 , ppHidden  = xmobarColor "white" ""
                 , ppSort    = fmap (.scratchpadFilterOutWorkspace) getSortByTag
-                , ppSep     = " - "
-                , ppWsSep   = "·"
+                , ppSep     = "   "
+                , ppWsSep   = " "
                 , ppLayout  = xmobarColor "green" ""
-                , ppOrder   = \(ws:l:_) -> [ws,l]
+                , ppOrder   = \(ws:l:t) -> [ws,l]
                 , ppOutput  = hPutStrLn bar
                 }
 
@@ -96,7 +96,7 @@ myLayoutHook = myTiledLayout       |||
 myTiledLayout = renamed [Replace "tiled"] $ spacing 3 . avoidStruts . smartBorders $ tiled
                 where
                     tiled         = Tall masterWindows delta ratio
-                    masterWindows = 1
+                    masterWindows = 2
                     delta         = 1/10
                     ratio         = 3/4
 
@@ -108,7 +108,7 @@ myFullScreenLayout  = renamed [Replace "full"] $ noBorders Full
 --
 -- prompt
 --
-myPromptFont          = "-xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso8859-1"
+myPromptFont          = "xft:terminus:bold:pixelsize=20"
 myPromptBgColor       = "#CCCCCC"
 myPromptFgColor       = "#000000"
 myPromptBgHLightColor = "#000000"
@@ -140,7 +140,7 @@ keysToDel XConfig {modMask = modm} =
 keysToAdd :: XConfig l -> [((KeyMask, KeySym), X ())]
 keysToAdd conf@(XConfig {modMask = modm}) = 
             [ ((myModMask,               xK_f)        , spawn "firefox")                          
-            , ((myModMask,               xK_u)        , spawn "/home/dialelo/bin/uzbl")                           
+            , ((myModMask,               xK_u)        , spawn "/home/dialelo/bin/uzbl")
              -- toggle between last two workspaces
             , ((myModMask,               xK_a)        , toggleWS)                                 
              -- open the scratchpad
@@ -202,14 +202,14 @@ myManageHook = composeAll
             [ className =? "Firefox" --> doShift "www"
             , className =? "luakit"  --> doShift "www"
             , className =? "Spotify" --> doShift "media"
-            --, className =? "dia"     --> doFloat
+            , fmap ("alsa-tray" `isPrefixOf`) title --> doFloat
             , className =? "trayer"  --> doIgnore
             , manageDocks
             ] <+> manageScratchpad
 
 manageScratchpad = scratchpadManageHook (W.RationalRect left top width height)
             where
-                height = 0.4            -- 40%
-                width  = 1              -- 100%
-                top    = 0              -- distance from top
-                left   = 0              -- distance from left
+                height = 0.73
+                width  = 0.98   
+                top    = 0.27           -- distance from top
+                left   = 0.01           -- distance from left
