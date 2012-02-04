@@ -5,7 +5,7 @@ Config  { font      = "xft:terminus:bold:pixelsize=18"
         , position  = TopW L 90
         , commands  = [ Run StdinReader
                       , Run CommandReader "~/.pymodoro/pymodoro.py" "pomodoro"
-                      , Run Battery ["-t", "<left>%", "-L", "0", "-H", "40", 
+                      , Run Battery ["-t", "<acstatus> <left>%", "-L", "0", "-H", "40", 
                                      "--normal", "red", "--high", "cyan"] 10
                       , Run Date "%k:%M %a, %d.%m.%Y" "date" 60
                       ]
