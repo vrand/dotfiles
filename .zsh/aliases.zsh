@@ -19,14 +19,22 @@ alias s=sudo
 alias tm='tmux attach'
 alias -g v=vim
 alias vi=vim
-alias y=yaourt
 alias wk=workon
 
 # Useful
+alias djtest='python manage.py test'
+alias djserver='python manage.py runserver'
 alias pyclean='find . -name "*.pyc" -exec rm {} \;'
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
 alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias mostused='cat ~/.history | sort | uniq -c | sort -nr' 
+
+# yaourt
+alias y=yaourt
+alias yu='yaourt -Syu'
+alias yi='yaourt -S'
+alias ys='yaourt -Ss'
+alias yr='yaourt -Rdd'
 
 # pip
 alias pips='pip search'
