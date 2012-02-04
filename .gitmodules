@@ -64,3 +64,12 @@
 [submodule ".vim/bundle/solarized-theme"]
 	path = .vim/bundle/solarized-theme
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/django.vim"]
+	path = .vim/bundle/django.vim
+	url = https://github.com/vim-scripts/django.vim.git
+[submodule ".vim/bundle/vim-pony"]
+	path = .vim/bundle/vim-pony
+	url = https://github.com/rainerborene/vim-pony.git
+[submodule ".vim/bundle/pyflakes"]
+	path = .vim/bundle/pyflakes
+	url = https://github.com/kevinw/pyflakes-vim.git
