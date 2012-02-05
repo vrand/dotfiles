@@ -35,8 +35,8 @@ else
 fi
 
 # xflux
-# xflux -l 55.859531 -g 9.846015 #Horsens
-xflux -l 36.725384 -g -4.414939 # Málaga
+xflux -l 55.859531 -g 9.846015 #Horsens
+#xflux -l 36.725384 -g -4.414939 # Málaga
 
 
 # backlight
