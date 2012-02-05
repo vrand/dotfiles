@@ -22,6 +22,7 @@ alias vi=vim
 alias wk=workon
 
 # Useful
+alias manage='python manage.py'
 alias djtest='python manage.py test'
 alias djserver='python manage.py runserver'
 alias pyclean='find . -name "*.pyc" -exec rm {} \;'
