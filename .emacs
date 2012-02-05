@@ -1,3 +1,9 @@
+; open a *scratch* buffer at startup
+(setq inhibit-startup-screen t)
+
+; show line numbers always
+(global-linum-mode t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; org-mode                                       ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
