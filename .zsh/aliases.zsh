@@ -9,6 +9,7 @@ alias blog='cd ~/blog'
 alias video='cd /mnt/data/video'
 alias books='cd /mnt/data/books'
 alias src='cd ~/repos'
+alias mutual='cd ~/repos/Mutualismo/mutualismo'
 
 # Shortcuts
 alias cl=clear
