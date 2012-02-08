@@ -8,6 +8,7 @@
     ap = add -p
     b = branch -va
     c = commit
+    ca = commit --amend
     cm = commit -m
     co = checkout 
     d = diff --word-diff
