@@ -84,4 +84,13 @@
 	url = https://github.com/vim-scripts/pep8.git
 [submodule ".vim/bundle/pydoc"]
 	path = .vim/bundle/pydoc
-	url = https://github.com/vim-scripts/pydoc.vim.git
+	url = https://github.com/vim-scripts/pydoc.git
+[submodule ".vim/bundle/ropevim"]
+	path = .vim/bundle/ropevim
+	url = https://github.com/peplin/ropevim.git
+[submodule ".vim/bundle/pytest"]
+	path = .vim/bundle/pytest
+	url = https://github.com/alfredodeza/pytest.vim.git
+[submodule ".vim/bundle/Conque"]
+	path = .vim/bundle/Conque
+	url = git@github.com:alejandrogomez/Conque-Shell.git
