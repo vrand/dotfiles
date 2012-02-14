@@ -10,7 +10,7 @@ set nocompatible
 " enable syntax highlighting
 syntax on	
 set background=dark
-colorscheme solarized
+colorscheme molokai
 
 " no annoying sounds
 set visualbell
@@ -76,6 +76,9 @@ set completeopt=menuone,longest,preview
 
 " move the cursor across empty characters
 set virtualedit=all
+
+" swap cases with ~
+set tildeop
 
 " allow backspacing over everything on insert mode
 set backspace=indent,eol,start
@@ -146,8 +149,6 @@ cmap wQ wq
 
 " back to normal mode
 imap jk <Esc>
-
-" TODO toggle paste/nopaste
 
 " don't show me the help if I don't ask for it
 imap <F1> <Esc>
@@ -220,6 +221,7 @@ map <Leader>a :Ack!<CR>
 "
 
 let g:fuf_enumeratingLimit = 10
+
 map <C-b> :FufBuffer<CR>
 map <C-o> :FufFile<CR>
 
@@ -232,6 +234,8 @@ let g:gundo_width = 30
 let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_close_on_revert = 1
+
+map <Leader>g :GundoToggle<CR>
 
 " 
 " NERDCommenter
@@ -287,6 +291,25 @@ let g:yankring_history_file = 'yankring_history'
 " TODO
 
 "
+" Pyflakes
+"
+
+
+"
+" pep8
+"
+
+let g:pep8_map='<Leader>8'
+
+"
+" Ropevim
+"
+
+
+
+
+
+"
 " Surround
 "
 
@@ -301,10 +324,17 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gl :Glog<CR>
 
 "
+" snipMate
+"
+
+let g:snips_author="Alejandro Gómez <alejandroogomez@gmail.com>"
+
+"
 " SuperTab
 "
 
 let g:SuperTabDefaultCompletionType="context"
+
 
 "
 " Tabular
@@ -313,7 +343,12 @@ let g:SuperTabDefaultCompletionType="context"
 let g:Tabular_loaded = 1
 
 "
+" TaskList
+"
+map <Leader>t <Plug>TaskList
+
+"
 " Virtualenv
 "
 
-"let g:virtualenv_stl_format = '<%n>'
+let g:virtualenv_stl_format = '<%n>'
