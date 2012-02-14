@@ -9,7 +9,7 @@ alias blog='cd ~/blog'
 alias video='cd /mnt/data/video'
 alias books='cd /mnt/data/books'
 alias src='cd ~/repos'
-alias mutual='cd ~/repos/Mutualismo/mutualismo'
+alias mutual='cd ~/repos/Mutualismo'
 
 # Shortcuts
 alias cl=clear
@@ -24,12 +24,14 @@ alias wk=workon
 
 # Useful
 alias manage='python manage.py'
-alias djtest='python manage.py test'
-alias djserver='python manage.py runserver'
 alias pyclean='find . -name "*.pyc" -exec rm {} \;'
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
 alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias mostused='cat ~/.history | sort | uniq -c | sort -nr' 
+
+# Django
+alias djtest='python manage.py test'
+alias djserver='python manage.py runserver'
 
 # yaourt
 alias y=yaourt
