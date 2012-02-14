@@ -202,7 +202,6 @@ myManageHook = composeAll
             [ className =? "Firefox" --> doShift "www"
             , className =? "luakit"  --> doShift "www"
             , className =? "Spotify" --> doShift "media"
-            , fmap ("alsa-tray" `isPrefixOf`) title --> doFloat
             , className =? "trayer"  --> doIgnore
             , manageDocks
             ] <+> manageScratchpad
