@@ -49,8 +49,8 @@ trayer --edge top --align right --widthtype percent --width 10 --height 22 \
 # wicd
 wicd-client &
 
-# alsa-tray
-alsa-tray &
+# pnmixer
+pnmixer &
 
 # custom X settings
 xrdb -merge ~/.Xresources
