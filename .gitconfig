@@ -7,8 +7,8 @@
     a = add
     ap = add -p
     b = branch -va
-    c = commit
-    ca = commit --amend
+    ci = commit
+    ca = commit --amend -C HEAD
     cm = commit -m
     co = checkout 
     d = diff --word-diff
@@ -18,10 +18,13 @@
     ph = push
     pl = pull --rebase
     rm = rm --cached
+    publish = push --set-upstream
     s = status -sb
     st = stash
-    sta = stash apply
-    stp = stash pop
+    stapp = stash apply
+    stpop = stash pop
+    stdis = stash discard
+    timeline = log --graph --decorate --branches --oneline
     discard = reset HEAD --hard
 [color]
 	ui = true
