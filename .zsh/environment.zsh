@@ -15,6 +15,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
 source /usr/bin/virtualenvwrapper.sh
 
+# Android SDK
+export ANDROID_HOME=/usr/local/bin/android-sdk-linux
+
 # editor
 export EDITOR=vim
 
@@ -27,4 +30,4 @@ fi
 export WWW_HOME=http://dialelo.com
 
 # path
-export PATH=$HOME/bin:/usr/local/bin/android-sdk-linux/platform-tools:/usr/local/bin/android-sdk-linux/tools:$HOME/.cabal/bin:$PATH
+export PATH=/usr/share/eclipse:$HOME/bin:/usr/local/bin/android-sdk-linux/platform-tools:/usr/local/bin/android-sdk-linux/tools:$HOME/.cabal/bin:$PATH
