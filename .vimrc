@@ -343,6 +343,14 @@ let g:SuperTabDefaultCompletionType="context"
 let g:Tabular_loaded = 1
 
 "
+" Taglist
+"
+
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 35
+map <F4> :TlistToggle<CR>
+
+"
 " TaskList
 "
 map <Leader>t <Plug>TaskList
