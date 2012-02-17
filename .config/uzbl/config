@@ -103,8 +103,8 @@ set show_status       = 1
 set status_top        = 0
 set status_background = #303030
 
-set modcmd_style      = weight="bold" foreground="red"
-set keycmd_style      = weight="light" foreground="red"
+set modcmd_style      = weight="bold" foreground="white"
+set keycmd_style      = weight="light" foreground="grey"
 set prompt_style      = foreground="grey"
 set cursor_style      = underline="single"
 set completion_style  = foreground="green"
@@ -121,15 +121,16 @@ set selected_section  = <span foreground="#606060">\@[\@SELECTED_URI]\@</span>
 
 set download_section  = <span foreground="white">\@downloads</span>
 
-set status_format       = <span font_family="monospace">@mode_section @keycmd_section @progress_section @name_section @status_section @scroll_section @selected_section @download_section</span>
-set status_format_right = <span font_family="monospace"><span foreground="#666">uri:</span> @uri_section</span>
+set status_format       = <span font="monospace 14px">@mode_section @keycmd_section @progress_section @name_section @status_section @scroll_section @selected_section @download_section</span>
+
+set status_format_right = <span font_family="monospace"><span font="14px" foreground="#666">uri:</span> @uri_section</span>
 
 set title_format_long = \@keycmd_prompt \@raw_modcmd \@raw_keycmd \@TITLE - Uzbl browser <\@NAME> \@SELECTED_URI
 
 # Progress bar config
 # %d = done, %p = pending %c = percent done, %i = int done, %s = spinner,
 # %t = percent pending, %o = int pending, %r = sprite scroll
-set progress.width      = 8
+set progress.width      = 12
 set progress.format     = [%d%p]%c
 set progress.done       = #
 set progress.pending    = -
@@ -435,7 +436,7 @@ set stack    = @mode_config stack
 @insert   modcmd_updates      = 0
 
 # Multi-stage-binding mode config.
-@stack    keycmd_style        = foreground="red"
+@stack    keycmd_style        = foreground="white"
 @stack    status_background   = #202020
 @stack    mode_indicator      = B
 @stack    prompt_style        = foreground="#888" weight="light"
