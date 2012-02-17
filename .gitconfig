@@ -28,6 +28,8 @@
     discard = reset HEAD --hard
 [color]
 	ui = true
+[help]
+    autocorrect = 1
 [merge]
     tool = vimdiff
 [push]
