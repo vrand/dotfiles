@@ -230,14 +230,12 @@ set ebind     = @mode_bind global,-insert
 
 # --- Keyboard bindings ------------------------------------------------------
 
-@ibind   jk           = event ESCAPE
-
 # With this command you can enter in any command at runtime when prefixed with
 # a colon.
 @cbind    :_        = %s
 
 # open a new window or a new tab (see the on_event NEW_WINDOW settings above)
-@cbind  w            = event REQ_NEW_WINDOW
+#@cbind  w            = event REQ_NEW_WINDOW
 
 # Page movement binds
 @cbind  j            = scroll vertical 20
@@ -265,12 +263,12 @@ set ebind     = @mode_bind global,-insert
 # Zoom binds
 @cbind  +   = zoom_in
 @cbind  -   = zoom_out
-@cbind  T   = toggle zoom_type
+#@cbind  T   = toggle zoom_type
 @cbind  1   = set zoom_level = 1.0
 @cbind  2   = set zoom_level = 2.0
 
 # Appearance binds
-#@cbind  t   = toggle show_status
+@cbind  T   = toggle show_status
 
 # Page searching binds
 @cbind  /*  = search %s
@@ -280,13 +278,14 @@ set ebind     = @mode_bind global,-insert
 @cbind  N   = search_reverse
 
 # Print pages to a printer
-@cbind  <Ctrl>p = hardcopy
+#@cbind  <Ctrl>p = hardcopy
 
 # Web searching binds
-#@cbind  gg<Google:>_         = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
-@cbind  ddg<DuckDuckGo:>_    = uri http://duckduckgo.com/?q=%s
-@cbind  \\awiki<Archwiki:>_  = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
-@cbind  \\wiki<Wikipedia:>_  = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind  gG<Google:>_      = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
+@cbind  yt<YouTube:>_     = uri http://www.youtube.com/results?search_query=\@<encodeURIComponent(%r)>\@
+@cbind  ddg<DuckDuckGo:>_ = uri http://duckduckgo.com/?q=%s
+@cbind  awiki<Archwiki:>_ = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind  wiki<Wikipedia:>_ = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
 
 # Handy binds
 # Set function shortcut
@@ -455,6 +454,8 @@ set default_mode = command
 
 @cbind gm = uri http://mail.google.com
 @cbind gh = uri http://github.com
+@cbind er = uri http://twitter.com
+@cbind Bb = uri http://bitbucket.org
 
 # === Post-load misc commands ================================================
 sync_spawn_exec @scripts_dir/load_cookies.sh
