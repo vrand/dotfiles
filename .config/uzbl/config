@@ -6,6 +6,10 @@ set data_home   = @(echo $XDG_DATA_HOME)@
 set cache_home  = @(echo $XDG_CACHE_HOME)@
 set config_home = @(echo $XDG_CONFIG_HOME)@
 
+# Needed for normal work
+#set proxy_url = http://127.0.0.1:3128
+set shell_cmd = /bin/sh -c 
+
 # Interface paths.
 set fifo_dir   = /tmp
 set socket_dir = /tmp
@@ -139,7 +143,7 @@ set useragent         = Uzbl (Webkit @{WEBKIT_MAJOR}.@{WEBKIT_MINOR}) (@(+uname 
 #request WHITELIST_COOKIE domain 'uzbl.org$' expires '^$'
 
 # Drop google analytics tracking cookies (applied after whitelists if any)
-#request BLACKLIST_COOKIE name '^__utm.$'
+request BLACKLIST_COOKIE name '^__utm.$'
 
 # === SSL related configuration ==============================================
 
