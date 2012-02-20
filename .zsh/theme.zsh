@@ -29,10 +29,16 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
+function current_virtualenv() {
+    [[ -x $VIRTUAL_ENV ]] || return
+    echo $VIRTUAL_ENV | grep -o "\w*$"
+}
+
 local user='%{$fg[magenta]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$reset_color%}'
 local pwd=':%{$fg[black]%}%{$bg[white]%}%~%{$reset_color%}'
+local virtualenv=' %{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
 local git=' %{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
 local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 
-PROMPT="${user}${pwd}${git} %# "
+PROMPT="${user}${pwd}${git}${virtualenv} %# "
 #RPROMPT="${datetime}"

@@ -13,6 +13,7 @@ alias mutual='cd ~/repos/Mutualismo'
 
 # Shortcuts
 alias cl=clear
+alias d=deactivate
 alias -g g=git
 alias ll='ls -lA'
 alias mkdir='mkdir -p'
