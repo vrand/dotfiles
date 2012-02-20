@@ -38,8 +38,6 @@ main = do
         xmonad $ defaultConfig
             { terminal           = myTerminal
             , borderWidth        = myBorderWidth
-            {-, normalBorderColor  = myNormalBorderColor-}
-            {-, focusedBorderColor = myFocusedBorderColor-}
             , workspaces         = myWorkspaces
             , manageHook         = myManageHook
             , keys               = myKeys

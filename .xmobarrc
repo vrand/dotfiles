@@ -1,6 +1,6 @@
 Config  { font      = "xft:terminus:bold:pixelsize=18"
         , bgColor   = "black"
-        , fgColor   = "grey"
+        , fgColor   = "white"
         , alpha     = 200
         , position  = TopW L 90
         , commands  = [ Run StdinReader
