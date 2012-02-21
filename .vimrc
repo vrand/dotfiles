@@ -9,11 +9,17 @@ set nocompatible
 
 " enable syntax highlighting
 syntax on	
-set background=dark
-colorscheme molokai
 
-" no annoying sounds
-set visualbell
+" aesthetics
+set background=dark
+colorscheme inkpot
+
+if has("gui_running")
+    set guifont=Terminus\ 18
+endif
+
+" minimize annoyance
+set novisualbell
 
 " prevent some security exploits with modelines
 set modelines=0
