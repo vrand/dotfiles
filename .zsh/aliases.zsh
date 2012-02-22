@@ -14,6 +14,7 @@ alias mutual='cd ~/repos/Mutualismo'
 # Shortcuts
 alias cl=clear
 alias d=deactivate
+alias e=emacs
 alias -g g=git
 alias ll='ls -lA'
 alias mkdir='mkdir -p'
@@ -22,10 +23,11 @@ alias tm='tmux attach'
 alias -g v=vim
 alias vi=vim
 alias wk=workon
+alias z=zathura
 
 # Useful
 alias manage='python manage.py'
-alias pyclean='find . -name "*.pyc" -exec rm {} \;'
+alias pyclean='find -name "*.pyc" -exec rm {} \;'
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
 alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias mostused='cat ~/.history | sort | uniq -c | sort -nr' 
