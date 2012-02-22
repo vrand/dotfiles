@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/inkpot"]
 	path = .vim/bundle/inkpot
 	url = https://github.com/ciaranm/inkpot.git
+[submodule ".vim/bundle/pydoc"]
+	path = .vim/bundle/pydoc
+	url = https://github.com/vim-scripts/pydoc.vim.git
