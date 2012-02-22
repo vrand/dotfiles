@@ -12,10 +12,12 @@ syntax on
 
 " aesthetics
 set background=dark
-colorscheme inkpot
 
 if has("gui_running")
     set guifont=Terminus\ 18
+    colorscheme inkpot
+else
+    colorscheme xemacs
 endif
 
 " minimize annoyance
@@ -94,9 +96,6 @@ set hidden
 
 " offset when scrolling to the top or bottom
 set scrolloff=3
-
-" number of lines to move with scroll commands
-set scroll=15
 
 " number of lines to scroll when moving the cursor off the top or bottom
 set scrolljump=10
