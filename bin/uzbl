@@ -1,4 +1,5 @@
 #!/bin/sh
 
+privoxy ~/.config/privoxy/config
 uzbl-event-manager
 uzbl-tabbed
