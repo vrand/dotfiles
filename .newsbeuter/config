@@ -1,7 +1,8 @@
-## External programs ##
+## External programs 
 browser w3m
-pager   less
+pager   vim
 
-## Behaviour ##
+## Behaviour 
+auto-reload            yes
 mark-as-read-on-hover  yes
 show-read-articles     no
