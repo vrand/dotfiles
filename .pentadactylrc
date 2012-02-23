@@ -27,6 +27,7 @@ set flashblock
 set fbwhitelist+=youtube.com
 set fbwhitelist+=vimeo.com
 set fbwhitelist+=ontwik.com
+set fbwhitelist+=blip.tv
 
 " keys for hint labeling
 set hintkeys=dfghjk
