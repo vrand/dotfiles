@@ -13,9 +13,9 @@ syntax on
 " aesthetics
 set background=dark
 
-if has("gui_running")
-    set guifont=Terminus\ 18
+if (has("gui_running") || &t_Co == 256)
     colorscheme inkpot
+    set guifont=Terminus\ 18
 else
     colorscheme xemacs
 endif
