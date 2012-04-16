@@ -103,3 +103,6 @@
 [submodule ".vim/bundle/orgmode"]
 	path = .vim/bundle/orgmode
 	url = https://github.com/jceb/vim-orgmode.git
+[submodule ".vim/bundle/pyflakes"]
+	path = .vim/bundle/pyflakes
+	url = https://github.com/kevinw/pyflakes-vim.git
