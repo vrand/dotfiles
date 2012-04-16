@@ -91,3 +91,15 @@
 [submodule ".vim/bundle/pydoc"]
 	path = .vim/bundle/pydoc
 	url = https://github.com/vim-scripts/pydoc.vim.git
+[submodule ".vim/bundle/vividchalk"]
+	path = .vim/bundle/vividchalk
+	url = https://github.com/tpope/vim-vividchalk.git
+[submodule ".vim/bundle/latex"]
+	path = .vim/bundle/latex
+	url = https://github.com/vim-scripts/AutomaticLaTexPlugin.git
+[submodule ".vim/bundle/vimux"]
+	path = .vim/bundle/vimux
+	url = https://github.com/benmills/vimux.git
+[submodule ".vim/bundle/orgmode"]
+	path = .vim/bundle/orgmode
+	url = https://github.com/jceb/vim-orgmode.git
