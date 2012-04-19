@@ -8,7 +8,7 @@ ESSID=`iwconfig wlan0 | grep -o "\".*\"" | cut -d '"' -f 2`
 
 if [[ "" == "$ESSID" ]]
 then
-    echo "N/A"
+    echo "·"
 else
     echo "$ESSID"
 fi
