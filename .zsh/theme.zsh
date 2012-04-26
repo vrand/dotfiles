@@ -34,11 +34,12 @@ function current_virtualenv() {
     echo $VIRTUAL_ENV | grep -o "\w*$"
 }
 
-local user='%{$fg[magenta]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$reset_color%}'
-local pwd=':%{$fg[black]%}%{$bg[white]%}%~%{$reset_color%}'
-local virtualenv=' %{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
-local git=' %{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
-local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
+local user='%{$fg[white]%}%{$bg[blue]%}%n%{$reset_color%}'
+local hostname='%{$fg[white]%}%{$bg[magenta]%}%m%{$reset_color%}'
+local cwd='%{$fg[black]%}%{$bg[white]%}%~%{$reset_color%}'
+local git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
+local virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
+#local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 
-PROMPT="${user}${pwd}${git}${virtualenv} %# "
-#RPROMPT="${datetime}"
+PROMPT="${user} @ ${hostname} in ${cwd} >> "
+RPROMPT="${git_branch} ${virtualenv}"

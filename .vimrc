@@ -12,12 +12,14 @@ syntax on
 
 " aesthetics
 set background=dark
-
-if (has("gui_running") || &t_Co == 256)
-    colorscheme inkpot
-    set guifont=Terminus\ 18
+if &t_Co == 256
+    colorscheme xoria256
 else
     colorscheme xemacs
+endif
+
+if has('gui_running')
+    set guifont=Deja\ Vu\ Sans\ Mono\ 14
 endif
 
 " minimize annoyance
@@ -155,10 +157,6 @@ cmap wQ wq
 " back to normal mode
 imap jk <Esc>
 
-" don't show me the help if I don't ask for it
-imap <F1> <Esc>
-map <F1> <Esc>
-
 " increase/decrease window size
 " TODO
 
@@ -190,6 +188,9 @@ map p "*p
 " toggle paste mode
 map <F2> :set invpaste<CR>
 
+" make
+map <Leader>m :make<CR>
+
 " turn off search highlight untill next search
 map <Leader><Space> :nohlsearch<CR>
 
@@ -208,6 +209,34 @@ nnoremap <Leader>h <C-w>s<C-w>j
 " save as superuser
 nnoremap <Leader>sw :w !sudo tee > /dev/null<CR>
 
+" from the interwebs
+" ··················
+
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" make Y behave like other capitals
+map Y y$
+
+" keep search pattern at the center of the screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+
+" open last/alternate buffer 
+noremap <Leader><Leader> <C-^>
+
+" easier increment(decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" use ,F to jump to tag in a horizontal split
+nnoremap <silent> ,F :let word=expand("<cword>")<CR>:sp<CR>:wincmd w<cr>:exec("tag ". word)<cr>
+
+" use ,gf to go to file in a vertical split
+nnoremap <silent> ,gf :vertical botright wincmd f<CR>
 
 " 
 " Plugins
@@ -240,7 +269,7 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_close_on_revert = 1
 
-map <Leader>g :GundoToggle<CR>
+map <F3> :GundoToggle<CR>
 
 " 
 " NERDCommenter
@@ -253,20 +282,14 @@ let g:NERDCommentWholeLinesInVMode = 1
 " NERDTree
 "
 
-map <Leader>n :NERDTreeToggle<CR>
+map <F1> :NERDTreeToggle<CR>
 
-let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.git$', '.DS_Store$']
+let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.egg-info$', '\.git$', '\.aux$', '\.bbl$', '\.blg$', '\.dvi$', '.DS_Store$']
 let NERDTreeShowHidden = 1
 let NERDTreeShowLineNumbers = 1
 let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
 let NERDTreeWinSize = 25
 let NERDTreeMinimalUI = 1
-
-"
-" Powerline
-"
-
-let g:Powerline_symbols='unicode'
 
 "
 " Scratch
@@ -298,6 +321,8 @@ let g:yankring_history_file = 'yankring_history'
 "
 " Pyflakes
 "
+
+let g:pyflakes_use_quickfix = 0
 
 
 "
@@ -352,16 +377,35 @@ let g:Tabular_loaded = 1
 "
 
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 35
 map <F4> :TlistToggle<CR>
 
 "
 " TaskList
 "
-map <Leader>t <Plug>TaskList
 
+map <Leader>? <Plug>TaskList
+
+"
+" Vimux
+"
+
+" Run tdaemon
+map <Leader>t :call RunVimTmuxCommand("clear; tdaemon" . bufname("%"))<CR>
+ 
 "
 " Virtualenv
 "
 
 let g:virtualenv_stl_format = '<%n>'
+
+
+"
+" Eclim
+" 
+
+
+map <Leader>i :JavaImportMissing<CR>
+map <Leader>c :JavaCorrect<CR>
+map <Leader>b :ProjectBuild<CR>

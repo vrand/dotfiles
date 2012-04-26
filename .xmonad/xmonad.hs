@@ -7,6 +7,7 @@ import XMonad.Actions.CycleWS
 -- Hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 -- Layout
 import XMonad.Layout                
 import XMonad.Layout.NoBorders     
@@ -35,7 +36,7 @@ import XMonad.Util.WorkspaceCompare
 
 main = do 
         bar <- myBar
-        xmonad $ defaultConfig
+        xmonad $ ewmh defaultConfig
             { terminal           = myTerminal
             , borderWidth        = myBorderWidth
             , workspaces         = myWorkspaces

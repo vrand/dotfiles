@@ -1,6 +1,9 @@
 [user]
 	name = Alejandro Gómez
 	email = alejandroogomez@gmail.com
+[github]
+    user = alejandrogomez
+    token = 2e3f397ceb19e4cd7b6391f3b7ed63ed
 [core]
 	editor = vim
 [alias]
@@ -18,7 +21,6 @@
     ph = push
     pl = pull --rebase
     rm = rm --cached
-    publish = push --set-upstream
     s = status -sb
     st = stash
     stapp = stash apply

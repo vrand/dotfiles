@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# 
+#
+
+if [[ $UID -ne 0 ]]; then
+    error 'Run this script as root'
+    exit 1
+fi
+
+function tether_on
+{
+    ifconfig usb0 up              
+
+    # stop wicd daemon
+    rc.d stop wicd
+
+    dhcpcd usb0
+}
+
+function tether_off
+{
+    ifconfig usb0 down
+
+    # stop wicd daemon
+    rc.d start wicd
+}
+
+case "$1" in
+    on)  tether_on;;
+    off) tether_off;;
+    *)   tether_on;;
+esac

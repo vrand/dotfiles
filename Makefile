@@ -1,12 +1,12 @@
 # rsync
 RSYNC_FLAGS=-av
-RSYNC_EXCLUDE=-exclude ".git/" --exclude "Makefile" --exclude "README.md"
+RSYNC_EXCLUDE=--exclude ".git/" --exclude "Makefile" --exclude "README.md"
 
 # pathogen
 PATHOGEN_URL=https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 
 
-all: files submodules pathogen reload
+all: files submodules pathogen
 
 files:
 	echo ">> Synchronizing files"

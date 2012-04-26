@@ -10,7 +10,7 @@ set jid = alejandroogomez@gmail.com
 # If password is not given, it will be interactively asked for.
 # Note: if the password contains leading or trailing spaces, you must
 # enclose it with quotes: set password = " example password "
-#set password = yourpassword
+set password = suspici0usactivity
 
 # You can provide a server name if you want mcabber to connect
 # to a specific server.
@@ -367,18 +367,19 @@ set escdelay = 50
 # rosterselmsg:text color of the selected roster item, if there is a new msg
 # rosternewmsg: text color of items with unread messages
 #
+
 set color_background   = black
 set color_general      = white
-set color_info         = white
-set color_msgin        = yellow
-set color_msgout       = cyan
+set color_info         = blue
+set color_msgin        = red
+set color_msgout       = blue
 set color_msghl        = yellow
-set color_bgstatus     = blue
-set color_status       = white
-set color_roster       = white
-set color_bgrostersel  = blue
-set color_rostersel    = white
-set color_rosterselmsg = red
+set color_bgstatus     = magenta
+set color_status       = black
+set color_roster       = green
+set color_bgrostersel  = magenta
+set color_rostersel    = black
+set color_rosterselmsg = yellow
 set color_rosternewmsg = red
 
 # You can color roster items by their status and JID.  For example, to have

@@ -7,8 +7,7 @@ set cache_home  = @(echo $XDG_CACHE_HOME)@
 set config_home = @(echo $XDG_CONFIG_HOME)@
 
 # Needed for normal work
-set proxy_url = http://127.0.0.1:8118
-set shell_cmd = /bin/sh -c 
+# set proxy_url = http://127.0.0.1:8118
 
 # Interface paths.
 set fifo_dir   = /tmp
@@ -452,10 +451,20 @@ set default_mode = command
 
 # === Webjumps ===============================================================
 
+# social
 @cbind gm = uri http://mail.google.com
-@cbind gh = uri http://github.com
 @cbind er = uri http://twitter.com
+
+# github 
+@cbind gh = uri http://github.com
+@cbind ght = uri http://github.com/alejandrogomez/turses
+
+# bitbucket
 @cbind Bb = uri http://bitbucket.org
+
+# random
+@cbind emo = uri http://www.emoji-cheat-sheet.com
+
 
 # === Post-load misc commands ================================================
 sync_spawn_exec @scripts_dir/load_cookies.sh

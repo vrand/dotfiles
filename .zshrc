@@ -1,3 +1,6 @@
 ZSH=$HOME/.zsh
  
-for config_file ($ZSH/*.zsh) source $config_file
+for config_file in $ZSH/*.zsh 
+do
+    source $config_file
+done

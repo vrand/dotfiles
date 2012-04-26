@@ -1,1 +1,1 @@
-acpi | cut -d ' ' -f 3-4 | sed 's/,//g' | sed 's/[cC]harging//'
+acpi | cut -d ' ' -f 4

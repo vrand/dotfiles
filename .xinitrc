@@ -20,6 +20,7 @@ xsetroot -cursor_name left_ptr
 
 # custom fonts
 xset fp+ /usr/share/fonts/local/
+xset fp+ /usr/share/fonts/TTF/
 xset fp rehash
 
 # turn off the annoying beep
@@ -44,6 +45,9 @@ xrdb -merge ~/.Xresources
 # xcompmgr
 xcompmgr -cCfF -D 4 &
 
+# wallpaper
+feh --bg-scale ~/images/wallpaper
+
 ## 
 #  Programs
 ##
@@ -57,20 +61,6 @@ wicd-client -t &
 
 # parcellite
 parcellite &
-
-# terminal
-urxvt &
-
-## 
-#  Aesthetics
-##
-
-# set the background
-if [[ -f $HOME/images/wallpaper ]]; then
-    feh --bg-scale $HOME/images/wallpaper
-else
-    xsetroot -solid midnightblue
-fi
 
 ## 
 #  Window manager
