@@ -20,6 +20,9 @@ export PROJECT_HOME=$HOME/src
 VENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
 source "$VENVWRAPPER_SCRIPT"
 
+# mail
+export MAIL=/var/spool/mail/dialelo
+
 ##
 #  ANDROID_HOME
 ##

@@ -12,6 +12,7 @@ au BufRead,BufNewFile */.xmobarrc       set filetype=haskell
 autocmd BufRead,BufNewFile config       set filetype=cfg
 au BufRead,BufNewFile ~/.config/uzbl/*  set filetype=uzbl
 au BufRead,BufNewFile */uzbl/config     set filetype=uzbl
+au BufRead,BufNewFile .pentadactylrc    set filetype=vim
 
 " xmonad config 
 au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile

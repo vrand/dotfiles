@@ -59,12 +59,12 @@ myModMask    = mod4Mask     -- Win or Cmd key
 --
 -- aesthetics
 --
-myBorderWidth        = 0
+myBorderWidth = 0
 
 -- 
 -- misc
 --
-myNotes = "/home/dialelo/wiki/process.wiki"
+myNotes = "/home/dialelo/org/gtd.org"
 
 --
 -- status bar
@@ -138,7 +138,7 @@ keysToDel XConfig {modMask = modm} =
 
 keysToAdd :: XConfig l -> [((KeyMask, KeySym), X ())]
 keysToAdd conf@(XConfig {modMask = modm}) = 
-            [ ((myModMask,               xK_f)        , spawn "firefox")                          
+            [ ((myModMask,               xK_f)        , spawn "chromium")                          
             , ((myModMask,               xK_u)        , spawn "/home/dialelo/bin/uzbl")
              -- toggle between last two workspaces
             , ((myModMask,               xK_a)        , toggleWS)                                 
@@ -198,9 +198,8 @@ myKeys = customKeys keysToDel keysToAdd
 -- hooks
 --
 myManageHook = composeAll
-            [ className =? "Firefox" --> doShift "www"
-            , className =? "luakit"  --> doShift "www"
-            , className =? "Spotify" --> doShift "media"
+            [ className =? "Chromium" --> doShift "www"
+            , className =? "uzbl"  --> doShift "www"
             , className =? "trayer"  --> doIgnore
             , manageDocks
             ] <+> manageScratchpad

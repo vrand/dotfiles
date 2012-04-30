@@ -45,8 +45,10 @@ xrdb -merge ~/.Xresources
 # xcompmgr
 xcompmgr -cCfF -D 4 &
 
-# wallpaper
-feh --bg-scale ~/images/wallpaper
+# random wallpaper
+IMAGES_DIR=$HOME/images
+
+feh --bg-scale $IMAGES_DIR/`ls $IMAGES_DIR | sort -R | tail -n 1`
 
 ## 
 #  Programs

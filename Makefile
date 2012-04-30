@@ -3,7 +3,7 @@ RSYNC_FLAGS=-av
 RSYNC_EXCLUDE=--exclude ".git/" --exclude "Makefile" --exclude "README.md"
 
 # pathogen
-PATHOGEN_URL=https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+PATHOGEN_URL=https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 
 all: files submodules pathogen

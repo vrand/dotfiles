@@ -25,6 +25,7 @@ set fullscreen
 " flashblock plugin settings
 set flashblock
 set fbwhitelist+=youtube.com
+set fbwhitelist+=animeid.com
 set fbwhitelist+=vimeo.com
 set fbwhitelist+=ontwik.com
 set fbwhitelist+=blip.tv

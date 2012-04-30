@@ -285,6 +285,7 @@ set ebind     = @mode_bind global,-insert
 @cbind  ddg<DuckDuckGo:>_ = uri http://duckduckgo.com/?q=%s
 @cbind  awiki<Archwiki:>_ = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
 @cbind  wiki<Wikipedia:>_ = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind  wb<wallbase.cc:>_      = uri http://www.wallbase.cc/search?q=\@<encodeURIComponent(%r)>\@
 
 # Handy binds
 # Set function shortcut

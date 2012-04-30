@@ -11,6 +11,7 @@ alias books='cd /data/books'
 alias src='cd ~/repos'
 alias blog='cd ~/blog'
 alias dot='cd ~/dotfiles'
+alias battery='acpi | grep -o "...%"'
 
 # repos
 alias mut='cd ~/repos/Mutualismo'

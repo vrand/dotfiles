@@ -147,12 +147,17 @@ set gdefault
 " ============
 "
 
+" write
+nmap <C-w> :w<CR>
+
 " avoid common mistakes
 cmap W w
 cmap Q q
 cmap WQ wq
 cmap Wq wq 
 cmap wQ wq 
+cmap Sp sp
+cmap Sb sb
 
 " back to normal mode
 imap jk <Esc>
@@ -228,7 +233,7 @@ nnoremap <silent> # #zz
 " open last/alternate buffer 
 noremap <Leader><Leader> <C-^>
 
-" easier increment(decrement
+" easier increment/decrement
 nnoremap + <C-a>
 nnoremap - <C-x>
 
@@ -284,7 +289,7 @@ let g:NERDCommentWholeLinesInVMode = 1
 
 map <F1> :NERDTreeToggle<CR>
 
-let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.egg-info$', '\.git$', '\.aux$', '\.bbl$', '\.blg$', '\.dvi$', '.DS_Store$']
+let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.egg-info$', '\.git$', '\.aux$', '\.bbl$', '\.blg$', '\.dvi$', '.DS_Store$', '.ropeproject']
 let NERDTreeShowHidden = 1
 let NERDTreeShowLineNumbers = 1
 let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
@@ -319,25 +324,18 @@ let g:yankring_history_file = 'yankring_history'
 " TODO
 
 "
-" Pyflakes
+" python-mode
 "
 
-let g:pyflakes_use_quickfix = 0
+" linter
+let g:pymode_lint_write = 0
+let g:pymode_lint_checker = "pyflakes"
 
+" breakpoints
+let g:pymode_breakpoint = 0
 
-"
 " pep8
-"
-
-let g:pep8_map='<Leader>8'
-
-"
-" Ropevim
-"
-
-
-
-
+let g:pep8_map = "<F8>" 
 
 "
 " Surround
@@ -404,7 +402,6 @@ let g:virtualenv_stl_format = '<%n>'
 "
 " Eclim
 " 
-
 
 map <Leader>i :JavaImportMissing<CR>
 map <Leader>c :JavaCorrect<CR>
