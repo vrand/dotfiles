@@ -13,7 +13,7 @@ syntax on
 " aesthetics
 set background=dark
 if &t_Co == 256
-    colorscheme xoria256
+    colorscheme inkpot
 else
     colorscheme xemacs
 endif
@@ -378,12 +378,6 @@ let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 35
 map <F4> :TlistToggle<CR>
-
-"
-" TaskList
-"
-
-map <Leader>? <Plug>TaskList
 
 "
 " Vimux
