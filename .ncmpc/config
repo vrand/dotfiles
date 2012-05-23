@@ -1,7 +1,0 @@
-# interface
-auto-center = yes
-audible-bell = no
-visible-bell = yes
-
-# colors
-enable-colors = yes
