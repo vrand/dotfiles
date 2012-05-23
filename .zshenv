@@ -1,55 +1,24 @@
-# misc
-setopt autocd
-
-# history
+# History
 export HISTSIZE=10000
 export HISTFILE="$HOME/.history"
 
 export SAVEHIST=$HISTSIZE
 
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-
-export MAIL=$HOME/mail
-
-# virtualenvwrapper configuration
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/src
-
-# TODO: if exists
-VENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
-source "$VENVWRAPPER_SCRIPT"
-
-# mail
-export MAIL=/var/spool/mail/dialelo
-
-##
-#  ANDROID_HOME
-##
-
-export ANDROID_HOME=/opt/android-sdk
-
-##
-#  EDITOR
-##
-
+# Editor
 export EDITOR=vim
 
-##
-#  BROWSER
-##
-
+# Browser
+export WWW_HOME=http://dialelo.com
 if [[ -z $DISPLAY ]] then
     export BROWSER=elinks
-    export WWW_HOME=http://dialelo.com
 else
     export BROWSER=uzbl-browser
 fi
 
-##
-#  PATH
-##
+# Mail
+export MAIL=$HOME/Mail
 
+# Path
 function add_to_path
 {
     for extra_path in "$@"
@@ -58,36 +27,42 @@ function add_to_path
     done
 }
 
-# eclipse
 ECLIPSE_PATH=/usr/share/eclipse
 add_to_path "$ECLIPSE_PATH" 
 
-# scripts
 SCRIPTS_PATH=$HOME/bin
 add_to_path "$SCRIPTS_PATH" 
 
-# Android platform tools
-ANDROID_PATH=/opt/android-sdk/platform-tools
+export ANDROID_HOME=/opt/android-sdk
+ANDROID_PATH=$ANDROID_HOME/platform-tools
 add_to_path "$ANDROID_PATH" 
 
-# Ruby gems
 GEMS_PATH=$HOME/.gem/ruby/1.9.1/bin
 add_to_path "$GEMS_PATH" 
 
-# cabal binaries
 CABAL_PATH=$HOME/.cabal/bin
 add_to_path "$CABAL_PATH" 
 
 export PATH
 
-##
-#  FUNCTIONS
-##
+# Images
+export IMAGES_DIR=$HOME/images
 
+# Virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/repos
+
+VENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+if [[ -x VENVWRAPPER_SCRIPT ]]
+then
+    source "$VENVWRAPPER_SCRIPT"
+fi
+
+# Functions
 function modernize
 {
     # system
-    yaourt -Syu
+    yaourt -Syu #--no-confirm
 
     # ruby gems
     gem update
