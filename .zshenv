@@ -6,6 +6,7 @@ export SAVEHIST=$HISTSIZE
 
 # Editor
 export EDITOR=vim
+export MYVIMRC=$HOME/dotfiles/.vimrc
 
 # Browser
 export WWW_HOME=http://dialelo.com
@@ -53,7 +54,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 #export PROJECT_HOME=$HOME/repos
 
 VENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
-if [[ -x VENVWRAPPER_SCRIPT ]]
+if [[ -r $VENVWRAPPER_SCRIPT ]]
 then
     source "$VENVWRAPPER_SCRIPT"
 fi
