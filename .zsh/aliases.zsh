@@ -14,25 +14,26 @@ alias dot='cd ~/dotfiles'
 alias battery='acpi | grep -o "...%"'
 
 # repos
-alias mut='cd ~/repos/Mutualismo'
-alias tur='cd ~/repos/turses'
-alias ric='cd ~/repos/richard'
+alias mut='cd ~/repos/Mutualismo && workon m'
+alias tur='cd ~/repos/turses && workon t'
 
 # Shortcuts
+alias a='alsamixer'
 alias e='emacsclient -tc'
 alias d=deactivate
 alias g=git
 alias ll='ls -lA'
 alias lh='ls -lAh'
-alias m='alsamixer'
+alias m='mux'
 alias -g mkdir='mkdir -p'
 alias s=sudo
-alias tm='tmuxinator'
-alias tmo='tmuxinator open'
+alias t=tmux
+alias tu=turses
 alias v=vim
 alias vi=vim
 alias x='cd && xinit'
 alias w=workon
+alias mt='make && turses'
 alias z='zathura --fork'
 
 # Useful
@@ -41,6 +42,7 @@ alias pyclean='find -name "*.pyc" -exec rm {} \;'
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
 alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias mostused='cat ~/.history | sort | uniq -c | sort -nr | head -n 10 | nl' 
+alias wallpaper='feh --bg-scale $IMAGES_DIR/`ls $IMAGES_DIR | sort -R | tail -n 1`'
 
 # Django
 alias djtest='python manage.py test'
@@ -75,3 +77,4 @@ alias -s PKGBUILD=$EDITOR
 alias -g G='| grep'
 alias -g L='| less'
 alias -g DN='&> /dev/null'
+alias -g CAT='| xargs cat |'
