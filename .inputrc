@@ -17,4 +17,3 @@ set visible-stats on
 $if Bash
   Space: magic-space
 $endif
-
