@@ -54,13 +54,19 @@ set completeopt=menuone,longest,preview
 " AESTHETICS
 
 syntax on
-set t_Co=256
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+if &t_Co == 256
+    let g:solarized_termcolors=256
+    colorscheme solarized
+else
+    colorscheme xemacs
+endif
 
 nmap <leader>tb :call ToggleBackground()<CR>
 function! ToggleBackground()
+    if &t_Co != 256
+        return
+    endif
     if &background == "dark"
         set background=light
         " stays dark if colorscheme is not reloaded
