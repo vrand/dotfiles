@@ -100,6 +100,9 @@
 [submodule ".vim/bundle/ipython"]
 	path = .vim/bundle/ipython
 	url = https://github.com/ivanov/vim-ipython.git
-[submodule ".vim/bundle/python-mode"]
-	path = .vim/bundle/python-mode
-	url = https://github.com/klen/python-mode.git
+[submodule ".vim/bundle/vimwiki"]
+	path = .vim/bundle/vimwiki
+	url = https://github.com/vim-scripts/vimwiki.git
+[submodule ".vim/bundle/Color-Sampler-Pack"]
+	path = .vim/bundle/Color-Sampler-Pack
+	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
