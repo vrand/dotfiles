@@ -184,6 +184,13 @@ cmap wQ wq
 cmap Sp sp
 cmap Sb sb
 
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
+
 " MAPPINGS
 
 " back to normal mode
@@ -230,6 +237,10 @@ nmap <Leader>s V']
 
 " edit $MYVIMRC
 nnoremap <Leader>rc :vsp $MYVIMRC<CR>
+
+" faster exit
+nmap <leader>q :q<CR>
+nmap <leader>Q :qa<CR>
 
 " split and focus window
 nnoremap <Leader>v <C-w>v<C-w>l
@@ -374,3 +385,7 @@ au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile
 
 " Makefiles depend on tabs to work 
 autocmd FileType make setlocal noexpandtab
+
+" mail
+autocmd FileType mail setlocal spell
+autocmd FileType mail setlocal spelllang=es_ES,en_US
