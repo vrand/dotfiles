@@ -353,3 +353,24 @@ augroup END
 
 " automatically reload .vimrc when it's saved
 autocmd BufWritePost .vimrc source %
+
+" filetype specific settings
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+" syntax highlighting
+au BufRead,BufNewFile /etc/nginx/conf/* set filetype=nginx
+au BufRead,BufNewFile Vagrantfile       set filetype=ruby 
+au BufRead,BufNewFile */.tmux.conf      set filetype=tmux
+au BufRead,BufNewFile */.xmobarrc       set filetype=haskell
+autocmd BufRead,BufNewFile config       set filetype=cfg
+au BufRead,BufNewFile ~/.config/uzbl/*  set filetype=uzbl
+au BufRead,BufNewFile */uzbl/config     set filetype=uzbl
+au BufRead,BufNewFile .pentadactylrc    set filetype=vim
+
+" xmonad config 
+au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile
+
+" Makefiles depend on tabs to work 
+autocmd FileType make setlocal noexpandtab
