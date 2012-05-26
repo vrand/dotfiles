@@ -300,6 +300,7 @@ let NERDTreeMinimalUI = 1
 
 " toggle NERDTree in the directory of the file that I'm editing
 map <Leader>n :lcd %:h<CR>:NERDTreeToggle<CR>
+map <Leader>N :NERDTree<CR>
 
 " Syntastic
 let g:syntastic_auto_jump = 1
