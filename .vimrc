@@ -156,6 +156,7 @@ nmap <leader>sg :set spelllang=en_gb<CR>
 
 " show relative line number
 set relativenumber
+set numberwidth=3
 
 " read changes to files outside Vim
 set autoread
