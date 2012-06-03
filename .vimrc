@@ -2,17 +2,54 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-filetype plugin indent on
+
+" Vundle
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Bundles
+" ~~~~~~~
+
+Bundle 'gmarik/vundle'
+
+
+" GitHub
+Bundle 'mileszs/ack.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'peplin/ropevim'
+
+" vim-scripts
+Bundle 'nginx.vim'
+Bundle 'Gundo'
+Bundle 'pep8'
+Bundle 'pydoc'
+Bundle 'vimwiki'
+Bundle 'scratch'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'Color-Sampler-Pack'
+Bundle 'YankRing.vim'
+Bundle 'SuperTab-continued.'
+Bundle 'ZoomWin'
+
+filetype plugin on
 
 " GENERAL
 
 " Vim settings rather than Vi settings
 set nocompatible
 
-"" don't polute current directory with swap and backup files
 set nobackup
+set noswapfile
 "set backupdir=~/.vim/backup
-set directory=~/.vim/swap
+"set directory=~/.vim/swap
 
 " save undo history for each file
 set undodir=~/.vim/undo
@@ -53,28 +90,30 @@ set completeopt=menuone,longest,preview
 
 " AESTHETICS
 
+function! SetColorScheme()
+    if &t_Co != 256
+        colorscheme xemacs
+    else
+        let g:solarized_termcolors=256
+        colorscheme solarized
+    endif
+endfunc
+
+
 syntax on
+call SetColorScheme()
 set background=dark
-if &t_Co == 256
-    let g:solarized_termcolors=256
-    colorscheme solarized
-else
-    colorscheme xemacs
-endif
 
 nmap <leader>tb :call ToggleBackground()<CR>
 function! ToggleBackground()
-    if &t_Co != 256
-        return
-    endif
     if &background == "dark"
         set background=light
-        " stays dark if colorscheme is not reloaded
-        colorscheme solarized
+        call SetColorScheme()
     else
         set background=dark
     endif
 endfunc
+
 
 " UI
 
@@ -313,6 +352,9 @@ let g:yankring_max_history = 1000
 let g:yankring_history_dir = '$HOME/.vim/yankring'
 let g:yankring_history_file = 'yankring_history'
 
+" Vimwiki
+map <Leader>vs :VimwikiSearch
+
 " pep8
 let g:pep8_map = "<F8>"
 
@@ -356,6 +398,12 @@ augroup Java
     autocmd FileType java map <Leader>B :ProjectBuild<CR>
 augroup END
 
+augroup JavaScript
+    au!
+
+    autocmd FileType javascrip setlocal shiftwidth=2 tabstop=2
+augroup END
+
 augroup Python
     au!
 
@@ -373,18 +421,19 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " syntax highlighting
 au BufRead,BufNewFile /etc/nginx/conf/* set filetype=nginx
-au BufRead,BufNewFile Vagrantfile       set filetype=ruby 
+au BufRead,BufNewFile Vagrantfile       set filetype=ruby
 au BufRead,BufNewFile */.tmux.conf      set filetype=tmux
 au BufRead,BufNewFile */.xmobarrc       set filetype=haskell
 autocmd BufRead,BufNewFile config       set filetype=cfg
 au BufRead,BufNewFile ~/.config/uzbl/*  set filetype=uzbl
 au BufRead,BufNewFile */uzbl/config     set filetype=uzbl
 au BufRead,BufNewFile .pentadactylrc    set filetype=vim
+au BufRead,BufNewFile *.md              set filetype=markdown
 
-" xmonad config 
+" xmonad config
 au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile
 
-" Makefiles depend on tabs to work 
+" Makefiles depend on tabs to work
 autocmd FileType make setlocal noexpandtab
 
 " mail
