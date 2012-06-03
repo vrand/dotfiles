@@ -1,7 +1,4 @@
-" pathogen
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
 " Vundle
 set runtimepath+=~/.vim/bundle/vundle
@@ -10,10 +7,7 @@ call vundle#rc()
 " Bundles
 " ~~~~~~~
 
-Bundle 'gmarik/vundle'
-
-
-" GitHub
+" from GitHub
 Bundle 'mileszs/ack.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
@@ -24,12 +18,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'peplin/ropevim'
+Bundle 'godlygeek/tabular'
 
-" vim-scripts
+" from www.vim.org/scripts
 Bundle 'nginx.vim'
 Bundle 'Gundo'
 Bundle 'pep8'
-Bundle 'pydoc'
+Bundle 'pydoc.vim'
 Bundle 'vimwiki'
 Bundle 'scratch'
 Bundle 'L9'
@@ -41,7 +36,8 @@ Bundle 'ZoomWin'
 
 filetype plugin on
 
-" GENERAL
+" General
+" ~~~~~~~
 
 " Vim settings rather than Vi settings
 set nocompatible
@@ -88,7 +84,8 @@ set complete=.,w,b,t,i
 " autocompletion visualization
 set completeopt=menuone,longest,preview
 
-" AESTHETICS
+" Aesthetics
+" ~~~~~~~~~~
 
 function! SetColorScheme()
     if &t_Co != 256
@@ -116,6 +113,7 @@ endfunc
 
 
 " UI
+" ~~
 
 " last window always has a status line
 set laststatus=2
@@ -135,13 +133,12 @@ set textwidth=79
 "" visual indicator in 80-th column
 set colorcolumn=80
 
-" GUI
-
 if has('gui_running')
     set guifont=Deja\ Vu\ Sans\ Mono\ 14
 endif
 
-" EDITING
+" Editing
+" ~~~~~~~
 
 " show invisible chars (*t*oggle *l*ist)
 nmap <leader>tl :set list!<CR>
@@ -188,7 +185,8 @@ set scrolloff=99
 " put a '$' at the end of the text to change while making changes
 set cpoptions+=$
 
-" SEARCH
+" Search
+" ~~~~~~
 
 " incremental searching
 set incsearch
@@ -206,13 +204,15 @@ set hlsearch
 " global flag automatically on with the substitute command
 set gdefault
 
-" COMMANDS
+" Commands
+" ~~~~~~~~
 
 " save as superuser
 command! Sudow :w !sudo tee % &> /dev/null<CR>
 
 " remove trailing whitespaces in the whole file
 command! -nargs=* StripTrailingWhitespace :%s/\s\+$//
+map <Leader>st :StripTrailingWhitespace<CR>''
 
 " avoid common mistakes
 cmap W w
@@ -230,7 +230,8 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
-" MAPPINGS
+" Mappings
+" ~~~~~~~~
 
 " back to normal mode
 imap jk <Esc>
@@ -248,6 +249,7 @@ nmap k gk
 
 " user regular expressions for searching
 map / /\v
+map ? ?\v
 
 " window movement
 map <C-j> <C-w>j
@@ -304,7 +306,11 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" PLUGINS
+" I usually want to scroll
+nmap K k
+
+" Plugins
+" ~~~~~~~
 
 " Ack
 " searches with ack the word under the cursor
@@ -358,6 +364,10 @@ map <Leader>vs :VimwikiSearch
 " pep8
 let g:pep8_map = "<F8>"
 
+" pydoc
+" TODO
+
+
 " Fugitive
 map <Leader>ga :Git add %<CR>
 map <Leader>gs :Gstatus<CR>
@@ -384,7 +394,8 @@ let g:virtualenv_stl_format = '<%n>'
 
 map <Leader>w :VirtualEnvActivate
 
-" AUTOCOMMANDS
+" Autocommands
+" ~~~~~~~~~~~~
 
 " dissable paste mode when leaving Insert Mode
 autocmd InsertLeave * set nopaste
@@ -418,6 +429,7 @@ autocmd BufWritePost .vimrc source %
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType gitcommit startinsert
 
 " syntax highlighting
 au BufRead,BufNewFile /etc/nginx/conf/* set filetype=nginx
