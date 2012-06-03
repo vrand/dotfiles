@@ -7,6 +7,8 @@ call vundle#rc()
 " Bundles
 " ~~~~~~~
 
+" TODO: sort bundles by category
+
 " from GitHub
 Bundle 'mileszs/ack.vim'
 Bundle 'altercation/vim-colors-solarized'
@@ -19,6 +21,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'peplin/ropevim'
 Bundle 'godlygeek/tabular'
+Bundle 'Lokaltog/vim-powerline'
 
 " from www.vim.org/scripts
 Bundle 'nginx.vim'
