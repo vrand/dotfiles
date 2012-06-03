@@ -377,9 +377,15 @@ map <Leader>g :RopeGotoDefinition<CR>
 
 
 " Fugitive
-map <Leader>ga :Git add %<CR>
+map <Leader>ga :Gwrite<CR>
+map <Leader>ge :Gread<CR>
+map <Leader>gd :Gdiff<CR>
+map <Leader>gm :Gremove<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
+map <Leader>gb :Gblame<CR>
+map <Leader>gp :Git push<CR>
+map <Leader>gl :Git pull<CR>
 
 " snipMate
 let g:snips_author="Alejandro Gómez <alejandroogomez@gmail.com>"
