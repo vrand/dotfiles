@@ -370,6 +370,10 @@ let g:pep8_map = "<F8>"
 " pydoc
 " TODO
 
+" RopeVim
+map <Leader>xm :RopeExtractMethod<CR>
+map <Leader>g :RopeGotoDefinition<CR>
+
 
 " Fugitive
 map <Leader>ga :Git add %<CR>
