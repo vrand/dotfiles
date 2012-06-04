@@ -379,6 +379,7 @@ map <Leader>g :RopeGotoDefinition<CR>
 
 " Fugitive
 map <Leader>ga :Gwrite<CR>
+map <Leader>gA :Git add -u<CR>
 map <Leader>ge :Gread<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gm :Gremove<CR>
