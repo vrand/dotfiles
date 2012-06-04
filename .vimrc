@@ -22,6 +22,7 @@ Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'peplin/ropevim'
 Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'benmills/vimux'
 
 " from www.vim.org/scripts
 Bundle 'nginx.vim'
