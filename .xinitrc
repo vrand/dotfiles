@@ -64,6 +64,9 @@ wicd-client -t &
 # parcellite
 parcellite &
 
+# browser
+$BROWSER &
+
 ## 
 #  Window manager
 ##
