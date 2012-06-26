@@ -13,7 +13,7 @@ export WWW_HOME=http://dialelo.com
 if [[ -z $DISPLAY ]] then
     export BROWSER=elinks
 else
-    export BROWSER=uzbl-browser
+    export BROWSER=chromium
 fi
 
 # Mail
