@@ -24,6 +24,11 @@ Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'benmills/vimux'
 
+" org-mode
+Bundle 'hsitz/VimOrganizer'
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'utl.vim'
+
 " from www.vim.org/scripts
 Bundle 'nginx.vim'
 Bundle 'Gundo'
@@ -37,6 +42,7 @@ Bundle 'Color-Sampler-Pack'
 Bundle 'YankRing.vim'
 Bundle 'SuperTab-continued.'
 Bundle 'ZoomWin'
+
 
 filetype plugin on
 
@@ -151,9 +157,8 @@ set listchars=tab:▸\ ,eol:¬,trail:·,extends:↷,precedes:↶
 
 " *t*oggle *s*pelling / switch language
 nmap <leader>ts :set spell!<CR>
-set spelllang=es_es
-nmap <leader>su :set spelllang=en_us<CR>
-nmap <leader>sg :set spelllang=en_gb<CR>
+set spelllang=es
+nmap <leader>se :set spelllang=en<CR>
 
 " show relative line number
 set relativenumber
@@ -467,3 +472,7 @@ autocmd FileType make setlocal noexpandtab
 " mail
 autocmd FileType mail setlocal spell
 autocmd FileType mail setlocal spelllang=es_ES,en_US
+
+" org mode
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au BufEnter *.org            call org#SetOrgFileType()
