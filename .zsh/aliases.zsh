@@ -34,6 +34,7 @@ alias vi=vim
 alias x='cd && xinit'
 alias w=workon
 alias mt='make && turses'
+alias up='setxkbmap -layout es && xmodmap ~/.Xmodmap'
 alias z='zathura --fork'
 
 # Useful
