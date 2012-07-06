@@ -151,9 +151,9 @@ set listchars=tab:▸\ ,eol:¬,trail:·,extends:↷,precedes:↶
 
 " *t*oggle *s*pelling / switch language
 nmap <leader>ts :set spell!<CR>
-set spelllang=es_es
-nmap <leader>su :set spelllang=en_us<CR>
-nmap <leader>sg :set spelllang=en_gb<CR>
+set spelllang=en
+nmap <leader>ss :set spelllang=es<CR>
+nmap <leader>se :set spelllang=en<CR>
 
 " show relative line number
 set relativenumber
