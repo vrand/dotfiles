@@ -340,7 +340,7 @@ map <Leader>u :GundoToggle<CR>
 let g:NERDCommentWholeLinesInVMode = 1
 
 " NERDTree
-let NERDTreeIgnore = ['\~$', '\.o$', '\.sw[op]$', '\.pyc$', '\.egg-info$', '\.git$', '\.aux$', '\.bbl$', '\.blg$', '\.dvi$', '.DS_Store$', '.ropeproject']
+let NERDTreeIgnore = ['\~$', '\.tox$', 'dist', '\.o$', '\.sw[op]$', '\.pyc$', '\.egg-info$', '\.git$', '\.aux$', '\.bbl$', '\.blg$', '\.dvi$', '.DS_Store$', '.ropeproject']
 let NERDTreeShowHidden = 1
 let NERDTreeShowLineNumbers = 0
 let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
