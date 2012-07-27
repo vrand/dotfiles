@@ -466,4 +466,6 @@ autocmd FileType make setlocal noexpandtab
 
 " mail
 autocmd FileType mail setlocal spell
-autocmd FileType mail setlocal spelllang=es_ES,en_US
+autocmd FileType mail setlocal tw=72
+autocmd FileType mail setlocal colorcolumn=72
+autocmd FileType mail setlocal spelllang=es,en
