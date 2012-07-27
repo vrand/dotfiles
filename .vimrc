@@ -408,7 +408,7 @@ map <Leader>T :TlistToggle<CR>
 " Virtualenv
 let g:virtualenv_stl_format = '<%n>'
 
-map <Leader>w :VirtualEnvActivate
+map <Leader>w :VirtualEnvActivate<Space>
 
 " Autocommands
 " ~~~~~~~~~~~~
@@ -439,25 +439,27 @@ augroup Python
 augroup END
 
 " automatically reload .vimrc when it's saved
-autocmd BufWritePost .vimrc source %
+au BufWritePost .vimrc source %
 
 " filetype specific settings
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType gitcommit startinsert
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+au FileType html set omnifunc=htmlcomplete#CompleteTags
+au FileType css set omnifunc=csscomplete#CompleteCSS
+au FileType gitcommit startinsert
 
 " syntax highlighting
 au BufRead,BufNewFile /etc/nginx/conf/* set filetype=nginx
 au BufRead,BufNewFile Vagrantfile       set filetype=ruby
 au BufRead,BufNewFile */.tmux.conf      set filetype=tmux
 au BufRead,BufNewFile */.xmobarrc       set filetype=haskell
-autocmd BufRead,BufNewFile config       set filetype=cfg
+au BufRead,BufNewFile config       set filetype=cfg
 au BufRead,BufNewFile ~/.config/uzbl/*  set filetype=uzbl
 au BufRead,BufNewFile */uzbl/config     set filetype=uzbl
 au BufRead,BufNewFile .pentadactylrc    set filetype=vim
 au BufRead,BufNewFile *.md              set filetype=markdown
 au BufRead,BufNewFile rc.lua            setlocal foldmethod=marker
+au BufRead,BufNewFile config               set filetype=cfg
+au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
 
 " xmonad config
 au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile
