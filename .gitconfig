@@ -12,6 +12,7 @@
     b = branch -va
     ci = commit
     ca = commit --amend -C HEAD
+    cam = commit --amend
     cm = commit -m
     co = checkout 
     d = diff --word-diff
