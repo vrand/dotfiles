@@ -457,6 +457,7 @@ au BufRead,BufNewFile ~/.config/uzbl/*  set filetype=uzbl
 au BufRead,BufNewFile */uzbl/config     set filetype=uzbl
 au BufRead,BufNewFile .pentadactylrc    set filetype=vim
 au BufRead,BufNewFile *.md              set filetype=markdown
+au BufRead,BufNewFile rc.lua            setlocal foldmethod=marker
 
 " xmonad config
 au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile
