@@ -7,7 +7,7 @@
 !
 
 !Font
-URxvt*font:            xft:terminus:bold:pixelsize=22
+URxvt*font:            xft:terminus:normal:pixelsize=18
 URxvt*foreground:      white
 
 ! Appearance
