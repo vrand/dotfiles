@@ -1,8 +1,8 @@
 # Directory tree navigation
 alias -g ..='cd ..'
 alias -g ...='cd ../..'
-alias -g ....='cd ../../..' 
-alias -g .....='cd ../../../..' 
+alias -g ....='cd ../../..'
+alias -g .....='cd ../../../..'
 
 # Most visited dirs
 alias video='cd /data/video'
@@ -19,6 +19,7 @@ alias tur='cd ~/repos/turses && workon t'
 
 # Shortcuts
 alias a='alsamixer'
+alias i=ipython
 alias e='emacsclient -tc'
 alias d=deactivate
 alias g=git
@@ -26,6 +27,8 @@ alias ll='ls -lA'
 alias lh='ls -lAh'
 alias m='mux'
 alias -g mkdir='mkdir -p'
+alias p=python
+alias pm='python manage.py'
 alias s=sudo
 alias t=tmux
 alias tu='turses -d'
@@ -38,16 +41,10 @@ alias up='setxkbmap -layout es && xmodmap ~/.Xmodmap'
 alias z='zathura --fork'
 
 # Useful
-alias manage='python manage.py'
 alias pyclean='find -name "*.pyc" -exec rm {} \;'
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
 alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
-alias mostused='cat ~/.history | sort | uniq -c | sort -nr | head -n 10 | nl' 
-alias wallpaper='feh --bg-scale $IMAGES_DIR/`ls $IMAGES_DIR | sort -R | tail -n 1`'
-
-# Django
-alias djtest='python manage.py test'
-alias djserver='python manage.py runserver'
+alias mostused='cat ~/.history | sort | uniq -c | sort -nr | head -n 10 | nl'
 
 # yaourt
 alias y=yaourt
