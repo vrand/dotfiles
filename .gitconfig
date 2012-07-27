@@ -10,7 +10,7 @@
     a = add
     ap = add -p
     b = branch -va
-    ci = commit
+    c = commit
     ca = commit --amend -C HEAD
     cam = commit --amend
     cm = commit -m
@@ -18,16 +18,17 @@
     d = diff --word-diff
     l = log --graph --decorate --no-merges --oneline
     lp = log --graph --decorate --pretty=short -p --word-diff
+    tl = log --graph --decorate --branches --oneline
     m = merge
     ph = push
     pl = pull --rebase
     rm = rm --cached
     s = status -sb
     st = stash
-    stapp = stash apply
-    stpop = stash pop
-    stdis = stash discard
-    timeline = log --graph --decorate --branches --oneline
+    sts = stash save
+    sta = stash apply
+    stp = stash pop
+    std = stash discard
     discard = reset HEAD --hard
 [color]
 	ui = true
