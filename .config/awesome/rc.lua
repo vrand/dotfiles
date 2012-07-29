@@ -8,6 +8,7 @@ require("beautiful")
 require("naughty")
 -- Scratchpad
 local scratch = require("scratch")
+scratch_cmd = "urxvt -e mux scratchpad"
 
 
 -- {{{ Error handling
@@ -266,7 +267,7 @@ globalkeys = awful.util.table.join(
     -- Scratchpad
     awful.key({ modkey }, "s",
               function ()
-                  scratch.drop("urxvt -e tmux", "bottom", "center", 1, 0.6)
+                  scratch.drop(scratch_cmd, "bottom", "center", 1, 0.6)
               end),
 
     -- Tag navigation
