@@ -5,6 +5,7 @@
     editor = vim
 [alias]
     a = add
+    au = add -u
     ap = add -p
     b = branch -va
     c = commit
