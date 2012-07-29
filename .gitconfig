@@ -1,11 +1,8 @@
 [user]
-	name = Alejandro Gómez
-	email = alejandroogomez@gmail.com
-[github]
-    user = alejandrogomez
-    token = 2e3f397ceb19e4cd7b6391f3b7ed63ed
+    name = Alejandro Gómez
+    email = alejandroogomez@gmail.com
 [core]
-	editor = vim
+    editor = vim
 [alias]
     a = add
     ap = add -p
@@ -31,7 +28,9 @@
     std = stash discard
     discard = reset HEAD --hard
 [color]
-	ui = true
+    ui = true
+[color "status"]
+    untracked = cyan
 [help]
     autocorrect = 1
 [merge]
