@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- Dynamic tagging
+require("eminent")
 -- Scratchpad
 local scratch = require("scratch")
 scratch_cmd = "urxvt -e mux scratchpad"
@@ -42,32 +44,18 @@ beautiful.init("/home/dialelo/.config/awesome/themes/dialelo/theme.lua")
 
 -- This is used later as the default terminal, editor and web browser to run.
 terminal = "urxvt"
-browser = "chromium"
+browser = os.getenv("BROWSER") or "chromium"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
---  awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -76,7 +64,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "dev", "org", "www", "media", "social", "sys"}, s, layouts[1])
+    tags[s] = awful.tag({ "dev", "test", "org", "www", "media", "social", "sys"}, s, layouts[1])
 end
 -- }}}
 
@@ -271,35 +259,41 @@ globalkeys = awful.util.table.join(
               end),
 
     -- Tag navigation
+    -- FIXME: this is very redundant
     awful.key({ modkey }, "d",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][1])
               end),
-    awful.key({ modkey }, "o",
+    awful.key({ modkey }, "t",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][2])
               end),
-    awful.key({ modkey }, "w",
+    awful.key({ modkey }, "o",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][3])
               end),
-    awful.key({ modkey }, "m",
+    awful.key({ modkey }, "w",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][4])
               end),
-    awful.key({ modkey }, "c",
+    awful.key({ modkey }, "m",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][5])
               end),
-    awful.key({ modkey }, "y",
+    awful.key({ modkey }, "c",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][6])
+              end),
+    awful.key({ modkey }, "y",
+              function ()
+                  local screen = mouse.screen
+                  awful.tag.viewonly(tags[screen][7])
               end)
 )
 
