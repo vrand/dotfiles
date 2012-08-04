@@ -19,10 +19,12 @@ alias tur='cd ~/repos/turses && workon t'
 
 # Shortcuts
 alias a='alsamixer'
-alias i=ipython
-alias e='emacsclient -tc'
+alias cc='noglob cclive'
 alias d=deactivate
+alias e='emacsclient -tc'
 alias g=git
+alias h='noglob http'
+alias i=ipython
 alias ll='ls -lA'
 alias lh='ls -lAh'
 alias m='mux'
@@ -70,7 +72,7 @@ alias -s png=feh
 alias -s py=python
 alias -s PKGBUILD=$EDITOR
 
-# Useful
+# Common piping idioms
 alias -g G='| grep'
 alias -g L='| less'
 alias -g DN='&> /dev/null'
