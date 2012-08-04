@@ -14,6 +14,7 @@
     cm = commit -m
     co = checkout 
     d = diff --word-diff
+    dc = diff --cached
     l = log --graph --decorate --no-merges --oneline
     lp = log --graph --decorate --pretty=short -p --word-diff
     tl = log --graph --decorate --branches --oneline
