@@ -60,6 +60,10 @@ alias pips='pip search'
 alias -g pipi='pip install'
 alias -g pipu='pip uninstall'
 
+# pypy
+alias py='pypy'
+alias pyp='/opt/pypy/bin/pip'
+
 # Files by suffix
 alias -s c=$EDITOR
 alias -s com=$BROWSER
