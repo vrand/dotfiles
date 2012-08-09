@@ -29,25 +29,28 @@ function add_to_path
 }
 
 ECLIPSE_PATH=/usr/share/eclipse
-add_to_path "$ECLIPSE_PATH" 
+add_to_path "$ECLIPSE_PATH"
 
 SCRIPTS_PATH=$HOME/bin
-add_to_path "$SCRIPTS_PATH" 
+add_to_path "$SCRIPTS_PATH"
 
 export ANDROID_HOME=/opt/android-sdk
 ANDROID_PATH=$ANDROID_HOME/platform-tools
-add_to_path "$ANDROID_PATH" 
+add_to_path "$ANDROID_PATH"
 
 GEMS_PATH=$HOME/.gem/ruby/1.9.1/bin
-add_to_path "$GEMS_PATH" 
+add_to_path "$GEMS_PATH"
 
 CABAL_PATH=$HOME/.cabal/bin
-add_to_path "$CABAL_PATH" 
+add_to_path "$CABAL_PATH"
 
 export PATH
 
 # Images
 export IMAGES_DIR=$HOME/images
+
+# pip
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -63,14 +66,11 @@ fi
 function modernize
 {
     # system
-    yaourt -Syu #--no-confirm
+    yaourt -Syu --noconfirm
 
     # ruby gems
     gem update
 
     # python packages
     pip freeze | cut -d = -f 1 | xargs pip install -U
-
-    # haskell packages
-    # TODO
 }
