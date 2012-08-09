@@ -55,6 +55,7 @@ modkey = "Mod4"
 layouts =
 {
     awful.layout.suit.fair,
+    awful.layout.suit.tile.bottom,
     awful.layout.suit.max.fullscreen,
 }
 -- }}}
