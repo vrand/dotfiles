@@ -1,0 +1,6 @@
+project_name: turses
+project_root: ~/repos/turses/
+tabs:
+  - dev: workon t && vim .
+  - ipy: workon t && ipython
+  - docs: workon t && cd docs && vim .

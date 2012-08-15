@@ -1,0 +1,7 @@
+project_name: scratch
+project_root: ~/
+tabs:
+  - sh:
+  - dot: cd dotfiles && vim .
+  - mix: alsamixer 
+  - top: htop

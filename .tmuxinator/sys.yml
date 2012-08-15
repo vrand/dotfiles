@@ -1,0 +1,5 @@
+project_name: sys
+project_root: ~/
+tabs:
+  - wicd: wicd-curses
+  - htop: htop
