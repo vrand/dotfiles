@@ -7,8 +7,6 @@ call vundle#rc()
 " Bundles
 " ~~~~~~~
 
-" TODO: sort bundles by category
-
 " External utilities
 Bundle 'mileszs/ack.vim'
 
@@ -185,11 +183,22 @@ nmap <leader>tl :set list!<CR>
 set list
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:↷,precedes:↶
 
+function! Spanish()
+    set spell
+    set spelllang=es
+endfunc
+
+function! English()
+    set spell
+    set spelllang=en
+endfunc
+
 " *t*oggle *s*pelling / switch language
 nmap <leader>ts :set spell!<CR>
 set spelllang=en
-nmap <leader>ss :set spelllang=es<CR>
-nmap <leader>se :set spelllang=en<CR>
+
+nmap <leader>ss :call Spanish()<CR>
+nmap <leader>se :call English()<CR>
 
 " show relative line number
 set relativenumber
@@ -257,8 +266,6 @@ cmap Q q
 cmap WQ wq
 cmap Wq wq
 cmap wQ wq
-cmap Sp sp
-cmap Sb sb
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -495,6 +502,7 @@ augroup END
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType css set omnifunc=csscomplete#CompleteCSS
 au FileType gitcommit startinsert
+au FileType gitcommit call English()
 
 " syntax highlighting
 au BufRead,BufNewFile nginx.conf set filetype=nginx
