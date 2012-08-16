@@ -9,18 +9,40 @@ call vundle#rc()
 
 " TODO: sort bundles by category
 
-" from GitHub
+" External utilities
 Bundle 'mileszs/ack.vim'
+
+" Colors
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-surround'
+Bundle 'Color-Sampler-Pack'
+
+" Version Control
 Bundle 'tpope/vim-fugitive'
+
+" Text editing
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
+Bundle 'SuperTab-continued.'
+
+" Undo tree
+Bundle 'Gundo'
+Bundle 'YankRing.vim'
+
+" Comments
 Bundle 'scrooloose/nerdcommenter'
+
+" File navigation
 Bundle 'scrooloose/nerdtree'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+" Linters
 Bundle 'scrooloose/syntastic'
-Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'peplin/ropevim'
+
+" Formatters
 Bundle 'godlygeek/tabular'
+
+" Aesthetics
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'benmills/vimux'
 Bundle 'kchmck/vim-coffee-script'
@@ -37,14 +59,19 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'taglist.vim'
 Bundle 'nginx.vim'
 Bundle 'Gundo'
+
+" Syntax
+Bundle 'nginx.vim'
+
+" Python
+Bundle 'pep8'
 Bundle 'pydoc.vim'
+Bundle 'peplin/ropevim'
+Bundle 'jmcantrell/vim-virtualenv'
+
+" Misc
 Bundle 'vimwiki'
 Bundle 'scratch'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'Color-Sampler-Pack'
-Bundle 'YankRing.vim'
-Bundle 'SuperTab-continued.'
 Bundle 'ZoomWin'
 
 filetype plugin on
