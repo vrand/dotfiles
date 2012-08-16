@@ -1,6 +1,6 @@
 # rsync
 RSYNC_FLAGS=-av
-RSYNC_EXCLUDE=--exclude ".git/" --exclude "Makefile" --exclude "README.md" --exclude "LICENSE"
+RSYNC_EXCLUDE=--exclude ".git/" --exclude "Makefile" --exclude "LICENSE"
 
 all: files
 
