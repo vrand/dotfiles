@@ -79,6 +79,7 @@ alias -s PKGBUILD=$EDITOR
 # Common piping idioms
 alias -g G='| grep'
 alias -g L='| less'
+alias -g LC='| wc -l'
 alias -g DN='&> /dev/null'
 alias -g CAT='| xargs cat |'
 alias -g JSON='| python -m json.tool'
