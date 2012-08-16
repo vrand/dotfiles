@@ -455,6 +455,12 @@ map <Leader>w :VirtualEnvActivate<Space>
 " dissable paste mode when leaving Insert Mode
 autocmd InsertLeave * set nopaste
 
+" automatically reload .vimrc when it's saved
+autocmd BufWritePost .vimrc source %
+
+" Filetypes
+" ~~~~~~~~~
+
 augroup Java
     au!
 
@@ -485,9 +491,6 @@ augroup CoffeeScript
     autocmd BufWritePost *.coffee silent CoffeeMake!
 augroup END
 
-" automatically reload .vimrc when it's saved
-au BufWritePost .vimrc source %
-
 " filetype specific settings
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType css set omnifunc=csscomplete#CompleteCSS
@@ -506,9 +509,6 @@ au BufRead,BufNewFile *.md              set filetype=markdown
 au BufRead,BufNewFile rc.lua            setlocal foldmethod=marker
 au BufRead,BufNewFile config               set filetype=cfg
 au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
-
-" xmonad config
-au BufRead xmonad\.hs set makeprg=cp\ %\ ~/.xmonad\ &&\ xmonad\ --recompile
 
 " Makefiles depend on tabs to work
 autocmd FileType make setlocal noexpandtab
