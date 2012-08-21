@@ -10,7 +10,6 @@ require("naughty")
 require("eminent")
 -- Scratchpad
 local scratch = require("scratch")
-scratch_cmd = "urxvt -e mux scratchpad"
 
 
 -- {{{ Error handling
@@ -47,6 +46,7 @@ terminal = "urxvt"
 browser = os.getenv("BROWSER") or "chromium"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
+scratch_cmd = terminal .. " -e mux scratchpad"
 
 -- Default modkey.
 modkey = "Mod4"
