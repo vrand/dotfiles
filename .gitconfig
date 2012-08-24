@@ -16,6 +16,7 @@
     co = checkout 
     d = diff --word-diff
     dc = diff --cached
+    dl = diff HEAD^1
     l = log --graph --decorate --no-merges --oneline
     ld = log -p --word-diff --oneline
     tl = log --graph --decorate --branches --oneline
