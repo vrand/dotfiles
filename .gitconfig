@@ -17,7 +17,7 @@
     d = diff --word-diff
     dc = diff --cached
     l = log --graph --decorate --no-merges --oneline
-    lp = log --graph --decorate --pretty=short -p --word-diff
+    ld = log -p --word-diff --oneline
     tl = log --graph --decorate --branches --oneline
     m = merge
     ph = push
