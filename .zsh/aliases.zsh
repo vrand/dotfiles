@@ -50,10 +50,15 @@ alias mostused='cat ~/.history | sort | uniq -c | sort -nr | head -n 10 | nl'
 
 # yaourt
 alias y=yaourt
-alias yu='yaourt -Syu'
-alias yi='yaourt -S'
+alias yu='yaourt -Syu --noconfirm'
+alias yi='yaourt -S --noconfirm'
 alias ys='yaourt -Ss'
 alias yr='yaourt -Rdd'
+
+# Python
+alias p=python
+alias p3=python3
+alias serve='python3 -m http.server'
 
 # pip
 alias pips='pip search'
@@ -63,6 +68,10 @@ alias -g pipu='pip uninstall'
 # pypy
 alias py='pypy'
 alias pyp='/opt/pypy/bin/pip'
+
+
+# Django
+alias pm='python manage.py'
 
 # Files by suffix
 alias -s c=$EDITOR
