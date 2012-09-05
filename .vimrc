@@ -433,21 +433,27 @@ augroup END
 augroup JavaScript
     au!
 
-    autocmd FileType javascrip setlocal shiftwidth=2 tabstop=2
+    autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 augroup END
 
 augroup Python
     au!
 
     autocmd FileType python set omnifunc=pythoncomplete#Complete
+augroup END
 
+augroup CoffeeScript
+    au!
+
+    autocmd FileType coffee setlocal shiftwidth=2 expandtab
+    autocmd BufWritePost *.coffee silent CoffeeMake!
 augroup END
 
 " automatically reload .vimrc when it's saved
 au BufWritePost .vimrc source %
 
 " filetype specific settings
-au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType css set omnifunc=csscomplete#CompleteCSS
 au FileType gitcommit startinsert
