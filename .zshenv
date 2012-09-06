@@ -72,5 +72,5 @@ function modernize
     gem update
 
     # python packages
-    pip freeze | cut -d = -f 1 | xargs pip install -U
+    pip freeze | cut -d = -f 1 | xargs sudo pip install -U
 }
