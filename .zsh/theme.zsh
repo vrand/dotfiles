@@ -41,5 +41,5 @@ local git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
 local virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
 #local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 
-PROMPT="${user} @ ${hostname} in ${cwd} >> "
+PROMPT="${user} ${hostname} ${cwd} » "
 RPROMPT="${git_branch} ${virtualenv}"
