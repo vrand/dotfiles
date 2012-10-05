@@ -28,6 +28,7 @@ alias i=ipython
 alias l='ls'
 alias ll='ls -lAh'
 alias m='mux'
+alias n='noglob'
 alias -g mkdir='mkdir -p'
 alias s=sudo
 alias t=tmux
