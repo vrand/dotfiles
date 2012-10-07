@@ -413,4 +413,5 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ Startup programs
 awful.util.spawn_with_shell(terminal)
+awful.util.spawn_with_shell("uzbl-event-manager")
 -- }}}
