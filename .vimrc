@@ -31,6 +31,7 @@ Bundle 'saltstack/salt-vim'
 Bundle 'nvie/vim-flake8'
 
 " from www.vim.org/scripts
+Bundle 'taglist.vim'
 Bundle 'nginx.vim'
 Bundle 'Gundo'
 Bundle 'pydoc.vim'
