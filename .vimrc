@@ -99,7 +99,7 @@ set completeopt=menuone,longest,preview
 
 function! SetColorScheme()
     if &t_Co != 256
-        colorscheme xemacs
+        colorscheme vividchalk
     else
         let g:solarized_termcolors=256
         colorscheme solarized
