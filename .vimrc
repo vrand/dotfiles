@@ -29,6 +29,8 @@ Bundle 'skammer/vim-css-color'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'saltstack/salt-vim'
 Bundle 'nvie/vim-flake8'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-vividchalk'
 
 " from www.vim.org/scripts
 Bundle 'taglist.vim'
@@ -218,15 +220,11 @@ set gdefault
 " Commands
 " ~~~~~~~~
 
-" save as superuser
-command! Sudow :w !sudo tee % &> /dev/null<CR>
-
 " remove trailing whitespaces in the whole file
 command! -nargs=* StripTrailingWhitespace :%s/\s\+$//
 map <Leader>st :StripTrailingWhitespace<CR>''
 
 " avoid common mistakes
-cmap W w
 cmap Q q
 cmap WQ wq
 cmap Wq wq
@@ -332,6 +330,10 @@ let g:fuf_enumeratingLimit = 10
 
 map <Leader>b :FufBuffer<CR>
 map <Leader>o :FufFile<CR>
+
+" vim-eunuch
+map <Leader>sw :SudoWrite<CR>
+map <Leader>f  :Find<Space>
 
 " Gundo
 let g:gundo_help = 0
