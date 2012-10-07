@@ -28,11 +28,11 @@ Bundle 'groenewege/vim-less'
 Bundle 'skammer/vim-css-color'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'saltstack/salt-vim'
+Bundle 'nvie/vim-flake8'
 
 " from www.vim.org/scripts
 Bundle 'nginx.vim'
 Bundle 'Gundo'
-Bundle 'pep8'
 Bundle 'pydoc.vim'
 Bundle 'vimwiki'
 Bundle 'scratch'
@@ -371,8 +371,8 @@ let g:yankring_history_file = 'yankring_history'
 " Vimwiki
 map <Leader>vs :VimwikiSearch
 
-" pep8
-let g:pep8_map = "<F8>"
+" flake8
+let g:flake8_ignore="E501"
 
 " pydoc
 " TODO
@@ -441,6 +441,7 @@ augroup Python
     au!
 
     autocmd FileType python set omnifunc=pythoncomplete#Complete
+    autocmd BufWritePost *.py call Flake8()
 augroup END
 
 augroup CoffeeScript
