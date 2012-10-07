@@ -3,6 +3,7 @@
     email = alejandroogomez@gmail.com
 [core]
     editor = vim
+    excludesfile = ~/.gitignore_global
 [alias]
     a = add
     au = add -u
