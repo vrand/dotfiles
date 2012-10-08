@@ -23,6 +23,7 @@
     tl = log --graph --decorate --branches --oneline
     m = merge
     ph = push
+    PH = push --force
     pl = pull --rebase
     rm = rm --cached
     s = status -sb
