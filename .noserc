@@ -1,3 +1,6 @@
 [nosetests]
 verbosity=3
 with-progressive=1
+failed=1
+stop=1
+pdb=1
