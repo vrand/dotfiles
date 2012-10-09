@@ -27,8 +27,8 @@
 *.sql
 *.sqlite
 
-# OS generated files #
-######################
+# Generated files #
+###################
 .DS_Store
 .DS_Store?
 ._*
@@ -37,3 +37,4 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+.noseids
