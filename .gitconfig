@@ -27,6 +27,7 @@
     PH = push --force
     pl = pull --rebase
     rm = rm --cached
+    rc = rebase --continue
     s = status -sb
     st = stash
     sts = stash save
