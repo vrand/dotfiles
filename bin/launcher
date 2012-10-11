@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+PROMPT="»"
+FONT="-xos4-terminus-*-*-*-*-24-*-*-*-*-*-iso8859-*"
+
+# TODO
+NORMAL_BG=""
+NORMAL_FG=""
+SELECTED_BG=""
+SELECTED_FG=""
+
+
+dmenu_run -i -l 10 -fn $FONT -p $PROMPT
+# -nb $NORMAL_BG -nf $NORMAL_FG -sb $SELECTED_BG -sf $SELECTED_FG
