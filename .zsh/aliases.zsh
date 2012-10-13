@@ -25,6 +25,7 @@ alias e='emacsclient -tc'
 alias g=git
 alias h='noglob http'
 alias i=ipython
+alias k=killall
 alias l='ls'
 alias ll='ls -lAh'
 alias m='mux'
