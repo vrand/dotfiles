@@ -251,6 +251,19 @@ globalkeys = awful.util.table.join(
                   scratch.drop(scratch_cmd, "bottom", "center", 1, 0.6)
               end),
 
+    -- Volume
+    awful.key({ }, "XF86AudioRaiseVolume",
+              function ()
+                  awful.util.spawn("amixer set Master 10+")
+              end),
+    awful.key({ }, "XF86AudioLowerVolume",
+              function ()
+                  awful.util.spawn("amixer set Master 10-")
+              end),
+    awful.key({ }, "XF86AudioMute",
+              function ()
+                  awful.util.spawn("amixer set Master 0")
+              end),
     -- Tag navigation
     -- FIXME: this is very redundant
     awful.key({ modkey }, "d",
