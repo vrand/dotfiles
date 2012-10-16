@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Borrowed from : https://github.com/marsam/dotfiles
+
+HEART_FULL=♥
+HEART_EMPTY=♡
+[ -z "$NUM_HEARTS" ] &&
+    NUM_HEARTS=5
+
+cutinate()
+{
+    perc=$1
+    inc=$(( 100 / $NUM_HEARTS))
+
+
+    for i in `seq $NUM_HEARTS`; do
+        if [ $perc -lt 100 ]; then
+            echo $HEART_EMPTY
+        else
+            echo $HEART_FULL
+        fi
+        perc=$(( $perc + $inc ))
+    done
+}
+
+BATTERY_STATUS=`acpi | awk '{print $4}' | tr -d '%,'`
+echo `cutinate $BATTERY_STATUS`
