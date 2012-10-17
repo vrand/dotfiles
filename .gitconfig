@@ -1,6 +1,6 @@
 [user]
     name = Alejandro Gómez
-    email = alejandroogomez@gmail.com
+    email = alejandro@dialelo.com
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
