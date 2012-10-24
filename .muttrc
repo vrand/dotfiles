@@ -1,0 +1,141 @@
+# -- Mail --
+
+set realname = "Alejandro Gómez"
+
+set mbox_type = Maildir
+set edit_headers
+set folder = /data/Mail
+set spoolfile = +/INBOX
+set from = "alejandro@dialelo.com"
+set sendmail = "/usr/bin/msmtp -a alejandro"
+set sendmail_wait = 0
+unset record
+
+# Default inbox.
+set spoolfile = "+INBOX"
+
+# Alternate email addresses.
+alternates alejandroogomez@gmail.com
+
+# Mailboxes to show in the sidebar.
+mailboxes +INBOX \
+          +archive \
+          +sent \
+          +Personal \
+          +drafts \
+
+# Other special folders.
+set mbox      = "+archive"
+set postponed = "+drafts"
+
+# include body of previous message in reply
+set include
+
+# HTML mail
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# Prompts
+unset postpone
+set delete
+set quit
+set fast_reply
+
+# -- Headers --
+
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
+
+# -- Security --
+
+set certificate_file = ~/.mutt/certificates
+
+# -- Cache --
+
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+
+# -- Colors --
+
+source ~/.mutt/colors
+
+# -- Bindings & Macros --
+
+# add the sender to the address book
+macro index,pager A "abook --add-email-query"
+macro index,pager e "<save-message>=Archive<enter>"
+
+# navigate the sidebar
+bind index,pager J sidebar-next
+bind index,pager K sidebar-prev
+bind index,pager <space> sidebar-open
+
+# motion
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Mark all messages as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>"
+
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>"
+
+# search
+bind index N search-opposite
+bind pager N search-opposite
+
+# show all
+macro index a "<limit>all\n"
+
+# adress book
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
+# Pager
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+# urlview
+macro pager \Cu "|urlview<enter>"
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# -- Address book --
+
+set query_command = "abook --mutt-query '%s'"
+
+# -- Sidebar --
+
+set sidebar_delim = " │"
+set sidebar_visible = yes
+set sidebar_width = 24
+
+# -- Status bar --
+
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>"
