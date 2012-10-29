@@ -92,3 +92,7 @@ alias -g LC='| wc -l'
 alias -g DN='&> /dev/null'
 alias -g CAT='| xargs cat |'
 alias -g JSON='| python -m json.tool'
+
+# Common args
+alias -g H='--help '
+alias -g V='--version'
