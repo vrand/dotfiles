@@ -65,6 +65,7 @@ alias serve='python3 -m http.server'
 alias pips='pip search'
 alias -g pipi='pip install'
 alias -g pipu='pip uninstall'
+alias pipf='pip freeze'
 
 # pypy
 alias py='pypy'
