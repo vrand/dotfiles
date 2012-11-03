@@ -463,7 +463,7 @@ au FileType css set omnifunc=csscomplete#CompleteCSS
 au FileType gitcommit startinsert
 
 " syntax highlighting
-au BufRead,BufNewFile /etc/nginx/conf/* set filetype=nginx
+au BufRead,BufNewFile nginx.conf set filetype=nginx
 au BufRead,BufNewFile Vagrantfile       set filetype=ruby
 au BufRead,BufNewFile */.tmux.conf      set filetype=tmux
 au BufRead,BufNewFile */.xmobarrc       set filetype=haskell
