@@ -136,8 +136,8 @@ endfunc
 
 
 syntax on
-call SetColorScheme()
 set background=dark
+colorscheme molokai
 
 nmap <leader>tb :call ToggleBackground()<CR>
 function! ToggleBackground()
