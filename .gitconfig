@@ -15,6 +15,7 @@
     cam = commit --amend
     cm = commit -m
     co = checkout 
+    cob = checkout -b
     d = diff --word-diff
     dc = diff --cached
     dl = diff HEAD^1
