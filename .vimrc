@@ -31,6 +31,7 @@ Bundle 'saltstack/salt-vim'
 Bundle 'nvie/vim-flake8'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-vividchalk'
+Bundle 'davidhalter/jedi-vim'
 
 " from www.vim.org/scripts
 Bundle 'taglist.vim'
@@ -344,6 +345,9 @@ let g:gundo_close_on_revert = 1
 
 map <Leader>u :GundoToggle<CR>
 
+" jedi-vim
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#related_names_command = "<leader>O"
 " NERDCommenter
 let g:NERDCommentWholeLinesInVMode = 1
 
