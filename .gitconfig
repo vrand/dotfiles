@@ -56,3 +56,5 @@
     line-graphics = ascii
     tab-size = 4
     ignore-space = at-eol
+[credential]
+    helper = cache --timeout=3600
