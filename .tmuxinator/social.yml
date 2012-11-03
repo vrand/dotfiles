@@ -2,8 +2,6 @@ project_name: social
 project_root: ~/
 pre: export BROWSER=chromium
 tabs:
-  - twitter: turses
   - mail: mutt
-  - gtalk: mcabber
+  - twitter: turses
   - irc: weechat-curses
-  - offlineimap: offlineimap

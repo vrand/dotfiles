@@ -1,9 +1,7 @@
 project_name: pfc
-project_root: ~/pfc/
-pre: sudo modprobe vboxdrv
+project_root: ~/pfc/wikimaps
 tabs:
+  - dev: vim .
+  - db: sudo systemctl start postgresql 
+  - server: workon w && sleep 5 && python manage.py run_gunicorn
   - wiki: vim ~/vimwiki/FinalProject.wiki
-  - dev: cd map_sketchbook && vim .
-  - db: cd map_sketchbook/ && postgres -D db/
-  - server: workon pfc && sleep 5 && cd map_sketchbook && python manage.py run_gunicorn
-  - test: cd map_sketchbook && make test_js
