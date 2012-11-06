@@ -34,7 +34,8 @@ xmodmap ~/.Xmodmap
 
 # xflux
 #xflux -l 36.725384 -g -4.414939 # Málaga
-xflux -l 43.131057 -g -2.548485  # Elorrio
+#xflux -l 43.131057 -g -2.548485  # Elorrio
+xflux -l 52.50056 -g 13.39889 # Berlin
 
 # backlight
 xbacklight -set 50
