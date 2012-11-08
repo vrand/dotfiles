@@ -1,6 +1,6 @@
 ## External programs 
-browser w3m
-pager   vim
+browser chromium
+pager   less
 
 ## Behaviour 
 auto-reload            yes
