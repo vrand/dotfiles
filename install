@@ -1,0 +1,99 @@
+#!/bin/sh
+
+# borrowed from https://github.com/marsam/dotfiles
+
+FILES=$(ls --ignore $(basename "$0") --ignore LICENSE --ignore README.md --ignore bin)
+echo $0
+
+sync() {
+  lfile="$HOME/.$1"
+  if exists $1; then
+    if is_identical $1 $lfile; then
+      echo "identical $1"
+    else
+      echo "overwrite $lfile? [yn]:"
+      read option
+      case $option in
+        [yY])
+          link "$(pwd)/$1" $lfile;;
+        [nN])
+          echo "skipping ~/$1";;
+      esac
+    fi
+  else
+    link "$(pwd)/$1" $lfile
+  fi
+}
+
+link() {
+  if [ -d $1 ]; then
+    ln -s -f -d $1 $2
+  else
+    ln -s -f $1 $2
+  fi
+}
+
+exists() {
+  [ -e $1 ]
+}
+
+is_identical() {
+  diff -s $1 $2 >/dev/null 2>&1
+}
+
+initialize_submodules() {
+  git submodule init
+  git submodule update
+}
+
+update_vundles() {
+  echo "desea actualizar sus vim Vundles? (y/n)"
+  read option
+  case $option in
+  [yY])
+    vim +':BundleInstall!' +':qa!';;
+  [nN])
+    echo "";;
+  esac
+}
+
+sync_files(){
+  for file in $FILES; do
+    sync $file
+  done
+}
+
+#install_fonts() {
+  #[ -d ~/.fonts ] || mkdir -p ~/.fonts
+  #cd ~/.fonts
+  ## Fonts
+  #[ -f Inconsolata.otf ] || curl -OL http://levien.com/type/myfonts/Inconsolata.otf
+
+  ## Powerline patched fonts:
+  ## https://github.com/Lokaltog/vim-powerline/wiki/Patched-fonts
+  #[ -f Inconsolata-dz-Powerline.otf ] || curl -OL https://gist.github.com/raw/1595572/Inconsolata-dz-Powerline.otf
+  #[ -f Menlo-Powerline.otf ] || curl -OL https://gist.github.com/raw/1595572/Menlo-Powerline.otf
+  #[ -f mensch-Powerline.otf ] || curl -OL https://gist.github.com/raw/1595572/mensch-Powerline.otf
+#}
+
+install_bins() {
+  cp -R bin $HOME
+}
+
+
+echo "Syncing files"
+sync_files
+
+echo "Initializing & updating submodules"
+initialize_submodules
+
+echo "Installing & updating vim bundles"
+update_vundles
+
+#echo "Installing fonts"
+#install_fonts
+
+echo "Installing bins"
+install_bins
+
+echo '♫'
