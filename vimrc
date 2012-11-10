@@ -449,7 +449,12 @@ let g:Tabular_loaded = 1
 " Taglist
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Use_Right_Window = 1
+let Tlist_Auto_Highlight_Tag = 1
+let Tlist_Auto_Update = 1
 let Tlist_WinWidth = 35
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Show_Menu = 1
+let Tlist_Show_One_File = 1
 
 map <Leader>T :TlistToggle<CR>
 
