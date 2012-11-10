@@ -6,7 +6,7 @@ export SAVEHIST=$HISTSIZE
 
 # Editor
 export EDITOR=vim
-export MYVIMRC=$HOME/dotfiles/.vimrc
+export MYVIMRC=$HOME/dotfiles/vimrc
 
 # Browser
 export WWW_HOME=http://dialelo.com
