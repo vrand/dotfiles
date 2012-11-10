@@ -353,6 +353,7 @@ vnoremap <F1> <ESC>
 " I usually want to scroll
 nmap K k
 
+
 " Plugins
 " ~~~~~~~
 
@@ -455,6 +456,10 @@ map <Leader>T :TlistToggle<CR>
 let g:virtualenv_stl_format = '<%n>'
 
 map <Leader>w :VirtualEnvActivate<Space>
+
+" tmux interaction
+map <Leader>tc :call RunVimTmuxCommand("
+map <Leader>tt :RunLastVimTmuxCommand<CR>
 
 " Autocommands
 " ~~~~~~~~~~~~
