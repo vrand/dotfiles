@@ -66,7 +66,7 @@ fi
 function modernize
 {
     # system
-    yaourt -Syu --noconfirm
+    packer -Syu --noconfirm
 
     # ruby gems
     gem update

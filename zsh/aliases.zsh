@@ -49,12 +49,12 @@ alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort 
 alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias mostused='cat ~/.history | sort | uniq -c | sort -nr | head -n 10 | nl'
 
-# yaourt
-alias y=yaourt
-alias yu='yaourt -Syu --noconfirm'
-alias yi='yaourt -S --noconfirm'
-alias ys='yaourt -Ss'
-alias yr='yaourt -Rdd'
+# packer
+alias y=packer
+alias yu='packer -Syu --noconfirm'
+alias yi='packer -S --noconfirm'
+alias ys='packer -Ss'
+alias yr='packer -Rdd'
 
 # Python
 alias p=python
