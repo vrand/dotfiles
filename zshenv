@@ -53,7 +53,9 @@ export IMAGES_DIR=$HOME/images
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$(which python2)
+
+export WORKON_HOME=/data/.virtualenvs
 #export PROJECT_HOME=$HOME/repos
 
 VENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
