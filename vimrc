@@ -41,6 +41,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 
 " Aesthetics
+Bundle 'tomasr/molokai'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'benmills/vimux'
 Bundle 'kchmck/vim-coffee-script'
