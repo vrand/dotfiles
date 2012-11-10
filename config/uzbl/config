@@ -114,13 +114,13 @@ set keycmd_section    = [<span \@prompt_style>\@[\@keycmd_prompt]\@</span><span 
 set progress_section  = <span foreground="#606060">\@[\@progress.output]\@</span>
 set scroll_section    = <span foreground="#606060">\@[\@scroll_message]\@</span>
 set uri_section       = <span foreground="#99FF66">\@[\@uri]\@</span>
-set name_section      = <span foreground="khaki">\@[\@NAME]\@</span>
+#set name_section      = <span foreground="khaki">\@[\@NAME]\@</span>
 set status_section    = <span foreground="orange">\@status_message</span>
 set selected_section  = <span foreground="#606060">\@[\@SELECTED_URI]\@</span>
 
 set download_section  = <span foreground="white">\@downloads</span>
 
-set status_format       = <span font="monospace 14px">@mode_section @keycmd_section @progress_section @name_section @status_section @scroll_section @selected_section @download_section</span>
+set status_format       = <span font="monospace 14px">@mode_section @keycmd_section @progress_section @status_section @scroll_section @selected_section @download_section</span>
 
 set status_format_right = <span font_family="monospace"><span font="14px" foreground="#666">uri:</span> @uri_section</span>
 
