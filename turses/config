@@ -67,29 +67,29 @@ active_tab_bg = dark blue
 visible_tab = yellow
 visible_tab_bg = dark blue
 inactive_tab = dark blue
-inactive_tab_bg = 
+inactive_tab_bg =
 header = light blue
-header_bg = 
+header_bg =
 body = white
-body_bg = 
+body_bg =
 focus = light red
-focus_bg = 
+focus_bg =
 line = black
-line_bg = 
+line_bg =
 unread = dark red
-unread_bg = 
+unread_bg =
 read = dark blue
-read_bg = 
+read_bg =
 favorited = yellow
-favorited_bg = 
+favorited_bg =
 highlight = dark red
-highlight_bg = 
+highlight_bg =
 highlight_nick = light red
-highlight_nick_bg = 
+highlight_nick_bg =
 attag = yellow
-attag_bg = 
+attag_bg =
 hashtag = light red
-hashtag_bg = 
+hashtag_bg =
 url = white
 url_bg = dark red
 error = white
@@ -101,15 +101,16 @@ editor_bg = dark magenta
 
 [styles]
 status_divider_char = ─
-dm_template =  {sender_screen_name} => {recipient_screen_name} - {time} 
+dm_template =  {sender_screen_name} => {recipient_screen_name} - {time}
 tab_template = {timeline_name}
 editor_horizontal_align = center
 editor_vertical_align = middle
 box_around_status = false
 status_bar = True
 status_divider = True
-header_template =  {username}{retweeted}{retweeter} - {time}{reply} {retweet_count} 
+header_template =  {username}{retweeted}{retweeter} - {time}{reply} {retweet_count}
 url_format = display
+statuses_in_user_info = 2
 
 [debug]
 logging_level = 3
