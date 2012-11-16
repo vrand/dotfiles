@@ -1,0 +1,6 @@
+[defaults]
+visible = home
+buffers = mentions, favorites, messages, own_tweets
+
+[interactions]
+visible = mentions, search:turses, retweets_of_me
