@@ -110,7 +110,7 @@ status_bar = True
 status_divider = True
 header_template =  {username}{retweeted}{retweeter} - {time}{reply} {retweet_count}
 url_format = display
-statuses_in_user_info = 2
+statuses_in_user_info = 3
 
 [debug]
 logging_level = 3
