@@ -9,10 +9,13 @@ call vundle#rc()
 
 " External utilities
 Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-eunuch'
 
 " Colors
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
 Bundle 'Color-Sampler-Pack'
+Bundle 'tpope/vim-vividchalk'
 
 " Version Control
 Bundle 'tpope/vim-fugitive'
@@ -22,6 +25,9 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'SuperTab-continued.'
 
+" tmux
+Bundle 'benmills/vimux'
+
 " Undo tree
 Bundle 'Gundo'
 Bundle 'YankRing.vim'
@@ -29,7 +35,7 @@ Bundle 'YankRing.vim'
 " Comments
 Bundle 'scrooloose/nerdcommenter'
 
-" File navigation
+" Navigation
 Bundle 'scrooloose/nerdtree'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -41,29 +47,21 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 
 " Aesthetics
-Bundle 'tomasr/molokai'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'benmills/vimux'
+
+" Syntax highlighting
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'skammer/vim-css-color'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'saltstack/salt-vim'
-Bundle 'nvie/vim-flake8'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'davidhalter/jedi-vim'
-
-" from www.vim.org/scripts
-Bundle 'taglist.vim'
-Bundle 'nginx.vim'
-Bundle 'Gundo'
-
-" Syntax
 Bundle 'nginx.vim'
 
 " Python
-Bundle 'pep8'
+Bundle 'nvie/vim-flake8'
+Bundle 'davidhalter/jedi-vim'
+
+" Python
 Bundle 'pydoc.vim'
 Bundle 'peplin/ropevim'
 Bundle 'jmcantrell/vim-virtualenv'
@@ -136,7 +134,7 @@ function! SetColorScheme()
 endfunc
 
 
-syntax on
+syntax enable
 set background=dark
 colorscheme molokai
 
