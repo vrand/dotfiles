@@ -12,66 +12,63 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-eunuch'
 
 " Colors
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
-Bundle 'Color-Sampler-Pack'
 Bundle 'tpope/vim-vividchalk'
+Bundle 'tomasr/molokai'
+"Bundle 'Color-Sampler-Pack'
 
 " Version Control
 Bundle 'tpope/vim-fugitive'
 
 " Text editing
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'SuperTab-continued.'
+"Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-repeat'
+"Bundle 'SuperTab-continued.'
 
 " tmux
 Bundle 'benmills/vimux'
 
-" Undo tree
-Bundle 'Gundo'
-Bundle 'YankRing.vim'
-
+"" Undo tree
+"Bundle 'Gundo'
+"Bundle 'YankRing.vim'
+"
 " Comments
 Bundle 'scrooloose/nerdcommenter'
-
+"
 " Navigation
 Bundle 'scrooloose/nerdtree'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+Bundle 'kien/ctrlp.vim'
+"
 " Linters
 Bundle 'scrooloose/syntastic'
 
-" Formatters
-Bundle 'godlygeek/tabular'
-
+"" Formatters
+"Bundle 'godlygeek/tabular'
+"
 " Aesthetics
 Bundle 'Lokaltog/vim-powerline'
 
 " Syntax highlighting
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'groenewege/vim-less'
-Bundle 'skammer/vim-css-color'
-Bundle 'hail2u/vim-css3-syntax'
+"Bundle 'groenewege/vim-less'
+"Bundle 'skammer/vim-css-color'
+"Bundle 'hail2u/vim-css3-syntax'
 Bundle 'saltstack/salt-vim'
 Bundle 'nginx.vim'
 
 " Python
-Bundle 'nvie/vim-flake8'
-Bundle 'davidhalter/jedi-vim'
-
-" Python
-Bundle 'pydoc.vim'
-Bundle 'peplin/ropevim'
+Bundle 'klen/python-mode'
+"Bundle 'davidhalter/jedi-vim'
+"Bundle 'peplin/ropevim'
 Bundle 'jmcantrell/vim-virtualenv'
 
 " Misc
-Bundle 'vimwiki'
-Bundle 'scratch'
+"Bundle 'vimwiki'
+"Bundle 'scratch'
 Bundle 'ZoomWin'
 
-filetype plugin on
+filetype plugin indent on
 
 " General
 " ~~~~~~~
@@ -124,30 +121,20 @@ set completeopt=menuone,longest,preview
 " Aesthetics
 " ~~~~~~~~~~
 
+" Highliht extra whitespace when leaving insert mode
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
 function! SetColorScheme()
     if &t_Co != 256
         colorscheme vividchalk
     else
-        let g:solarized_termcolors=256
-        colorscheme solarized
+        colorscheme molokai
     endif
 endfunc
-
 
 syntax enable
-set background=dark
-colorscheme molokai
-
-nmap <leader>tb :call ToggleBackground()<CR>
-function! ToggleBackground()
-    if &background == "dark"
-        set background=light
-        call SetColorScheme()
-    else
-        set background=dark
-    endif
-endfunc
-
+call SetColorScheme()
 
 " UI
 " ~~
@@ -231,7 +218,7 @@ set tildeop
 " keep the current line always in the center of the buffer
 set scrolloff=99
 
-" put a '$' at the end of the text to change while making changes
+" put a '$' at the end of the text to change when using change command
 set cpoptions+=$
 
 " Search
@@ -340,6 +327,12 @@ map Y y$
 " open last/alternate buffer
 noremap <Leader>a <C-^>
 
+" save
+nmap <Leader>w :update!<CR>
+
+" install bundles
+map <Leader>i :BundleInstall<CR>
+
 " easier increment/decrement
 nnoremap + <C-a>
 nnoremap - <C-x>
@@ -360,11 +353,12 @@ nmap K k
 " searches with ack the word under the cursor
 map <Leader>A :Ack!<CR>
 
-" FuzzyFinder
-let g:fuf_enumeratingLimit = 10
+" Ctrlp
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_open_new_file = 'r'
 
-map <Leader>b :FufBuffer<CR>
-map <Leader>o :FufFile<CR>
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>o :CtrlP<CR>
 
 " vim-eunuch
 map <Leader>sw :SudoWrite<CR>
@@ -413,8 +407,11 @@ let g:yankring_history_file = 'yankring_history'
 " Vimwiki
 map <Leader>vs :VimwikiSearch
 
-" flake8
-let g:flake8_ignore="E501"
+" python-mode
+let g:pymode_lint_ignore = "E501"
+let g:pymode_lint_cwindow = 0
+let g:pymode_breakpoint_key = '<Leader>B'
+let g:pymode_options = 0
 
 " pydoc
 " TODO
@@ -460,11 +457,11 @@ map <Leader>T :TlistToggle<CR>
 " Virtualenv
 let g:virtualenv_stl_format = '<%n>'
 
-map <Leader>w :VirtualEnvActivate<Space>
+map <Leader>e :VirtualEnvActivate<Space>
 
 " tmux interaction
-map <Leader>tc :call RunVimTmuxCommand("
-map <Leader>tt :RunLastVimTmuxCommand<CR>
+map <Leader>tc :call VimuxRunCommand("
+map <Leader>tt :call VimuxRunLastCommand()<CR>
 
 " Autocommands
 " ~~~~~~~~~~~~
@@ -473,7 +470,7 @@ map <Leader>tt :RunLastVimTmuxCommand<CR>
 autocmd InsertLeave * set nopaste
 
 " automatically reload .vimrc when it's saved
-autocmd BufWritePost .vimrc source %
+autocmd BufWritePost vimrc source %
 
 " Filetypes
 " ~~~~~~~~~
@@ -498,7 +495,6 @@ augroup Python
     au!
 
     autocmd FileType python set omnifunc=pythoncomplete#Complete
-    autocmd BufWritePost *.py call Flake8()
 augroup END
 
 augroup CoffeeScript
@@ -516,17 +512,34 @@ au FileType gitcommit call English()
 
 " syntax highlighting
 au BufRead,BufNewFile nginx.conf set filetype=nginx
-au BufRead,BufNewFile Vagrantfile       set filetype=ruby
-au BufRead,BufNewFile */.tmux.conf      set filetype=tmux
-au BufRead,BufNewFile */.xmobarrc       set filetype=haskell
-au BufRead,BufNewFile config       set filetype=cfg
-au BufRead,BufNewFile ~/.config/uzbl/*  set filetype=uzbl
-au BufRead,BufNewFile */uzbl/config     set filetype=uzbl
-au BufRead,BufNewFile .pentadactylrc    set filetype=vim
-au BufRead,BufNewFile *.md              set filetype=markdown
-au BufRead,BufNewFile rc.lua            setlocal foldmethod=marker
-au BufRead,BufNewFile config               set filetype=cfg
+
+" Vagrantfile
+au BufRead,BufNewFile Vagrantfile set filetype=ruby
+
+" tmux configuration
+au BufRead,BufNewFile tmux.conf set filetype=tmux
+
+" turses config files
+au BufRead,BufNewFile config   set filetype=cfg
+au BufRead,BufNewFile token    set filetype=cfg
+au BufRead,BufNewFile sessions set filetype=cfg
+
+" uzbl config
+au BufRead,BufNewFile ~/config/uzbl/* set filetype=uzbl
+au BufRead,BufNewFile */uzbl/config   set filetype=uzbl
+
+" markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+
+" awesome configuration
+au BufRead,BufNewFile rc.lua             setlocal foldmethod=marker
+
+" Django templates
 au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
+
+" Save and load the state of the document (folding and cursor line)
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 " Makefiles depend on tabs to work
 autocmd FileType make setlocal noexpandtab
