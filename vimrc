@@ -39,6 +39,7 @@ Bundle 'scrooloose/nerdtree'
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
 Bundle 'kien/ctrlp.vim'
+Bundle 'taglist.vim'
 "
 " Linters
 Bundle 'scrooloose/syntastic'
