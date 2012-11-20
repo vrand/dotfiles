@@ -14,7 +14,7 @@ Bundle 'tpope/vim-eunuch'
 " Colors
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tomasr/molokai'
-"Bundle 'Color-Sampler-Pack'
+Bundle 'Color-Sampler-Pack'
 
 " Version Control
 Bundle 'tpope/vim-fugitive'
