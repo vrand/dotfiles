@@ -29,8 +29,10 @@ Bundle 'benmills/vimux'
 
 "" Undo tree
 "Bundle 'Gundo'
-"Bundle 'YankRing.vim'
-"
+
+" Paste history
+Bundle 'YankRing.vim'
+
 " Comments
 Bundle 'scrooloose/nerdcommenter'
 "
