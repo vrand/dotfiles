@@ -6,8 +6,8 @@ set data_home   = @(echo $XDG_DATA_HOME)@
 set cache_home  = @(echo $XDG_CACHE_HOME)@
 set config_home = @(echo $XDG_CONFIG_HOME)@
 
-# Needed for normal work
-# set proxy_url = http://127.0.0.1:8118
+# Privoxy
+set proxy_url = http://127.0.0.1:8118
 
 # Interface paths.
 set fifo_dir   = /tmp
@@ -280,9 +280,8 @@ set ebind     = @mode_bind global,-insert
 #@cbind  <Ctrl>p = hardcopy
 
 # Web searching binds
-@cbind  gG<Google:>_      = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
+@cbind  gG<DuckDuckGo:>_  = uri http://duckduckgo.com/?q=%s
 @cbind  yt<YouTube:>_     = uri http://www.youtube.com/results?search_query=\@<encodeURIComponent(%r)>\@
-@cbind  ddg<DuckDuckGo:>_ = uri http://duckduckgo.com/?q=%s
 @cbind  awiki<Archwiki:>_ = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
 @cbind  wiki<Wikipedia:>_ = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
 @cbind  wb<wallbase.cc:>_      = uri http://www.wallbase.cc/search?q=\@<encodeURIComponent(%r)>\@

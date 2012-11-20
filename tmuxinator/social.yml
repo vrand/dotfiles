@@ -1,6 +1,5 @@
 project_name: social
 project_root: ~/
-pre: export BROWSER=chromium
 tabs:
   - mail: mutt
   - twitter: turses
