@@ -553,3 +553,6 @@ autocmd FileType mail setlocal spell
 autocmd FileType mail setlocal tw=72
 autocmd FileType mail setlocal colorcolumn=72
 autocmd FileType mail setlocal spelllang=es,en
+
+" templates
+autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
