@@ -109,6 +109,7 @@ set wildignore+=*.o,*.obj,*.pyc
 set wildignore+=.git
 set wildignore+=*.dvi,*.pdf
 set wildignore+=*.jpg,*.png,*.tiff
+set wildignore+=.coverage,coverage.xml,nosetests.xml,.noseids
 
 " tells VIM where to search for autocompletion
 "  . : current file
