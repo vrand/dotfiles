@@ -4,6 +4,8 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+[rerere]
+    enabled = true
 [alias]
     a = add
     au = add -u
@@ -14,7 +16,7 @@
     ca = commit --amend -C HEAD
     cam = commit --amend
     cm = commit -m
-    co = checkout 
+    co = checkout
     cob = checkout -b
     d = diff --word-diff
     dc = diff --cached
@@ -44,7 +46,7 @@
 [color "status"]
     untracked = cyan
 [help]
-    autocorrect = 1
+    autocorrect = true
 [merge]
     tool = vimdiff
 [push]
