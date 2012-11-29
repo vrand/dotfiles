@@ -27,7 +27,7 @@
     ld = log -p --word-diff --oneline
     tl = log --graph --decorate --branches --oneline
     m = merge
-    ph = push
+    ph = !sh -c 'git pull --rebase && git push'
     phu = push --set-upstream
     PH = push --force
     pl = pull --rebase
