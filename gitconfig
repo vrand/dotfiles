@@ -61,3 +61,5 @@
     ignore-space = at-eol
 [credential]
     helper = cache --timeout=3600
+[url "git@github.com:alejandrogomez/"]
+    insteadOf = "gh:"
