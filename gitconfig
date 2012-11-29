@@ -63,3 +63,5 @@
     helper = cache --timeout=3600
 [url "git@github.com:alejandrogomez/"]
     insteadOf = "gh:"
+[url "git@bitbucket.org:alejandrogomez/"]
+    insteadOf = "bb:"
