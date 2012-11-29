@@ -7,6 +7,7 @@
 [rerere]
     enabled = true
 [alias]
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ == /'
     a = add
     au = add -u
     ap = add -p
@@ -27,7 +28,7 @@
     ld = log -p --word-diff --oneline
     tl = log --graph --decorate --branches --oneline
     m = merge
-    ph = !sh -c 'git pull --rebase && git push'
+    ph = !git pull --rebase && git push
     phu = push --set-upstream
     PH = push --force
     pl = pull --rebase
