@@ -35,7 +35,7 @@
     rm = rm --cached
     rc = rebase --continue
     s = status -sb
-    st = stash
+    st = stash --keep-index
     sts = stash save
     sta = stash apply
     stp = stash pop
