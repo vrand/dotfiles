@@ -1,0 +1,5 @@
+project_name: org
+project_root: ~/
+tabs:
+  - sh: wyrd
+  - wiki: vim ~/vimwiki/index.wiki
