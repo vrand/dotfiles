@@ -38,8 +38,6 @@ Bundle 'scrooloose/nerdcommenter'
 "
 " Navigation
 Bundle 'scrooloose/nerdtree'
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
 Bundle 'kien/ctrlp.vim'
 Bundle 'taglist.vim'
 "
@@ -63,7 +61,6 @@ Bundle 'nginx.vim'
 " Python
 Bundle 'klen/python-mode'
 "Bundle 'davidhalter/jedi-vim'
-"Bundle 'peplin/ropevim'
 Bundle 'jmcantrell/vim-virtualenv'
 
 " Misc
@@ -407,6 +404,8 @@ let g:yankring_min_element_lenght = 2
 let g:yankring_max_history = 1000
 let g:yankring_history_dir = '$HOME/.vim/yankring'
 let g:yankring_history_file = 'yankring_history'
+
+map <Leader>r :YRShow<CR>
 
 " Vimwiki
 map <Leader>vs :VimwikiSearch

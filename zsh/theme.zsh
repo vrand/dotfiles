@@ -34,12 +34,22 @@ function current_virtualenv() {
     echo $VIRTUAL_ENV | grep -o "\w*$"
 }
 
-local user='%{$fg[white]%}%{$bg[blue]%}%n%{$reset_color%}'
-local hostname='%{$fg[white]%}%{$bg[magenta]%}%m%{$reset_color%}'
-local cwd='%{$fg[black]%}%{$bg[white]%}%~%{$reset_color%}'
+# Taken from Steve Losh's great article on tuning the ZSH prompt:
+# http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
+function prompt_char {
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    #hg root >/dev/null 2>/dev/null && echo '☿' && return
+    echo '»'
+}
+
+local user='%{$bg[cyan]%}%n%{$reset_color%}'
+local hostname='%{$bg[yellow]%}%m%{$reset_color%}'
+local cwd='%{$bg[magenta]%}%~%{$reset_color%}'
 local git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
 local virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
 #local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
+local battery='%{$fg[red]%}$(~/bin/battery)%{$reset_color%}'
+local prompt_char='$(prompt_char)'
 
-PROMPT="${user} ${hostname} ${cwd} » "
-RPROMPT="${git_branch} ${virtualenv}"
+PROMPT="${user} @ ${hostname} in ${cwd} ${prompt_char} "
+RPROMPT="${git_branch} ${virtualenv} ${battery}"

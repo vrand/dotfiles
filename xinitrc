@@ -11,7 +11,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-## 
+##
 #  X
 ##
 
@@ -43,10 +43,10 @@ xbacklight -set 50
 # custom X settings
 xrdb -merge ~/.Xresources
 
-# xcompmgr
-xcompmgr -cCfF -D 4 &
+# composite manager
+compton -b --config ~/.compton.conf
 
-## 
+##
 #  Programs
 ##
 
@@ -56,7 +56,7 @@ wicd-client -t &
 # parcellite
 parcellite &
 
-## 
+##
 #  Window manager
 ##
 
