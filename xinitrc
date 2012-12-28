@@ -32,13 +32,14 @@ setxkbmap -layout es
 # custom key mappings
 xmodmap ~/.Xmodmap
 
-# xflux
-#xflux -l 36.725384 -g -4.414939 # Málaga
-#xflux -l 43.131057 -g -2.548485  # Elorrio
-xflux -l 52.50056 -g 13.39889 # Berlin
+# color temperature
+gtk-redshift -l 52.50056:13.39889 &
+
+# disable touchpad while typing
+syndaemon -t -k -i 2 -d &
 
 # backlight
-xbacklight -set 50
+xbacklight -set 30
 
 # custom X settings
 xrdb -merge ~/.Xresources
