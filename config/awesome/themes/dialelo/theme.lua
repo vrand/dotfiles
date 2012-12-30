@@ -6,22 +6,37 @@ theme_root = "/home/dialelo/.config/awesome/themes/dialelo/"
 
 theme = {}
 
+-- Font
 theme.font          = "sans 9"
 
-theme.bg_normal     = "#FFFAFO"
-theme.bg_focus      = "#CCCCCC"
-theme.bg_urgent     = "#DC143C"
-theme.bg_minimize   = "#444444"
+-- Colors
+BLACK = "#000000"
+WHITE = "#FFFFFF"
 
-theme.fg_normal     = "#000000"
-theme.fg_focus      = "#000000"
-theme.fg_urgent     = "#000000"
-theme.fg_minimize   = "#000000"
+LIGHT_GRAY = "#ECECEC"
+DARK_GRAY = "#606060"
+
+LIGHT_RED = "#E4001B"
+
+PALE_BLUE = "#D0EAFF"
+LIGHT_BLUE = "#A5D1F4"
+DARK_BLUE = "#000044"
+BLUE = "#6194BC"
+
+theme.bg_normal     = LIGHT_GRAY
+theme.bg_focus      = LIGHT_BLUE
+theme.bg_urgent     = LIGHT_RED
+theme.bg_minimize   = PALE_BLUE
+
+theme.fg_normal     = BLACK
+theme.fg_focus      = DARK_BLUE
+theme.fg_urgent     = WHITE
+theme.fg_minimize   = BLACK
 
 theme.border_width  = "1"
-theme.border_normal = "#000000"
-theme.border_focus  = "#FF3333"
-theme.border_marked = "#91231c"
+theme.border_normal = BLACK
+theme.border_focus  = PALE_BLUE
+theme.border_marked = BLUE
 
 -- There are other variable sets
 -- overriding the default one when
