@@ -245,6 +245,12 @@ globalkeys = awful.util.table.join(
                   scratch.pad.toggle(mouse.screen)
               end),
 
+    -- Toggle wibox visibility
+    awful.key({ modkey, "Shift" }, "t",
+              function ()
+                  mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+              end),
+
     -- Scratchpad
     awful.key({ modkey }, "s",
               function ()
