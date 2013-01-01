@@ -4,19 +4,6 @@ alias -g ...='cd ../..'
 alias -g ....='cd ../../..'
 alias -g .....='cd ../../../..'
 
-# Most visited dirs
-alias video='cd /data/video'
-alias music='cd /data/music'
-alias books='cd /data/books'
-alias src='cd ~/repos'
-alias blog='cd ~/blog'
-alias dot='cd ~/dotfiles'
-alias battery='acpi | grep -o "...%"'
-
-# repos
-alias mut='cd ~/repos/Mutualismo && workon m'
-alias tur='cd ~/repos/turses && workon t'
-
 # Shortcuts
 alias a='alsamixer'
 alias cc='noglob cclive'
@@ -41,7 +28,7 @@ alias x='cd && xinit'
 alias w=workon
 alias mt='make && turses'
 alias setbg='feh --bg-scale'
-alias up='setxkbmap -layout es && xmodmap ~/.Xmodmap'
+alias so=source
 alias z='zathura --fork'
 
 # Useful
@@ -58,7 +45,7 @@ alias ys='packer -Ss'
 alias yr='packer -Rdd'
 
 # Python
-alias p=python
+alias p=python2
 alias p3=python3
 alias serve='python3 -m http.server'
 
