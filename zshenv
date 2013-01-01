@@ -16,6 +16,9 @@ else
     export BROWSER=uzbl-browser
 fi
 
+# Manpager
+export MANPAGER="/bin/sh -c 'col -b | vim -u ~/.vim/manpager.vim -'"
+
 # Mail
 export MAIL=$HOME/Mail
 
