@@ -1,0 +1,3 @@
+[config]
+frontpage=http://www.reddit.com/.json?feed=ebd299a5dd721a64942365ae17b4e60a4380f9ac&user=dialelo
+browser-command=uzbl-browser {0} & &> /dev/null
