@@ -38,6 +38,9 @@ gtk-redshift -l 52.50056:13.39889 &
 # disable touchpad while typing
 syndaemon -t -k -i 2 -d &
 
+# hide cursor when is not needed
+unclutter &
+
 # backlight
 xbacklight -set 30
 
