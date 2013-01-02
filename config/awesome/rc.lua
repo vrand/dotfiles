@@ -4,8 +4,6 @@ require("awful.autofocus")
 require("awful.rules")
 -- Theme handling library
 require("beautiful")
--- Notification library
-require("naughty")
 -- Dynamic tagging
 require("eminent")
 -- Scratchpad
