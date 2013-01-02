@@ -60,12 +60,11 @@ Bundle 'nginx.vim'
 
 " Python
 Bundle 'klen/python-mode'
-"Bundle 'davidhalter/jedi-vim'
 Bundle 'jmcantrell/vim-virtualenv'
 
 " Misc
-"Bundle 'vimwiki'
-"Bundle 'scratch'
+Bundle 'vimwiki'
+Bundle 'scratch'
 Bundle 'ZoomWin'
 
 filetype plugin indent on
@@ -542,7 +541,7 @@ au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
 
 " Save and load the state of the document (folding and cursor line)
 au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au BufWinEnter * silent! loadview
 
 " Makefiles depend on tabs to work
 autocmd FileType make setlocal noexpandtab
