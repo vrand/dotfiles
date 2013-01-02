@@ -79,3 +79,7 @@ function modernize
     # python packages
     pip freeze | cut -d = -f 1 | xargs sudo pip install -U
 }
+
+
+# Load `z`: https://github.com/rupa/z
+. ~/bin/z.sh

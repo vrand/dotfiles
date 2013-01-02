@@ -29,7 +29,7 @@ alias w=workon
 alias mt='make && turses'
 alias setbg='feh --bg-scale'
 alias so=source
-alias z='zathura --fork'
+alias za='zathura --fork'
 
 # Useful
 alias pyclean='find -name "*.pyc" -exec rm {} \;'
