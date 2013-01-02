@@ -35,7 +35,7 @@ Bundle 'YankRing.vim'
 
 " Comments
 Bundle 'scrooloose/nerdcommenter'
-"
+
 " Navigation
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
@@ -331,7 +331,7 @@ noremap <Leader>a <C-^>
 nmap <Leader>w :update!<CR>
 
 " install bundles
-map <Leader>i :BundleInstall<CR>
+map <Leader>I :BundleInstall<CR>
 
 " easier increment/decrement
 nnoremap + <C-a>
@@ -354,28 +354,25 @@ nmap K k
 map <Leader>A :Ack!<CR>
 
 " Ctrlp
+let g:ctrlp_map ='<c-o>'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_open_new_file = 'r'
 
-map <Leader>b :CtrlPBuffer<CR>
-map <Leader>o :CtrlP<CR>
+map <C-b> :CtrlPBuffer<CR>
 
 " vim-eunuch
 map <Leader>sw :SudoWrite<CR>
 map <Leader>f  :Find<Space>
 
 " Gundo
-let g:gundo_help = 0
-let g:gundo_width = 40
-let g:gundo_preview_bottom = 1
-let g:gundo_right = 1
-let g:gundo_close_on_revert = 1
+"let g:gundo_help = 0
+"let g:gundo_width = 40
+"let g:gundo_preview_bottom = 1
+"let g:gundo_right = 1
+"let g:gundo_close_on_revert = 1
 
-map <Leader>u :GundoToggle<CR>
+"map <Leader>u :GundoToggle<CR>
 
-" jedi-vim
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#related_names_command = "<leader>O"
 " NERDCommenter
 let g:NERDCommentWholeLinesInVMode = 1
 
@@ -474,43 +471,7 @@ autocmd InsertLeave * set nopaste
 " automatically reload .vimrc when it's saved
 autocmd BufWritePost vimrc source %
 
-" Filetypes
-" ~~~~~~~~~
-
-augroup Java
-    au!
-
-    "" Eclim
-    autocmd FileType java map <Leader>i :JavaImportMissing<CR>
-    autocmd FileType java map <Leader>c :JavaCorrect<CR>
-    autocmd FileType java map <Leader>B :ProjectBuild<CR>
-augroup END
-
-augroup JavaScript
-    au!
-
-    autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-augroup END
-
-augroup Python
-    au!
-
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
-augroup END
-
-augroup CoffeeScript
-    au!
-
-    autocmd FileType coffee setlocal shiftwidth=2 expandtab
-    autocmd BufWritePost *.coffee silent CoffeeMake!
-augroup END
-
 " filetype specific settings
-au FileType html set omnifunc=htmlcomplete#CompleteTags
-au FileType css set omnifunc=csscomplete#CompleteCSS
-au FileType gitcommit startinsert
-au FileType gitcommit call English()
 
 " syntax highlighting
 au BufRead,BufNewFile nginx.conf set filetype=nginx
@@ -534,7 +495,7 @@ au BufRead,BufNewFile */uzbl/config   set filetype=uzbl
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " awesome configuration
-au BufRead,BufNewFile rc.lua             setlocal foldmethod=marker
+au BufRead,BufNewFile rc.lua setlocal foldmethod=marker
 
 " Django templates
 au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
@@ -542,15 +503,6 @@ au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
 " Save and load the state of the document (folding and cursor line)
 au BufWinLeave * mkview
 au BufWinEnter * silent! loadview
-
-" Makefiles depend on tabs to work
-autocmd FileType make setlocal noexpandtab
-
-" mail
-autocmd FileType mail setlocal spell
-autocmd FileType mail setlocal tw=72
-autocmd FileType mail setlocal colorcolumn=72
-autocmd FileType mail setlocal spelllang=es,en
 
 " templates
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
