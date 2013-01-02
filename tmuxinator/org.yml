@@ -2,4 +2,4 @@ project_name: org
 project_root: ~/
 tabs:
   - sh: wyrd
-  - wiki: vim ~/vimwiki/index.wiki
+  - wiki: cd ~/vimwiki && vim index.wiki
