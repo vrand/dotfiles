@@ -32,15 +32,6 @@ setxkbmap -layout es
 # custom key mappings
 xmodmap ~/.Xmodmap
 
-# color temperature
-gtk-redshift -l 52.50056:13.39889 &
-
-# disable touchpad while typing
-syndaemon -t -k -i 2 -d &
-
-# hide cursor when is not needed
-unclutter &
-
 # backlight
 xbacklight -set 30
 
@@ -59,6 +50,19 @@ wicd-client -t &
 
 # parcellite
 parcellite &
+
+# notifications
+dunst &
+
+# color temperature
+gtk-redshift -l 52.50056:13.39889 &
+
+# disable touchpad while typing
+syndaemon -t -k -i 2 -d &
+
+# hide cursor when is not needed
+unclutter &
+
 
 ##
 #  Window manager
