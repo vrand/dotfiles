@@ -63,6 +63,8 @@ syndaemon -t -k -i 2 -d &
 # hide cursor when is not needed
 unclutter &
 
+# battery indicator
+batti &
 
 ##
 #  Window manager
