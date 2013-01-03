@@ -1,0 +1,2 @@
+set www_command = uzbl-browser
+set add_email_prevent_duplicates = true
