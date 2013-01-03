@@ -77,11 +77,11 @@ sync_files(){
 #}
 
 install_bins() {
-  cp -R bin $HOME
+  ln -s bin $HOME
 }
 
 install_images() {
-  cp -R images $HOME
+  ln -s images $HOME
 }
 
 
