@@ -19,9 +19,9 @@ alternates alejandroogomez@gmail.com
 
 # Mailboxes to show in the sidebar.
 mailboxes +INBOX \
-          +archive \
+          +Python \
+          +Django \
           +sent \
-          +Personal \
           +drafts \
 
 # Other special folders.
