@@ -28,6 +28,7 @@ alias x='cd && xinit'
 alias w=workon
 alias mt='make && turses'
 alias setbg='feh --bg-scale'
+alias self='mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot'
 alias so=source
 alias za='zathura --fork'
 
