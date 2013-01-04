@@ -66,6 +66,9 @@ unclutter &
 # battery indicator
 batti &
 
+# music player daemon
+mpd ~/.mpdconf
+
 ##
 #  Window manager
 ##
