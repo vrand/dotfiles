@@ -24,6 +24,7 @@ alias t=tmux
 alias tu='turses -d'
 alias v=vim
 alias vi=vim
+alias va=vagrant
 alias x='cd && xinit'
 alias w=workon
 alias mt='make && turses'
