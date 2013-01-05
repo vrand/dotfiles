@@ -328,7 +328,7 @@ map Y y$
 noremap <Leader>a <C-^>
 
 " save
-nmap <Leader>w :update!<CR>
+nmap <Leader>w :silent! update<CR>
 
 " install bundles
 map <Leader>I :BundleInstall<CR>

@@ -42,8 +42,7 @@ if __name__ == "__main__":
 
     if response.status_code == 200:
         dom = minidom.parseString(response.content)
-        count_node = dom.getElementsByTagName("fullcount")[0]
-        count = count_node.firstChild.nodeValue
+        count = len(dom.getElementsByTagName("entry"))
         print(UNREAD_COUNT.format(count=count))
     else:
         print(ERROR.format(code=response.status_code))
