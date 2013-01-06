@@ -7,7 +7,7 @@ theme_root = "/home/dialelo/.config/awesome/themes/dialelo/"
 theme = {}
 
 -- Font
-theme.font          = "sans 9"
+theme.font = "sans 10"
 
 -- Colors
 BLACK = "#000000"
