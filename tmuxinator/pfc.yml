@@ -1,20 +1,7 @@
 project_name: pfc
 project_root: ~/pfc/wikimaps
 tabs:
-  - dev: vim .
-  - test:
-      layout: main-horizontal
-      panes:
-        - workon w && python manage.py shell_plus
-        - make watchtest
-  - db:
-      layout: main-horizontal
-      panes:
-        - postgres -D db
-        - workon w
-  - server:
-      layout: main-horizontal
-      panes:
-        - workon w && make serve
-        - workon w
+  - dev: workon w && vim .
+  - salt: cd salt && vim .
+  - vms: vagrant up
   - wiki: vim ~/vimwiki/FinalProject.wiki
