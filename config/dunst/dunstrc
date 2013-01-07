@@ -99,7 +99,7 @@
     close_all = ctrl+shift+space
 
     # redisplay last message(s)
-    history = mod1+h
+    history = mod1+m
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
