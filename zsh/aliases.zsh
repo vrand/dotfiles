@@ -64,6 +64,8 @@ alias pipf='pip freeze'
 alias py='pypy'
 alias pyp='/opt/pypy/bin/pip'
 
+# dual screen
+alias dualscreen='xrandr --output HDMI1 --mode 1280x1024 --right-of LVDS1'
 
 # Django
 alias pm='python manage.py'
