@@ -1,5 +1,8 @@
 project_name: media
 project_root: /data
 tabs:
+  - news: newsbeuter
   - music: vimpc
+  - radio: podbeuter -a
+  - reddit: cortex
   - mixer: alsamixer
