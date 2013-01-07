@@ -1,2 +1,4 @@
 cache.db
 history.*
+queue
+*.pid

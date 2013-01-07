@@ -22,6 +22,8 @@ alternates alejandroogomez@gmail.com
 mailboxes +INBOX \
           +Python \
           +Django \
+          +vim \
+          +Meetups \
           +drafts \
 
 # Other special folders.
