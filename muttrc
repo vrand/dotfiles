@@ -4,7 +4,7 @@ set realname = "Alejandro Gómez"
 
 set mbox_type = Maildir
 set edit_headers
-set folder = /data/Mail
+set folder = /home/dialelo/Mail
 set spoolfile = +/INBOX
 set from = "alejandro@dialelo.com"
 set sendmail = "/usr/bin/msmtp -a alejandro"
