@@ -10,6 +10,7 @@ alias cc='noglob cclive'
 alias d=deactivate
 alias e='emacsclient -tc'
 alias g=git
+alias gr='cd $(git rev-parse --show-toplevel)'
 alias h='noglob http'
 alias i=ipython
 alias irc=weechat-curses

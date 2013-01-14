@@ -38,8 +38,8 @@
     rem = remote -v
     rema = remote add
     remr = remote rm
-    rm = rm --cached
     rc = rebase --continue
+    rm = rm --cached
     s = status -sb
     st = stash --keep-index
     sts = stash save
