@@ -1,5 +1,7 @@
-# -- Mail --
+# Heavily inspired in Steve Losh's great article:
+#   http://stevelosh.com/blog/2012/10/the-homely-mutt/
 
+# -- Mail --
 set realname = "Alejandro Gómez"
 
 set mbox_type = Maildir
@@ -11,6 +13,13 @@ set sendmail = "/usr/bin/msmtp -a alejandro"
 set sendmail_wait = 0
 unset record
 set mailcap_path = "~/.mutt/mailcap"
+
+# Sorting
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # Default inbox.
 set spoolfile = "+INBOX"
@@ -42,6 +51,9 @@ unset postpone
 set delete
 set quit
 set fast_reply
+
+# Cursor
+set arrow_cursor
 
 # -- Headers --
 
@@ -78,8 +90,8 @@ bind index,pager <space> sidebar-open
 bind index gg       first-entry
 bind index G        last-entry
 
+# reply to all
 bind index R        group-reply
-bind index <tab>    sync-mailbox
 
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
@@ -89,6 +101,7 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>"
 
 # Sync email
+bind index <tab>    sync-mailbox
 macro index O "<shell-escape>offlineimap<enter>"
 macro index o "<shell-escape>offlineimap -qf INBOX<enter>"
 
@@ -115,7 +128,6 @@ bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
-
 bind pager R  group-reply
 
 # View attachments properly.
@@ -125,6 +137,7 @@ auto_view text/html
 
 # urlview
 macro pager \Cu "|urlview<enter>"
+
 
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 alternative_order text/plain text/enriched text/html
@@ -137,7 +150,7 @@ set query_command = "abook --mutt-query '%s'"
 
 set sidebar_delim = " │"
 set sidebar_visible = yes
-set sidebar_width = 24
+set sidebar_width = 20
 
 # -- Status bar --
 
