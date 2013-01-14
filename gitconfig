@@ -6,6 +6,8 @@
     excludesfile = ~/.gitignore_global
 [rerere]
     enabled = true
+[clean]
+    requireForce = false
 [alias]
     aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ == /'
     a = add
@@ -14,6 +16,7 @@
     b = branch -va
     bd = branch -d
     c = commit
+    cl = clone
     ca = commit --amend -C HEAD
     cam = commit --amend
     cm = commit -m
@@ -32,6 +35,9 @@
     phu = push --set-upstream
     PH = push --force
     pl = pull --rebase
+    rem = remote -v
+    rema = remote add
+    remr = remote rm
     rm = rm --cached
     rc = rebase --continue
     s = status -sb
