@@ -22,6 +22,7 @@ alias news=newsbeuter
 alias -g mkdir='mkdir -p'
 alias pod=podbeuter -a
 alias s=sudo
+alias this='tmux attach -t $(basename $PWD)'
 alias t=tmux
 alias tu='turses -d'
 alias v=vim
@@ -64,8 +65,9 @@ alias pipf='pip freeze'
 alias py='pypy'
 alias pyp='/opt/pypy/bin/pip'
 
-# dual screen
+# external screens
 alias dualscreen='xrandr --output HDMI1 --mode 1280x1024 --right-of LVDS1'
+alias samescreen='xrandr --output HDMI1 --mode 1280x1024 --same-as LVDS1'
 
 # Django
 alias pm='python manage.py'

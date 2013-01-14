@@ -48,8 +48,8 @@ local cwd='%{$bg[magenta]%}%~%{$reset_color%}'
 local git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
 local virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
 #local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
-local battery='%{$fg[red]%}$(~/bin/battery)%{$reset_color%}'
+#local battery='%{$fg[red]%}$(~/bin/battery)%{$reset_color%}'
 local prompt_char='$(prompt_char)'
 
 PROMPT="${user} @ ${hostname} in ${cwd} ${prompt_char} "
-RPROMPT="${git_branch} ${virtualenv} ${battery}"
+RPROMPT="${git_branch} ${virtualenv}"

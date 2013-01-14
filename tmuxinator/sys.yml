@@ -1,5 +1,6 @@
 project_name: sys
 project_root: ~/
 tabs:
-  - wicd: wicd-curses
-  - htop: htop
+  - wlan: wicd-curses
+  - processes: htop
+  - power: sudo powertop
