@@ -7,7 +7,7 @@ notify-program notify-send
 ## Behaviour
 auto-reload            yes
 mark-as-read-on-hover  no
-show-read-articles     no
+show-read-articles     yes
 
 ## Podcasts
 download-path ~/Podcasts
@@ -23,3 +23,9 @@ unbind-key j
 unbind-key k
 bind-key j down
 bind-key k up
+
+## Colors
+color info white blue bold
+color listfocus black yellow
+color listnormal black white
+color background white white
