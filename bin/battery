@@ -1,6 +1,7 @@
 #!/bin/sh
 
-# Borrowed from : https://github.com/marsam/dotfiles
+# Initially borrowed from : https://github.com/marsam/dotfiles
+# with some additions.
 
 HEART_FULL=♥
 HEART_EMPTY=♡
@@ -23,5 +24,14 @@ cutinate()
     done
 }
 
-BATTERY_STATUS=`acpi | awk '{print $4}' | tr -d '%,'`
-echo `cutinate $BATTERY_STATUS`
+# Is it `acpi` there?
+which acpi &> /dev/null
+
+if [[ $? == 1 ]]; then
+    # Probably a desktop computer or VM
+    echo ☼
+else
+    # Cute battery status!
+    BATTERY_STATUS=`acpi | awk '{print $4}' | tr -d '%,'`
+    echo `cutinate $BATTERY_STATUS`
+fi

@@ -23,26 +23,38 @@ unread
 Print GMail inbox unread count.
 """
 
-import requests
+import sys
 from xml.dom import minidom
+
+import requests
 
 from secrets import GMAIL_USER, GMAIL_PASSWORD
 
 
 INBOX_FEED_URL = "https://mail.google.com/mail/feed/atom/inbox"
 
+NO_ERR = 0
+ERR_NETWORK_UNREACHABLE = 1
+ERR_HTTP = 2
 
-UNREAD_COUNT = "✉ {count}"
-ERROR = "✘ {code}"
+UNREAD_COUNT = " ✉ {count} "
+NETWORK_ERROR = " ∇ "
+ERROR = " ✘ {code} "
 
 
 if __name__ == "__main__":
-    response = requests.get(INBOX_FEED_URL,
-                            auth=(GMAIL_USER, GMAIL_PASSWORD))
+    try:
+        response = requests.get(INBOX_FEED_URL,
+                                auth=(GMAIL_USER, GMAIL_PASSWORD))
+    except requests.exceptions.ConnectionError:
+        print(NETWORK_ERROR)
+        sys.exit(ERR_NETWORK_UNREACHABLE)
 
     if response.status_code == 200:
         dom = minidom.parseString(response.content)
         count = len(dom.getElementsByTagName("entry"))
         print(UNREAD_COUNT.format(count=count))
+        sys.exit(NO_ERR)
     else:
         print(ERROR.format(code=response.status_code))
+        sys.exit(HTTP_ERR)
