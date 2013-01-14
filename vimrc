@@ -14,7 +14,9 @@ Bundle 'tpope/vim-eunuch'
 " Colors
 Bundle 'tpope/vim-vividchalk'
 Bundle 'tomasr/molokai'
-Bundle 'Color-Sampler-Pack'
+Bundle 'sjl/badwolf'
+Bundle 'vim-scripts/Colour-Sampler-Pack'
+Bundle 'vim-scripts/louver.vim'
 
 " Version Control
 Bundle 'tpope/vim-fugitive'
@@ -125,16 +127,16 @@ set completeopt=menuone,longest,preview
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
-function! SetColorScheme()
-    if &t_Co != 256
-        colorscheme vividchalk
-    else
-        colorscheme molokai
-    endif
+function! DarkColorScheme()
+    colorscheme badwolf
+endfunc
+
+function! LightColorScheme()
+    colorscheme louver
 endfunc
 
 syntax enable
-call SetColorScheme()
+call DarkColorScheme()
 
 " UI
 " ~~
@@ -344,6 +346,10 @@ vnoremap <F1> <ESC>
 
 " I usually want to scroll
 nmap K k
+
+" Swap light/dark colorschemes
+nmap <Leader>tl :call LightColorScheme()<CR>
+nmap <Leader>td :call DarkColorScheme()<CR>
 
 
 " Plugins
