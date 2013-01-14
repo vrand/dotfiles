@@ -63,7 +63,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "dev", "test", "org", "www", "media", "social", "sys"}, s, layouts[1])
+    tags[s] = awful.tag({ "misc", "dev", "test", "org", "www", "media", "social", "sys"}, s, layouts[1])
 end
 -- }}}
 
@@ -81,8 +81,8 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                   }
                         })
 
-mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
-                                     menu = mymainmenu })
+--mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
+                                     --menu = mymainmenu })
 -- }}}
 
 -- {{{ Wibox
@@ -154,7 +154,7 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
-            mylauncher,
+            --mylauncher,
             mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
@@ -270,40 +270,45 @@ globalkeys = awful.util.table.join(
               end),
     -- Tag navigation
     -- FIXME: this is very redundant
-    awful.key({ modkey }, "d",
+    awful.key({ modkey }, "0",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][1])
               end),
-    awful.key({ modkey }, "t",
+    awful.key({ modkey }, "d",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][2])
               end),
-    awful.key({ modkey }, "o",
+    awful.key({ modkey }, "t",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][3])
               end),
-    awful.key({ modkey }, "w",
+    awful.key({ modkey }, "o",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][4])
               end),
-    awful.key({ modkey }, "m",
+    awful.key({ modkey }, "w",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][5])
               end),
-    awful.key({ modkey }, "c",
+    awful.key({ modkey }, "m",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][6])
               end),
-    awful.key({ modkey }, "y",
+    awful.key({ modkey }, "c",
               function ()
                   local screen = mouse.screen
                   awful.tag.viewonly(tags[screen][7])
+              end),
+    awful.key({ modkey }, "y",
+              function ()
+                  local screen = mouse.screen
+                  awful.tag.viewonly(tags[screen][8])
               end)
 )
 
