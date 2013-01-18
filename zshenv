@@ -81,6 +81,12 @@ function modernize
     pip freeze | cut -d = -f 1 | xargs sudo pip install -U
 }
 
+function lstash {
+    for stash in $(git stash list | awk '{print $1}' | sed -e 's/://'); do
+        (echo $stash && git stash show -p $stash);
+    done
+}
+
 
 # Load `z`: https://github.com/rupa/z
 . ~/bin/z.sh

@@ -46,7 +46,6 @@
     sta = stash apply
     stp = stash pop
     std = stash drop
-    stl = stash list
     discard = reset HEAD --hard
 [color]
     ui = true
