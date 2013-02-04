@@ -2,5 +2,6 @@ project_name: sys
 project_root: ~/
 tabs:
   - wlan: wicd-curses
+  - overview: glances
   - processes: htop
   - power: sudo powertop

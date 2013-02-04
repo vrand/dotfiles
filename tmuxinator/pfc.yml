@@ -2,6 +2,5 @@ project_name: pfc
 project_root: ~/pfc/wikimaps
 tabs:
   - dev: workon w && vim .
-  - salt: cd salt && vim .
-  - vms: vagrant up
+  - ops: vagrant up db && workon w && make serve
   - wiki: vim ~/vimwiki/FinalProject.wiki
