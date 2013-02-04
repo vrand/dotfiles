@@ -23,6 +23,7 @@ alias news=newsbeuter
 alias -g mkdir='mkdir -p'
 alias pod=podbeuter -a
 alias s=sudo
+alias sus='sudo systemctl suspend'
 alias this='tmux attach -t $(basename $PWD)'
 alias t=tmux
 alias tu='turses -d'

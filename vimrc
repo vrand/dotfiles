@@ -133,6 +133,7 @@ endfunc
 
 function! LightColorScheme()
     colorscheme louver
+    "colorscheme calmar256-light
 endfunc
 
 syntax enable
@@ -142,7 +143,7 @@ call DarkColorScheme()
 " ~~
 
 " last window always has a status line
-set laststatus=2
+set laststatus=1
 
 " show information about the cursor coords and relative position
 set ruler
@@ -348,8 +349,8 @@ vnoremap <F1> <ESC>
 nmap K k
 
 " Swap light/dark colorschemes
-nmap <Leader>tl :call LightColorScheme()<CR>
-nmap <Leader>td :call DarkColorScheme()<CR>
+nmap <Leader>lc :call LightColorScheme()<CR>
+nmap <Leader>dc :call DarkColorScheme()<CR>
 
 
 " Plugins
@@ -394,6 +395,9 @@ let NERDTreeMinimalUI = 1
 " toggle NERDTree in the directory of the file that I'm editing
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>N :NERDTree<CR>
+
+" Powerline
+let g:Powerline_symbols = 'compatible'
 
 " Syntastic
 let g:syntastic_auto_jump = 1

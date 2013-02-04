@@ -69,6 +69,9 @@ batti &
 # music player daemon
 mpd ~/.mpdconf
 
+# dropbox
+dropbox &
+
 ##
 #  Window manager
 ##
