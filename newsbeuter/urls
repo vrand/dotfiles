@@ -5,10 +5,17 @@ http://feeds.feedburner.com/html5rocks html5
 http://planet.python.org/rss20.xml python
 http://joedicastro.com/rss.xml python
 http://lucumr.pocoo.org/feed.atom python
+http://feeds.feedburner.com/HighScalability High scalability
 http://www.perfplanet.com/rss.xml web performance
 https://groups.google.com/group/vim_announce/feed/atom_v1_0_msgs.xml vim
 http://inconsolation.wordpress.com/feed/ cli
 http://onethingwell.org/rss software
-http://www.rtve.es/api/programas/1940/audios.rss Duendeando
+http://feeds.feedburner.com/JavascriptJabber javascript
+http://radiofreepython.com/high_quality.rss python
+
+http://www.rtve.es/api/programas/1940/audios.rss Duendeando, flamenco
+http://flamencolicos.wordpress.com/feed/ flamenco
+
 http://mangafox.me/rss/naruto.xml manga
 http://mangafox.me/rss/one_piece.xml manga
+http://mangafox.me/rss/fairy_tail.xml manga
