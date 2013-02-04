@@ -46,19 +46,22 @@ set message_autoaway = Auto-away (idle)
 
 set escdelay = 50
 
-set color_background   = default
-set color_general      = white
-set color_info         = blue
-set color_msgin        = red
-set color_msgout       = blue
-set color_msghl        = yellow
-set color_bgstatus     = magenta
-set color_status       = black
-set color_roster       = green
-set color_bgrostersel  = magenta
-set color_rostersel    = black
-set color_rosterselmsg = yellow
-set color_rosternewmsg = red
+# dark solarized color theme
+# more infos: http://ethanschoonover.com/solarized
+
+set color_background   = 234 
+set color_general      = 244
+set color_info         = 240
+set color_msgin        = 166
+set color_msgout       = 64
+set color_msghl        = 136
+set color_bgstatus     = 235
+set color_status       = 166
+set color_roster       = 240
+set color_bgrostersel  = 235
+set color_rostersel    = 166
+set color_rosterselmsg = 136
+set color_rosternewmsg = 136
 
 # Aliases
 alias me = say /me
