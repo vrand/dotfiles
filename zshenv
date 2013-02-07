@@ -35,6 +35,9 @@ function add_to_path
 ECLIPSE_PATH=/usr/share/eclipse
 add_to_path "$ECLIPSE_PATH"
 
+DROPBOX_PATH=$HOME/.dropbox-dist
+add_to_path "$DROPBOX_PATH"
+
 SCRIPTS_PATH=$HOME/bin
 add_to_path "$SCRIPTS_PATH"
 
