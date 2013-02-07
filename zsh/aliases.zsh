@@ -19,6 +19,7 @@ alias l='ls'
 alias ll='ls -lAh'
 alias m='mux'
 alias n='noglob'
+alias off='sudo systemctl poweroff'
 alias news=newsbeuter
 alias -g mkdir='mkdir -p'
 alias pod=podbeuter -a
