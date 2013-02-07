@@ -23,6 +23,7 @@
     co = checkout
     cob = checkout -b
     d = diff --word-diff
+    ds = !git diff | cdiff -s
     dc = diff --cached
     dl = diff HEAD^1
     f=fetch
