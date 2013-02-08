@@ -1,0 +1,9 @@
+#!/bin/sh
+
+INBOX=$MAIL/INBOX/new
+
+while true; do
+  event=$(inotifywait -e create -e moved_to $INBOX 2> /dev/null)
+  # TODO: extract subject, from
+  notify-send --app-name=Mail "You have new mail!"
+done
