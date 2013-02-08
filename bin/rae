@@ -1,0 +1,9 @@
+#!/bin/sh
+
+SEARCH_URL=http://lema.rae.es/drae/srv/search
+DEFINITION=/tmp/define.$1
+
+curl --silent "$SEARCH_URL?val=$1" -o $DEFINITION
+
+links -dump $DEFINITION | \
+    grep --invert-match --ignore-case \(c\) | $PAGER  # Remove copyright notice
