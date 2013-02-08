@@ -67,10 +67,13 @@ unclutter &
 batti &
 
 # music player daemon
-mpd ~/.mpdconf
+mpd $HOME/.mpdconf
 
 # dropbox
-dropbox &
+$HOME/.dropbox-dist/dropbox &
+
+# mailnotifier
+$HOME/bin/mailnotifier &
 
 ##
 #  Window manager
