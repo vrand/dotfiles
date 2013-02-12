@@ -70,7 +70,7 @@ alias pyp='/opt/pypy/bin/pip'
 
 # external screens
 alias dualscreen='xrandr --output HDMI1 --mode 1280x1024 --right-of LVDS1'
-alias samescreen='xrandr --output HDMI1 --mode 1280x1024 --same-as LVDS1'
+alias samescreen='xrandr --output HDMI1 --mode $(xrandr | grep LVDS1 | cut -d " " -f 3 | cut -d "+" -f 1) --same-as LVDS1'
 
 # Django
 alias pm='python manage.py'
