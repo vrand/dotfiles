@@ -62,7 +62,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 # Virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 
-export WORKON_HOME=/data/.virtualenvs
+export WORKON_HOME=$HOME/.venvs
 #export PROJECT_HOME=$HOME/repos
 
 VENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
