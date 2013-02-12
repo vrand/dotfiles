@@ -66,6 +66,9 @@ unclutter &
 # battery indicator
 batti &
 
+# caffeine
+caffeine &
+
 # music player daemon
 mpd $HOME/.mpdconf
 
