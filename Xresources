@@ -18,29 +18,48 @@ URxvt*scrollBar:       off
 ! Colors
 
 !Black
-URxvt.color0  : #2E2E34343636
-URxvt.color8  : #555557575353
-! Red
-URxvt.color1  : #CCCC00000000
-URxvt.color9  : #EFEF29292929
-! Green
-URxvt.color2  : #4E4E9A9A0606
-URxvt.color10 : #8A8AE2E23434
-! Yellow
-URxvt.color3  : #C4C4A0A00000
-URxvt.color11 : #FCFCE9E94F4F
-! Blue
-URxvt.color4  : #34346565A4A4
-URxvt.color12 : #72729F9FCFCF
-! Magenta
-URxvt.color5  : #757550507B7B
-URxvt.color13 : #ADAD7F7FA8A8
-! Cyan
-URxvt.color6  : #060698209A9A
-URxvt.color14 : #3434E2E2E2E2
-! White
-URxvt.color7  : #D3D3D7D7CFCF
-URxvt.color15 : #EEEEEEEEECEC
+!URxvt.color0  : #2E2E34343636
+!URxvt.color8  : #555557575353
+!! Red
+!URxvt.color1  : #CCCC00000000
+!URxvt.color9  : #EFEF29292929
+!! Green
+!URxvt.color2  : #4E4E9A9A0606
+!URxvt.color10 : #8A8AE2E23434
+!! Yellow
+!URxvt.color3  : #C4C4A0A00000
+!URxvt.color11 : #FCFCE9E94F4F
+!! Blue
+!URxvt.color4  : #34346565A4A4
+!URxvt.color12 : #72729F9FCFCF
+!! Magenta
+!URxvt.color5  : #757550507B7B
+!URxvt.color13 : #ADAD7F7FA8A8
+!! Cyan
+!URxvt.color6  : #060698209A9A
+!URxvt.color14 : #3434E2E2E2E2
+!! White
+!URxvt.color7  : #D3D3D7D7CFCF
+!URxvt.color15 : #EEEEEEEEECEC
+!
+! Zenburn
+!
+*color0:  #1E2320
+*color1:  #705050
+*color2:  #60b48a
+*color3:  #dfaf8f
+*color4:  #506070
+*color5:  #dc8cc3
+*color6:  #8cd0d3
+*color7:  #dcdccc
+*color8:  #709080
+*color9:  #dca3a3
+*color10: #c3bf9f
+*color11: #f0dfaf
+*color12: #94bff3
+*color13: #ec93d3
+*color14: #93e0e3
+*color15: #ffffff
 
 ! URLs
 URxvt*perl-ext-common: default,matcher

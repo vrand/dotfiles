@@ -74,7 +74,7 @@ set message_cachedir = ~/.mutt/cache/bodies
 
 # -- Colors --
 
-source ~/.mutt-colors
+source ~/.mutt/colors/badwolf
 
 # -- Bindings & Macros --
 

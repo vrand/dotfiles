@@ -42,9 +42,9 @@ function prompt_char {
     echo '»'
 }
 
-local user='%{$bg[cyan]%}%n%{$reset_color%}'
-local hostname='%{$bg[yellow]%}%m%{$reset_color%}'
-local cwd='%{$bg[magenta]%}%~%{$reset_color%}'
+local user='%{$fg[cyan]%}%n%{$reset_color%}'
+local hostname='%{$fg[yellow]%}%m%{$reset_color%}'
+local cwd='%{$fg[magenta]%}%~%{$reset_color%}'
 local git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
 local virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
 #local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
