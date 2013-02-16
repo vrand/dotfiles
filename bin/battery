@@ -3,35 +3,17 @@
 # Initially borrowed from : https://github.com/marsam/dotfiles
 # with some additions.
 
-HEART_FULL=♥
-HEART_EMPTY=♡
-[ -z "$NUM_HEARTS" ] &&
-    NUM_HEARTS=5
+HEART=♥
 
-cutinate()
-{
-    perc=$1
-    inc=$(( 100 / $NUM_HEARTS))
-
-
-    for i in `seq $NUM_HEARTS`; do
-        if [ $perc -lt 100 ]; then
-            echo $HEART_EMPTY
-        else
-            echo $HEART_FULL
-        fi
-        perc=$(( $perc + $inc ))
-    done
-}
 
 # Is it `acpi` there?
-which acpi &> /dev/null
-
-if [[ $? == 1 ]]; then
-    # Probably a desktop computer or VM
-    echo ☼
-else
-    # Cute battery status!
-    BATTERY_STATUS=`acpi | awk '{print $4}' | tr -d '%,'`
-    echo `cutinate $BATTERY_STATUS`
-fi
+# TODO:  make this work
+#which acpi &> /dev/null
+#if [[ $? == 1 ]]; then
+    ## Probably a desktop computer or VM
+    #echo ☼
+#else
+# Cute battery status!
+BATTERY_STATUS=`acpi | awk '{print $4}' | tr -d ','`
+echo "$HEART $BATTERY_STATUS"
+#fi

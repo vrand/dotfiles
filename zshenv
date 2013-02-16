@@ -18,7 +18,7 @@ fi
 
 # Pager
 export PAGER='less -r'
-export MANPAGER="/bin/sh -c 'col -b | vim -u ~/.vim/pager.vim -'"
+#export MANPAGER="/bin/sh -c 'col -b | vim -u ~/.vim/pager.vim -'"
 
 # Mail
 export MAIL=$HOME/Mail
