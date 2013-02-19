@@ -18,7 +18,11 @@ http://www.mnot.net/blog/index.atom web
 
 http://www.rtve.es/api/programas/1940/audios.rss Duendeando, flamenco
 http://flamencolicos.wordpress.com/feed/ flamenco
+http://www.letrasdeflamenco.com/feeds/posts/default Letras de flamenco
 
 http://mangafox.me/rss/naruto.xml manga
 http://mangafox.me/rss/one_piece.xml manga
 http://mangafox.me/rss/fairy_tail.xml manga
+
+http://alejandrogomez.github.com/wikimaps/atom.xml Wikimaps
+https://www.concursosoftwarelibre.org/1213/aggregator/rss Planet CUSL
