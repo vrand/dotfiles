@@ -10,7 +10,7 @@ alias cc='noglob cclive'
 alias d=deactivate
 alias e='emacsclient -tc'
 alias g=git
-alias gr='cd $(git rev-parse --show-toplevel)'
+alias gr=grunt
 alias h='noglob http'
 alias i=ipython
 alias irc=weechat-curses
@@ -23,6 +23,8 @@ alias off='sudo systemctl poweroff'
 alias news=newsbeuter
 alias -g mkdir='mkdir -p'
 alias pod=podbeuter -a
+# *r*epo *r*oot
+alias rr='cd $(git rev-parse --show-toplevel)'
 alias s=sudo
 alias sus='sudo systemctl suspend'
 alias this='tmux attach -t $(basename $PWD)'
