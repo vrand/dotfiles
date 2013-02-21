@@ -31,9 +31,10 @@ alternates alejandroogomez@gmail.com
 mailboxes +INBOX \
           +Python \
           +Django \
-          +Trabajo \
+          +AUR \
           +vim \
           +Meetups \
+          +Trabajo \
           +drafts \
 
 # Other special folders.
