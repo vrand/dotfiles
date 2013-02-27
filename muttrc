@@ -31,11 +31,8 @@ alternates alejandroogomez@gmail.com
 mailboxes +INBOX \
           +Python \
           +Django \
-          +AUR \
           +vim \
           +Meetups \
-          +Trabajo \
-          +drafts \
 
 # Other special folders.
 set mbox      = "+archive"
