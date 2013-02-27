@@ -64,7 +64,7 @@ unclutter &
 batti &
 
 # caffeine
-caffeine &
+caffeine -a &
 
 # music player daemon
 mpd $HOME/.mpdconf
