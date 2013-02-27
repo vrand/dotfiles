@@ -27,10 +27,7 @@ xset fp rehash
 xset b off
 
 # set Spanish keyboard layout
-setxkbmap -layout es
-
-# custom key mappings
-xmodmap ~/.Xmodmap
+setxkbmap -layout us,es -variant altgr-intl, -option grp:alt_space_toggle -option grp_led:caps -option ctrl:nocaps
 
 # backlight
 xbacklight -set 30
