@@ -69,9 +69,6 @@ caffeine -a &
 # music player daemon
 mpd $HOME/.mpdconf
 
-# dropbox
-$HOME/.dropbox-dist/dropbox &
-
 # mailnotifier
 $HOME/bin/mailnotifier &
 
