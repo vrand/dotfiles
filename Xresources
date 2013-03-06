@@ -78,3 +78,20 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.colorIT:      #87af5f
 URxvt.colorBD:      #d7d7d7
 URxvt.colorUL:      #87afd7
+
+! Light background
+LURxvt*fading:                 0
+LURxvt*background:             rgba:ffff/ffff/ffff/aaaa
+LURxvt*foreground:             #839496
+LURxvt*fadeColor:              #fdf6e3
+LURxvt*cursorColor:            #586e75
+LURxvt*pointerColorBackground: #93a1a1
+LURxvt*pointerColorForeground: #586e75
+LURxvt*color0:                 #073642
+LURxvt*color8:                 #fdf6e3
+LURxvt*color10:                #93a1a1
+LURxvt*color11:                #839496
+LURxvt*color12:                #657b83
+LURxvt*color14:                #586e75
+LURxvt*color7:                 #839496
+LURxvt*color15:                #002b36
