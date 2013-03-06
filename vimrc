@@ -55,7 +55,7 @@ Bundle 'Lokaltog/vim-powerline'
 " Syntax highlighting
 Bundle 'kchmck/vim-coffee-script'
 "Bundle 'groenewege/vim-less'
-"Bundle 'skammer/vim-css-color'
+Bundle 'skammer/vim-css-color'
 "Bundle 'hail2u/vim-css3-syntax'
 Bundle 'saltstack/salt-vim'
 Bundle 'nginx.vim'
