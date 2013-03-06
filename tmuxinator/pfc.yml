@@ -2,5 +2,5 @@ project_name: pfc
 project_root: ~/pfc/wikimaps
 tabs:
   - dev: workon w && vim .
-  - ops: vagrant up db && workon w && DJANGO_SETTINGS_MODULE=wikimaps.settings.staging make serve
+  - ops: vagrant up db && workon w && DJANGO_SETTINGS_MODULE=wikimaps.settings.dev make serve
   - wiki: vim ~/vimwiki/FinalProject.wiki

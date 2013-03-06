@@ -3,4 +3,4 @@ project_root: ~/
 tabs:
   - mail: mutt
   - twitter: turses
-  - irc: weechat-curses
+  - irc: ssh irc
