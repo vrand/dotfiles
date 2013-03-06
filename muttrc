@@ -29,8 +29,8 @@ alternates alejandroogomez@gmail.com
 
 # Mailboxes to show in the sidebar.
 mailboxes +INBOX \
+          +Wikimaps \
           +Python \
-          +Django \
           +vim \
           +Meetups \
 
@@ -72,7 +72,8 @@ set message_cachedir = ~/.mutt/cache/bodies
 
 # -- Colors --
 
-source ~/.mutt/colors/badwolf
+#source ~/.mutt/colors/badwolf
+source ~/.mutt/colors/louver
 
 # -- Bindings & Macros --
 
