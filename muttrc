@@ -31,8 +31,8 @@ alternates alejandroogomez@gmail.com
 mailboxes +INBOX \
           +Wikimaps \
           +Python \
+          +Haskell \
           +vim \
-          +Meetups \
 
 # Other special folders.
 set mbox      = "+archive"
@@ -72,8 +72,9 @@ set message_cachedir = ~/.mutt/cache/bodies
 
 # -- Colors --
 
-#source ~/.mutt/colors/badwolf
-source ~/.mutt/colors/louver
+source ~/.mutt/colors/badwolf
+#source ~/.mutt/colors/louver
+#source ~/.mutt/colors/zenburn
 
 # -- Bindings & Macros --
 

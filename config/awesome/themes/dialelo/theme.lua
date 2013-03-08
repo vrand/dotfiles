@@ -6,37 +6,58 @@ theme_root = "/home/dialelo/.config/awesome/themes/dialelo/"
 
 theme = {}
 
--- Font
-theme.font = "sans 10"
+theme.font = "Terminus 12"
 
--- Colors
-BLACK = "#000000"
-WHITE = "#FFFFFF"
+theme.fg_normal = "#DCDCCC"
+theme.fg_focus  = "#F0DFAF"
+theme.fg_urgent = "#CC9393"
+theme.bg_normal = "#3F3F3F"
+theme.bg_focus  = "#1E2320"
+theme.bg_urgent = "#3F3F3F"
 
-LIGHT_GRAY = "#ECECEC"
-DARK_GRAY = "#606060"
+ -- {{{ Borders
+ theme.border_width  = "1"
+ theme.border_normal = "#3F3F3F"
+ theme.border_focus  = "#6F6F6F"
+ theme.border_marked = "#CC9393"
+ -- }}}
 
-LIGHT_RED = "#E4001B"
+ -- {{{ Titlebars
+ theme.titlebar_bg_focus  = "#3F3F3F"
+ theme.titlebar_bg_normal = "#3F3F3F"
+ -- theme.titlebar_[normal|focus]
+ -- }}}
 
-PALE_BLUE = "#D0EAFF"
-LIGHT_BLUE = "#A5D1F4"
-DARK_BLUE = "#000044"
-BLUE = "#6194BC"
+ -- {{{ Widgets
+ theme.fg_widget        = "#AECF96"
+ theme.fg_center_widget = "#88A175"
+ theme.fg_end_widget    = "#FF5656"
+ theme.fg_off_widget    = "#494B4F"
+ theme.fg_netup_widget  = "#7F9F7F"
+ theme.fg_netdn_widget  = "#CC9393"
+ theme.bg_widget        = "#3F3F3F"
+ theme.border_widget    = "#3F3F3F"
+ -- }}}
 
-theme.bg_normal     = LIGHT_GRAY
-theme.bg_focus      = LIGHT_BLUE
-theme.bg_urgent     = LIGHT_RED
-theme.bg_minimize   = PALE_BLUE
+ -- {{{ Mouse finder
+ theme.mouse_finder_color = "#CC9393"
+ -- theme.mouse_finder_[timeout|animate_timeout|radius|factor]
+ -- }}}
 
-theme.fg_normal     = BLACK
-theme.fg_focus      = DARK_BLUE
-theme.fg_urgent     = WHITE
-theme.fg_minimize   = BLACK
+ -- {{{ Tooltips
+ -- theme.tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
+ -- }}}
 
-theme.border_width  = "1"
-theme.border_normal = BLACK
-theme.border_focus  = PALE_BLUE
-theme.border_marked = BLUE
+ -- {{{ Taglist and Tasklist
+ -- theme.[taglist|tasklist]_[bg|fg]_[focus|urgent]
+ -- }}}
+
+ -- {{{ Menu
+ -- theme.menu_[height|width]
+ -- theme.menu_[bg|fg]_[normal|focus]
+ -- theme.menu_[border_color|border_width]
+ -- }}}
+ -- }}}
 
 -- There are other variable sets
 -- overriding the default one when

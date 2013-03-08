@@ -39,17 +39,17 @@ function current_virtualenv() {
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     #hg root >/dev/null 2>/dev/null && echo '☿' && return
-    echo '»'
+    echo 'λ'
 }
 
-local user='%{$fg[cyan]%}%n%{$reset_color%}'
-local hostname='%{$fg[yellow]%}%m%{$reset_color%}'
+local user='%{$fg[yellow]%}%n%{$reset_color%}'
 local cwd='%{$fg[magenta]%}%~%{$reset_color%}'
 local git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
 local virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
 #local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 #local battery='%{$fg[red]%}$(~/bin/battery)%{$reset_color%}'
-local prompt_char='$(prompt_char)'
+local prompt_char='%{$fg[cyan]%}$(prompt_char)'
+local hostname='%{$bg[blue]%}%m%{$reset_color%}'
 
-PROMPT="${user} @ ${hostname} in ${cwd} ${prompt_char} "
-RPROMPT="${git_branch} ${virtualenv}"
+PROMPT="${user} in ${cwd} ${prompt_char} "
+RPROMPT="${git_branch} ${virtualenv} ${hostname} "
