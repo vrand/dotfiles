@@ -15,6 +15,12 @@ set socket_dir = /tmp
 
 set shell_cmd = sh -c
 
+# === Fonts ==================================================================
+
+set minimum_font_size = 10
+set font_size = 18
+set default_font_family = "Serif"
+
 # === General config aliases =================================================
 
 # Config related events (use the request function):
