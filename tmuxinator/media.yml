@@ -4,6 +4,3 @@ tabs:
   - news: newsbeuter
   - music: vimpc
   - radio: podbeuter -a
-  - reddit: cortex
-  - hn: pyhn
-  - mixer: alsamixer
