@@ -5,6 +5,7 @@ alias -g ....='cd ../../..'
 alias -g .....='cd ../../../..'
 
 # Shortcuts
+alias :e=vim
 alias a='alsamixer'
 alias cc='noglob cclive'
 alias d=deactivate
@@ -56,6 +57,8 @@ alias yu='packer -Syu --noconfirm'
 alias yi='packer -S --noconfirm'
 alias ys='packer -Ss'
 alias yr='packer -Rdd'
+alias ycl='packer -Sc'
+alias ypu='packer -Scc'
 
 # Python
 alias p=python2
