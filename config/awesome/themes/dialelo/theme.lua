@@ -6,7 +6,7 @@ theme_root = "/home/dialelo/.config/awesome/themes/dialelo/"
 
 theme = {}
 
-theme.font = "Terminus 8"
+theme.font = "Terminus 10"
 
 theme.fg_normal = "#DCDCCC"
 theme.fg_focus  = "#F0DFAF"
