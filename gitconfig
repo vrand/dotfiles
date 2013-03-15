@@ -50,6 +50,7 @@
     stp = stash pop
     std = stash drop
     discard = reset HEAD --hard
+    u = checkout HEAD -- 
 [color]
     ui = true
 [color "status"]
