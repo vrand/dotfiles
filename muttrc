@@ -54,6 +54,9 @@ set fast_reply
 # Cursor
 set arrow_cursor
 
+# Helps for matching URLs with urlview
+set pipe_decode = yes
+
 # -- Headers --
 
 ignore *
