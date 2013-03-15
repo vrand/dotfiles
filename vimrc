@@ -276,8 +276,8 @@ imap jk <Esc>
 nmap <Leader><Leader> za
 
 " exit quickly
-nmap <Leader>q :q<CR>
-nmap <Leader>Q :qa<CR>
+nmap <Leader>q :q!<CR>
+nmap <Leader>Q :qa!<CR>
 
 " cursor moves are on displayed lines
 nmap j gj
