@@ -64,6 +64,9 @@ Bundle 'nginx.vim'
 Bundle 'klen/python-mode'
 Bundle 'jmcantrell/vim-virtualenv'
 
+" Haskell
+Bundle 'lukerandall/haskellmode-vim'
+
 " Misc
 Bundle 'vimwiki'
 Bundle 'scratch'
@@ -411,7 +414,7 @@ let g:yankring_max_history = 1000
 let g:yankring_history_dir = '$HOME/.vim/yankring'
 let g:yankring_history_file = 'yankring_history'
 
-map <Leader>r :YRShow<CR>
+map <Leader>y :YRShow<CR>
 
 " Vimwiki
 map <Leader>vs :VimwikiSearch
