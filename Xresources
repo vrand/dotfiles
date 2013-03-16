@@ -63,7 +63,7 @@ URxvt*scrollBar:       off
 
 ! URLs
 URxvt*perl-ext-common: default,matcher
-URxvt*urlLauncher:     uzbl
+URxvt*url-launcher:    /usr/bin/uzbl-browser
 URxvt*underlineURLs:   true
 URxvt.matcher.button:  1
 
