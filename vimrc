@@ -17,6 +17,7 @@ Bundle 'tomasr/molokai'
 Bundle 'sjl/badwolf'
 Bundle 'vim-scripts/Colour-Sampler-Pack'
 Bundle 'vim-scripts/louver.vim'
+Bundle 'noahfrederick/Hemisu'
 
 " Version Control
 Bundle 'tpope/vim-fugitive'
@@ -131,12 +132,15 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 function! DarkColorScheme()
-    colorscheme badwolf
+    set bg=dark
+    colorscheme hemisu
 endfunc
 
 function! LightColorScheme()
-    colorscheme louver
+    "colorscheme louver
     "colorscheme calmar256-light
+    set bg=light
+    colorscheme hemisu
 endfunc
 
 syntax enable
