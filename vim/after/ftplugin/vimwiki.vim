@@ -1,2 +1,2 @@
-colorscheme calmar256-light
 set nolist
+call LightColorScheme()
