@@ -143,6 +143,11 @@ function! LightColorScheme()
     colorscheme hemisu
 endfunc
 
+function! TransparentColorScheme()
+    set bg=dark
+    colorscheme xemacs
+endfunc
+
 syntax enable
 call DarkColorScheme()
 
@@ -355,9 +360,10 @@ vnoremap <F1> <ESC>
 " I usually want to scroll
 nmap K k
 
-" Swap light/dark colorschemes
+" Swap light/dark/transparent colorschemes
 nmap <Leader>lc :call LightColorScheme()<CR>
 nmap <Leader>dc :call DarkColorScheme()<CR>
+nmap <Leader>nc :call TransparentColorScheme()<CR>
 
 
 " Plugins
