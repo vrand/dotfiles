@@ -1,5 +1,5 @@
 ## External programs
-browser uzbl-browser
+browser chromium
 pager   less
 player  mplayer
 notify-program notify-send

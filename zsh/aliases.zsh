@@ -31,7 +31,7 @@ alias s=sudo
 alias sus='sudo systemctl suspend'
 alias this='tmux attach -t $(basename $PWD)'
 alias t=tmux
-alias tu='turses -d'
+alias tu='BROWSER=chromium turses -d'
 alias us='setxkbmap -layout us'
 alias v=vim
 alias vi=vim

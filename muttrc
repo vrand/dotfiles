@@ -46,16 +46,18 @@ auto_view text/html
 alternative_order text/plain text/enriched text/html
 
 # Prompts
-unset postpone
+set postpone = ask-yes
 set delete
 set quit
 set fast_reply
 
+unset mark_old
+
 # Cursor
-set arrow_cursor
+#set arrow_cursor
 
 # Helps for matching URLs with urlview
-set pipe_decode = yes
+set pipe_decode
 
 # -- Headers --
 
@@ -158,6 +160,6 @@ set sidebar_width = 20
 
 # -- Status bar --
 
-set status_on_top = yes
+set status_on_top
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>"
