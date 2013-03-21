@@ -481,6 +481,9 @@ map <Leader>tt :call VimuxRunLastCommand()<CR>
 " dissable paste mode when leaving Insert Mode
 autocmd InsertLeave * set nopaste
 
+" save when leaving Insert Mode
+autocmd InsertLeave * :silent! update<CR>
+
 " automatically reload .vimrc when it's saved
 autocmd BufWritePost vimrc source %
 
