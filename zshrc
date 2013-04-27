@@ -16,3 +16,9 @@ if [[ -f $ZSH_SYNTAX ]]
 then
     source $ZSH_SYNTAX
 fi
+
+PYTHONZ=$HOME/.pythonz/etc/bashrc
+if [[ -f $PYTHONZ ]]
+then
+    source $PYTHONZ
+fi

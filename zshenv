@@ -13,7 +13,7 @@ export WWW_HOME=http://dialelo.com
 if [[ -z $DISPLAY ]] then
     export BROWSER=elinks
 else
-    export BROWSER=uzbl-browser
+    export BROWSER=chromium
 fi
 
 # Pager
@@ -60,6 +60,7 @@ export IMAGES_DIR=$HOME/images
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # Virtualenvwrapper
+export VIRTUALENVWRAPPER_LOG_DIR=/tmp
 export VIRTUALENVWRAPPER_PYTHON=$(which python2)
 
 export WORKON_HOME=$HOME/.venvs

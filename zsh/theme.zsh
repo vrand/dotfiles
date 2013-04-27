@@ -42,14 +42,36 @@ function prompt_char {
     echo 'λ'
 }
 
+# show vim status alongside right prompt
+# http://zshwiki.org/home/examples/zlewidgets
+function zle-line-init zle-keymap-select {
+    # info
+    git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
+    virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
+    hostname='%{$bg[blue]%}%m%{$reset_color%}'
+    info="${git_branch} ${virtualenv} ${hostname}"
+
+    # vi mode
+    mode="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    if [[ "$mode" == "-- NORMAL --" ]]
+    then
+        cmode="%{$fg[cyan]%}$mode%{$reset_color%}"
+    else
+        cmode="%{$fg[yellow]%}$mode%{$reset_color%}"
+    fi
+
+    # prompt!
+    RPS1="$info $cmode"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 local user='%{$fg[yellow]%}%n%{$reset_color%}'
 local cwd='%{$fg[magenta]%}%~%{$reset_color%}'
-local git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
-local virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
 #local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 #local battery='%{$fg[red]%}$(~/bin/battery)%{$reset_color%}'
 local prompt_char='%{$fg[cyan]%}$(prompt_char)'
-local hostname='%{$bg[blue]%}%m%{$reset_color%}'
 
 PROMPT="${user} in ${cwd} ${prompt_char} "
-RPROMPT="${git_branch} ${virtualenv} ${hostname} "
