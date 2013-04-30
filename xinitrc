@@ -43,10 +43,10 @@ compton -b --config ~/.compton.conf
 ##
 
 # wicd
-wicd-client -t &
+#wicd-client -t &
 
 # parcellite
-parcellite &
+#parcellite &
 
 # notifications
 dunst &
@@ -61,7 +61,7 @@ syndaemon -t -k -i 2 -d &
 unclutter &
 
 # battery indicator
-batti &
+#batti &
 
 # caffeine
 caffeine -a &
@@ -69,11 +69,21 @@ caffeine -a &
 # music player daemon
 mpd $HOME/.mpdconf
 
+# scratchpad
+tilda --hidden &
+
+# background
+$HOME/bin/randombg
+
 # mailnotifier
 $HOME/bin/mailnotifier &
 
 ##
 #  Window manager
 ##
+xrandr --addmode HDMI1 1366x768
+xrandr --output HDMI1 --mode 1366x768
 
-exec awesome
+xsetroot -name $(dwmstatus) &
+
+exec dwm
