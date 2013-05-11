@@ -1,0 +1,5 @@
+#!/bin/sh
+
+RFC_URL=https://www.ietf.org/rfc/rfc
+
+curl --silent "$RFC_URL$1" | $PAGER
