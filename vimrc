@@ -8,7 +8,7 @@ call vundle#rc()
 " ~~~~~~~
 
 " External utilities
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-eunuch'
 
 " Colors
@@ -360,18 +360,13 @@ vnoremap <F1> <ESC>
 " I usually want to scroll
 nmap K k
 
-" Swap light/dark/transparent colorschemes
-nmap <Leader>lc :call LightColorScheme()<CR>
-nmap <Leader>dc :call DarkColorScheme()<CR>
-nmap <Leader>nc :call TransparentColorScheme()<CR>
-
 
 " Plugins
 " ~~~~~~~
 
 " Ack
 " searches with ack the word under the cursor
-map <Leader>A :Ack!<CR>
+map <Leader>A :Ag!<CR>
 
 " Ctrlp
 let g:ctrlp_map ='<c-o>'
