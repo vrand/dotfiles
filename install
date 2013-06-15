@@ -2,7 +2,7 @@
 
 # borrowed from https://github.com/marsam/dotfiles
 
-FILES=$(ls --ignore $(basename "$0") --ignore LICENSE --ignore README.md --ignore bin --ignore images)
+FILES=$(ls --ignore $(basename "$0") --ignore LICENSE --ignore README.md --ignore bin --ignore builds --ignore images)
 echo $0
 
 sync() {
@@ -84,6 +84,10 @@ install_images() {
   ln -s images $HOME
 }
 
+install_builds() {
+  ln -s builds $HOME
+}
+
 
 echo "Syncing files"
 sync_files
@@ -103,5 +107,9 @@ install_bins
 
 echo "Installing wallpapers"
 install_images
+
+
+echo "Installing custom builds"
+install_builds
 
 echo 'Yo ho ho ho ho! ♫'

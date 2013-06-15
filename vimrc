@@ -18,6 +18,8 @@ Bundle 'sjl/badwolf'
 Bundle 'vim-scripts/Colour-Sampler-Pack'
 Bundle 'vim-scripts/louver.vim'
 Bundle 'noahfrederick/Hemisu'
+Bundle 'vim-scripts/summerfruit256.vim'
+Bundle 'Rykka/colorv.vim'
 
 " Version Control
 Bundle 'tpope/vim-fugitive'
@@ -151,6 +153,11 @@ endfunc
 syntax enable
 call DarkColorScheme()
 
+" Swap light/dark/transparent colorschemes
+nmap <Leader>lc :call LightColorScheme()<CR>
+nmap <Leader>dc :call DarkColorScheme()<CR>
+nmap <Leader>nc :call TransparentColorScheme()<CR>
+
 " UI
 " ~~
 
@@ -171,10 +178,6 @@ set textwidth=79
 
 "" visual indicator in 80-th column
 set colorcolumn=80
-
-if has('gui_running')
-    set guifont=Deja\ Vu\ Sans\ Mono\ 14
-endif
 
 " Editing
 " ~~~~~~~
@@ -437,7 +440,6 @@ let g:pymode_options = 0
 map <Leader>xm :RopeExtractMethod<CR>
 map <Leader>g :RopeGotoDefinition<CR>
 
-
 " Fugitive
 map <Leader>ga :Gwrite<CR>
 map <Leader>gA :Git add -u<CR>
@@ -451,7 +453,7 @@ map <Leader>gp :Git push<CR>
 map <Leader>gl :Git pull<CR>
 
 " snipMate
-let g:snips_author="Alejandro Gómez <alejandroogomez@gmail.com>"
+let g:snips_author="Alejandro Gómez <alejandro@dialelo.com>"
 
 " SuperTab
 let g:SuperTabDefaultCompletionType="context"
@@ -487,7 +489,7 @@ map <Leader>tt :call VimuxRunLastCommand()<CR>
 autocmd InsertLeave * set nopaste
 
 " save when leaving Insert Mode
-autocmd InsertLeave * :silent! update<CR>
+autocmd InsertLeave * :silent! update
 
 " automatically reload .vimrc when it's saved
 autocmd BufWritePost vimrc source %
