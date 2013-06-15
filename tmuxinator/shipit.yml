@@ -1,0 +1,5 @@
+project_name: shipit
+project_root: ~/repos/shipit/
+tabs:
+  - dev: workon shipit && vim .
+  - sh: workon shipit && shipit
