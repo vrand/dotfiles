@@ -10,7 +10,7 @@ alias a='alsamixer'
 alias cc='noglob cclive'
 alias d=deactivate
 alias e='emacsclient -tc'
-alias es='setxkbmap -layout es'
+alias es='translate {=es}'
 alias g=git
 alias gr=grunt
 alias h='noglob http'
@@ -31,8 +31,7 @@ alias s=sudo
 alias sus='sudo systemctl suspend'
 alias this='tmux attach -t $(basename $PWD)'
 alias t=tmux
-alias tu='BROWSER=chromium turses -d'
-alias us='setxkbmap -layout us'
+alias tu='turses -d'
 alias v=vim
 alias vi=vim
 alias va=vagrant
@@ -57,8 +56,7 @@ alias yu='packer -Syu --noconfirm'
 alias yi='packer -S --noconfirm'
 alias ys='packer -Ss'
 alias yr='packer -Rdd'
-alias ycl='packer -Sc'
-alias ypu='packer -Scc'
+alias yclean='sudo pacman -Scc && sudo pacman -Rs $(pacman -Qtdq)'
 
 # Python
 alias p=python2
