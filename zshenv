@@ -13,7 +13,7 @@ export WWW_HOME=http://dialelo.com
 if [[ -z $DISPLAY ]] then
     export BROWSER=elinks
 else
-    export BROWSER=chromium
+    export BROWSER=firefox
 fi
 
 # Pager
@@ -89,6 +89,10 @@ function lstash {
     for stash in $(git stash list | awk '{print $1}' | sed -e 's/://'); do
         (echo $stash && git stash show -p $stash);
     done
+}
+
+function mkcd {
+    mkdir -p $1 && cd $1
 }
 
 
