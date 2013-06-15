@@ -6,3 +6,4 @@ turses/log
 turses/token
 *.swp
 .extra
+*.tar.xz
