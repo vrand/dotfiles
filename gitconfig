@@ -13,7 +13,8 @@
     a = add
     au = add -u
     ap = add -p
-    b = branch -va
+    b = branch
+    bl = branch -va
     bd = branch -d
     bm = branch --merged
     bu = branch --no-merged
@@ -57,6 +58,8 @@
     untracked = cyan
 [help]
     autocorrect = true
+[diff]
+    algorithm = patience
 [merge]
     tool = vimdiff
 [push]
