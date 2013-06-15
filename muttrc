@@ -29,10 +29,12 @@ alternates alejandroogomez@gmail.com
 
 # Mailboxes to show in the sidebar.
 mailboxes +INBOX \
+          +Kaleidos \
+          +GR14 \
           +Wikimaps \
           +Python \
           +Haskell \
-          +vim \
+          +Meetups
 
 # Other special folders.
 set mbox      = "+archive"
