@@ -1,6 +1,6 @@
 http://feeds.feedburner.com/HighScalability High scalability
 
-http://feeds.feedburner.com/codinghorror programming
+http://lambda-the-ultimate.org/rss.xml programming
 
 http://planet.python-hispano.org/rss.xml Planet Python hispano
 http://podcast.jcea.es/podcastz.xml Podcast Z
@@ -21,7 +21,10 @@ http://radiofreepython.com/high_quality.rss python
 http://calculist.org/atom.xml Dave Herman, JavaScript
 http://feeds.feedburner.com/2ality javascript
 http://feeds.feedburner.com/addyosmani javascript
+http://feeds.feedburner.com/quildreen/en javascript
 http://www.mnot.net/blog/index.atom web
+http://www.xanthir.com/blog/atom/ web
+http://xaviju.es/feeds/all.rss.xml frontend, web, javascript
 
 http://www.rtve.es/api/programas/1940/audios.rss Duendeando, flamenco
 http://flamencolicos.wordpress.com/feed/ flamenco
@@ -39,3 +42,7 @@ http://feeds.feedburner.com/ContemplatingCode Haskell
 http://planet.haskell.org/rss20.xml Haskell Planet
 
 http://jscategory.wordpress.com/feed/ Category Theory in JavaScript
+
+http://www.eldiario.es/rss/ El Diario
+
+http://medialab-prado.es/rss/es Madrid
