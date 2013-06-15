@@ -15,6 +15,7 @@ fi
 #  X
 ##
 
+xsetroot -name $HOSTNAME
 # set the cursor
 xsetroot -cursor_name left_ptr
 
@@ -61,7 +62,7 @@ syndaemon -t -k -i 2 -d &
 unclutter &
 
 # battery indicator
-#batti &
+batti &
 
 # caffeine
 caffeine -a &
@@ -83,7 +84,5 @@ $HOME/bin/mailnotifier &
 ##
 xrandr --addmode HDMI1 1366x768
 xrandr --output HDMI1 --mode 1366x768
-
-xsetroot -name $(dwmstatus) &
 
 exec dwm
