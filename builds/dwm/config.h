@@ -14,7 +14,7 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "dev", "test", "www", "media", "social", "sys", "etc", "org"};
+static const char *tags[] = { "org", "dev", "test", "www", "media", "social", "sys", "etc" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -75,14 +75,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_d,                      0)
-	TAGKEYS(                        XK_t,                      1)
-	TAGKEYS(                        XK_w,                      2)
-	TAGKEYS(                        XK_m,                      3)
-	TAGKEYS(                        XK_c,                      4)
-	TAGKEYS(                        XK_y,                      5)
-	TAGKEYS(                        XK_e,                      6)
-	TAGKEYS(                        XK_o,                      7)
+	TAGKEYS(                        XK_o,                      0)
+	TAGKEYS(                        XK_d,                      1)
+	TAGKEYS(                        XK_t,                      2)
+	TAGKEYS(                        XK_w,                      3)
+	TAGKEYS(                        XK_m,                      4)
+	TAGKEYS(                        XK_i,                      5)
+	TAGKEYS(                        XK_y,                      6)
+	TAGKEYS(                        XK_e,                      7)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
