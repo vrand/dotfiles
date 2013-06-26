@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INBOX=$MAIL/INBOX/new
+INBOX=$MAIL/Inbox/new
 
 while true; do
   event=$(inotifywait -e create -e moved_to $INBOX 2> /dev/null)

@@ -26,7 +26,7 @@ color index color18 color250 ~D
 color sidebar_new color202 color230
 color header color18 color153 .
 color signature brightblack default
-color attachment color90 color225 
+color attachment color90 color225
 color quoted blue default
 color quoted1 red default
 color quoted2 green default

@@ -1,79 +1,100 @@
-filetype off
+set nocompatible
 
-" Vundle
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
-
-" Bundles
+" Plugins
 " ~~~~~~~
 
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'tsukkee/unite-help'
+
 " External utilities
-Bundle 'rking/ag.vim'
-Bundle 'tpope/vim-eunuch'
+"NeoBundle 'rking/ag.vim'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'Shougo/vimproc.vim'
+
+" Windows
+NeoBundle 'jimsei/winresizer'
 
 " Colors
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tomasr/molokai'
-Bundle 'sjl/badwolf'
-Bundle 'vim-scripts/Colour-Sampler-Pack'
-Bundle 'vim-scripts/louver.vim'
-Bundle 'noahfrederick/Hemisu'
-Bundle 'vim-scripts/summerfruit256.vim'
-Bundle 'Rykka/colorv.vim'
+NeoBundle 'tpope/vim-vividchalk'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'sjl/badwolf'
+NeoBundle 'vim-scripts/Colour-Sampler-Pack'
+NeoBundle 'vim-scripts/louver.vim'
+NeoBundle 'noahfrederick/Hemisu'
+NeoBundle 'vim-scripts/summerfruit256.vim'
+NeoBundle 'Rykka/colorv.vim'
+NeoBundle 'trapd00r/neverland-vim-theme'
+
 
 " Version Control
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 
 " Text editing
-"Bundle 'tpope/vim-surround'
-"Bundle 'tpope/vim-repeat'
-"Bundle 'SuperTab-continued.'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'Shougo/neocomplcache'
+"NeoBundle 'SuperTab-continued.'
 
 " tmux
-Bundle 'benmills/vimux'
+NeoBundle 'benmills/vimux'
 
 "" Undo tree
-"Bundle 'Gundo'
-
-" Paste history
-Bundle 'YankRing.vim'
+"NeoBundle 'Gundo'
 
 " Comments
-Bundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdcommenter'
 
 " Navigation
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'taglist.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'taglist.vim'
 "
 " Linters
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 
 "" Formatters
-"Bundle 'godlygeek/tabular'
+"NeoBundle 'godlygeek/tabular'
 "
 " Aesthetics
-Bundle 'Lokaltog/vim-powerline'
+NeoBundle 'Lokaltog/powerline'
 
 " Syntax highlighting
-Bundle 'kchmck/vim-coffee-script'
-"Bundle 'groenewege/vim-less'
-Bundle 'skammer/vim-css-color'
-"Bundle 'hail2u/vim-css3-syntax'
-Bundle 'saltstack/salt-vim'
-Bundle 'nginx.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+"NeoBundle 'groenewege/vim-less'
+NeoBundle 'skammer/vim-css-color'
+"NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'saltstack/salt-vim'
+NeoBundle 'nginx.vim'
 
 " Python
-Bundle 'klen/python-mode'
-Bundle 'jmcantrell/vim-virtualenv'
+NeoBundle 'klen/python-mode'
+NeoBundle 'jmcantrell/vim-virtualenv'
 
 " Haskell
-Bundle 'lukerandall/haskellmode-vim'
+NeoBundle 'lukerandall/haskellmode-vim'
+NeoBundle 'Twinside/vim-hoogle'
+
+" Clojure
+NeoBundle 'paredit.vim'
+
+" HTML
+NeoBundle 'othree/html5.vim'
 
 " Misc
-Bundle 'vimwiki'
-Bundle 'scratch'
-Bundle 'ZoomWin'
+NeoBundle 'vimwiki'
+NeoBundle 'scratch'
+NeoBundle 'ZoomWin'
 
 filetype plugin indent on
 
@@ -135,7 +156,8 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 function! DarkColorScheme()
     set bg=dark
-    colorscheme hemisu
+    colorscheme neverland-darker
+    "colorscheme hemisu
 endfunc
 
 function! LightColorScheme()
@@ -151,6 +173,7 @@ function! TransparentColorScheme()
 endfunc
 
 syntax enable
+
 call DarkColorScheme()
 
 " Swap light/dark/transparent colorschemes
@@ -262,14 +285,19 @@ set gdefault
 " ~~~~~~~~
 
 " remove trailing whitespaces in the whole file
-command! -nargs=* StripTrailingWhitespace :%s/\s\+$//
+command! -nargs=* StripTrailingWhitespace :%s/\s\+$//g
 map <Leader>st :StripTrailingWhitespace<CR>''
+
+" remove those nasty ^M from a file
+command! -nargs=* StripCarriageReturn :%s/\r$//g
+map <Leader>sc :StripCarriageReturn<CR>''
 
 " avoid common mistakes
 cmap Q q
 cmap WQ wq
 cmap Wq wq
 cmap wQ wq
+cmap w1 w!
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -295,9 +323,8 @@ nmap <Leader>Q :qa!<CR>
 nmap j gj
 nmap k gk
 
-" user regular expressions for searching
+" Search on esteroids
 map / /\v
-map ? ?\v
 
 " window movement
 map <C-j> <C-w>j
@@ -325,7 +352,12 @@ map <Leader>j :nohlsearch<CR>
 nmap <Leader>s V']
 
 " edit $MYVIMRC
-nnoremap <Leader>rc :vsp $MYVIMRC<CR>
+nnoremap <Leader>rc :e $MYVIMRC<CR>
+
+" populate file with cURL
+command! -nargs=1 CurlAndPut :.!curl <args> 2> /dev/null
+nnoremap <Leader>cp :CurlAndPut<Space>
+
 
 " faster exit
 nmap <leader>q :q<CR>
@@ -349,7 +381,7 @@ noremap <Leader>a <C-^>
 nmap <Leader>w :silent! update<CR>
 
 " install bundles
-map <Leader>I :BundleInstall<CR>
+map <Leader>I :NeoBundleInstall<CR>
 
 " easier increment/decrement
 nnoremap + <C-a>
@@ -364,25 +396,35 @@ vnoremap <F1> <ESC>
 nmap K k
 
 
-" Plugins
-" ~~~~~~~
+" Plugin configuration
+" ~~~~~~~~~~~~~~~~~~~~
 
-" Ack
-" searches with ack the word under the cursor
-map <Leader>A :Ag!<CR>
+" Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-" Ctrlp
-let g:ctrlp_map ='<c-o>'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_open_new_file = 'r'
+let g:unite_source_history_yank_enable = 1
+let g:unite_prompt = '» '
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_limit = 10000
+let g:unite_split_rule = 'botright'
+"let g:unite_source_history_yank_file = $HOME/.vim/yanks
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+let g:unite_source_grep_recursive_opt = ''
 
-map <C-b> :CtrlPBuffer<CR>
+nnoremap <Leader>/ :Unite grep<CR>
+nnoremap <C-o> :Unite file_rec<CR>
+nnoremap <C-b> :Unite buffer<CR>
+nnoremap <Leader>y :Unite history/yank<CR>
+nnoremap <Leader>cs  :Unite -auto-preview colorscheme<CR>
+nnoremap <Leader>k  :Unite mapping<CR>
+nnoremap <Leader>l :Unite line<CR>
 
 " vim-eunuch
 map <Leader>sw :SudoWrite<CR>
 map <Leader>f  :Find<Space>
 
-" Gundo
+" gundo
 "let g:gundo_help = 0
 "let g:gundo_width = 40
 "let g:gundo_preview_bottom = 1
@@ -408,21 +450,13 @@ map <Leader>n :NERDTreeToggle<CR>
 map <Leader>N :NERDTree<CR>
 
 " Powerline
-let g:Powerline_symbols = 'compatible'
+"let g:Powerline_symbols = 'compatible'
 
 " Syntastic
 let g:syntastic_auto_jump = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_quiet_warnings = 1
-
-" YankRing
-let g:yankring_min_element_lenght = 2
-let g:yankring_max_history = 1000
-let g:yankring_history_dir = '$HOME/.vim/yankring'
-let g:yankring_history_file = 'yankring_history'
-
-map <Leader>y :YRShow<CR>
 
 " Vimwiki
 map <Leader>vs :VimwikiSearch
@@ -481,6 +515,13 @@ map <Leader>e :VirtualEnvActivate<Space>
 " tmux interaction
 map <Leader>tc :call VimuxRunCommand("
 map <Leader>tt :call VimuxRunLastCommand()<CR>
+
+" Neocomplcache
+
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
 
 " Autocommands
 " ~~~~~~~~~~~~

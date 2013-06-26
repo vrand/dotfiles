@@ -1,4 +1,7 @@
 secrets
+venvs/
+mutt/*.muttrc
+mutt/*.signature
 vim/bundle
 vim/view
 vim/.netrwhist

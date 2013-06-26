@@ -39,6 +39,7 @@
     phu = push --set-upstream
     PH = push --force
     pl = pull --rebase
+    plom = pull --rebase origin master
     rem = remote -v
     rema = remote add
     remr = remote rm

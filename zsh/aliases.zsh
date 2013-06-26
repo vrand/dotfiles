@@ -1,3 +1,7 @@
+# Mail
+alias mp='mutt -e "source ~/.mutt/personal.muttrc"'
+alias mw='mutt -e "source ~/.mutt/work.muttrc"'
+
 # Directory tree navigation
 alias -g ..='cd ..'
 alias -g ...='cd ../..'

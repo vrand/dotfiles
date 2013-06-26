@@ -44,13 +44,10 @@ compton -b --config ~/.compton.conf
 ##
 
 # wicd
-#wicd-client -t &
+wicd-client -t &
 
 # parcellite
 #parcellite &
-
-# notifications
-dunst &
 
 # color temperature
 gtk-redshift -l 52.50056:13.39889 &

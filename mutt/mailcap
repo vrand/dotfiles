@@ -2,3 +2,4 @@ text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/plain; vim -
 image/*; feh %s;
 application/pdf; zathura %s;
+application/msword; libreoffice %s;

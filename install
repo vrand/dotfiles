@@ -46,12 +46,12 @@ initialize_submodules() {
   git submodule update
 }
 
-update_vundles() {
+update_vim_plugins() {
   echo "desea actualizar sus vim Vundles? (y/n)"
   read option
   case $option in
   [yY])
-    vim +':BundleInstall!' +':qa!';;
+    vim +':NeoBundleInstall!' +':qa!';;
   [nN])
     echo "";;
   esac

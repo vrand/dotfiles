@@ -1,5 +1,5 @@
 ## External programs
-browser chromium
+browser firefox
 pager   less
 player  mplayer
 notify-program notify-send

@@ -21,7 +21,7 @@ export PAGER='less -r'
 #export MANPAGER="/bin/sh -c 'col -b | vim -u ~/.vim/pager.vim -'"
 
 # Mail
-export MAIL=$HOME/Mail
+export MAIL=$HOME/.mail/gmail
 
 # Path
 function add_to_path
@@ -61,7 +61,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # Virtualenvwrapper
 export VIRTUALENVWRAPPER_LOG_DIR=/tmp
-export VIRTUALENVWRAPPER_PYTHON=$(which python2)
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 
 export WORKON_HOME=$HOME/.venvs
 #export PROJECT_HOME=$HOME/repos
@@ -83,6 +83,9 @@ function modernize
 
     # python packages
     pip freeze | cut -d = -f 1 | xargs sudo pip install -U
+
+    # haskell
+    cabal update
 }
 
 function lstash {
