@@ -73,8 +73,9 @@ tilda --hidden &
 # background
 $HOME/bin/randombg
 
-# mailnotifier
+# mailnotifiers
 $HOME/bin/mailnotifier &
+$HOME/bin/workmailnotifier &
 
 ##
 #  Window manager

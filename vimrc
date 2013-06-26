@@ -332,10 +332,6 @@ map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 
-" yank and put to/from the clipboard register
-map <Leader>y "*y
-map <Leader>p "*p
-
 " toggle paste mode
 map <Leader>tp :set invpaste<CR>
 
@@ -415,7 +411,7 @@ let g:unite_source_grep_recursive_opt = ''
 nnoremap <Leader>/ :Unite grep<CR>
 nnoremap <C-o> :Unite file_rec<CR>
 nnoremap <C-b> :Unite buffer<CR>
-nnoremap <Leader>y :Unite history/yank<CR>
+nnoremap <C-y> :Unite history/yank<CR>
 nnoremap <Leader>cs  :Unite -auto-preview colorscheme<CR>
 nnoremap <Leader>k  :Unite mapping<CR>
 nnoremap <Leader>l :Unite line<CR>
