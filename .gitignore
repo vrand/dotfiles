@@ -2,6 +2,7 @@ secrets
 venvs/
 mutt/*.muttrc
 mutt/*.signature
+vim/yanks
 vim/bundle
 vim/view
 vim/.netrwhist
