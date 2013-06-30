@@ -36,7 +36,6 @@ NeoBundle 'vim-scripts/summerfruit256.vim'
 NeoBundle 'Rykka/colorv.vim'
 NeoBundle 'trapd00r/neverland-vim-theme'
 
-
 " Version Control
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
@@ -92,6 +91,9 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'vimwiki'
 NeoBundle 'scratch'
 NeoBundle 'ZoomWin'
+
+" Tasks
+NeoBundle 'LStinson/TagmaTasks'
 
 filetype plugin indent on
 
@@ -407,13 +409,14 @@ let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
 let g:unite_source_grep_recursive_opt = ''
 
+" TODO: Fix grep
 nnoremap <Leader>/ :Unite grep<CR>
-nnoremap <C-o> :Unite file_rec<CR>
-nnoremap <C-b> :Unite buffer<CR>
+nnoremap <C-o> :Unite -no-split file_rec<CR>
+nnoremap <C-b> :Unite -no-split buffer<CR>
 nnoremap <C-y> :Unite history/yank<CR>
 nnoremap <Leader>cs  :Unite -auto-preview colorscheme<CR>
-nnoremap <Leader>k  :Unite mapping<CR>
-nnoremap <Leader>l :Unite line<CR>
+nnoremap <Leader>k  :Unite -no-split mapping<CR>
+nnoremap <Leader>l :Unite -no-split line<CR>
 
 " vim-eunuch
 map <Leader>sw :SudoWrite<CR>
@@ -467,16 +470,16 @@ map <Leader>xm :RopeExtractMethod<CR>
 map <Leader>g :RopeGotoDefinition<CR>
 
 " Fugitive
-map <Leader>ga :Gwrite<CR>
-map <Leader>gA :Git add -u<CR>
-map <Leader>ge :Gread<CR>
+map <Leader>gw :Gwrite<CR>
+"map <Leader>gA :Git add -u<CR>
+map <Leader>gr:Gread<CR>
 map <Leader>gd :Gdiff<CR>
-map <Leader>gm :Gremove<CR>
+map <Leader>gR:Gremove<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gb :Gblame<CR>
-map <Leader>gp :Git push<CR>
-map <Leader>gl :Git pull<CR>
+map <Leader>gp :Git pull<CR>
+map <Leader>gP :Git push<CR>
 
 " snipMate
 let g:snips_author="Alejandro Gómez <alejandro@dialelo.com>"
@@ -549,9 +552,6 @@ au BufRead,BufNewFile */uzbl/config   set filetype=uzbl
 
 " markdown
 au BufRead,BufNewFile *.md set filetype=markdown
-
-" awesome configuration
-au BufRead,BufNewFile rc.lua setlocal foldmethod=marker
 
 " Django templates
 au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
