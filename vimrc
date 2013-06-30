@@ -66,9 +66,6 @@ NeoBundle 'scrooloose/syntastic'
 "" Formatters
 "NeoBundle 'godlygeek/tabular'
 "
-" Aesthetics
-NeoBundle 'Lokaltog/powerline'
-
 " Syntax highlighting
 NeoBundle 'kchmck/vim-coffee-script'
 "NeoBundle 'groenewege/vim-less'
@@ -156,8 +153,8 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 function! DarkColorScheme()
     set bg=dark
-    colorscheme neverland-darker
-    "colorscheme hemisu
+    "colorscheme neverland-darker
+    colorscheme hemisu
 endfunc
 
 function! LightColorScheme()
@@ -185,7 +182,9 @@ nmap <Leader>nc :call TransparentColorScheme()<CR>
 " ~~
 
 " last window always has a status line
-set laststatus=1
+set laststatus=2
+
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " show information about the cursor coords and relative position
 set ruler
@@ -444,9 +443,6 @@ let NERDTreeMinimalUI = 1
 " toggle NERDTree in the directory of the file that I'm editing
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>N :NERDTree<CR>
-
-" Powerline
-"let g:Powerline_symbols = 'compatible'
 
 " Syntastic
 let g:syntastic_auto_jump = 1

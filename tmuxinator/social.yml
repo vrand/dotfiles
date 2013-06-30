@@ -2,4 +2,5 @@ project_name: social
 project_root: ~/
 tabs:
   - mail: mp
-  - twitter: BROWSER=chromium turses
+  - twitter: turses
+  - irc: irc
