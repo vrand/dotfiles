@@ -418,6 +418,15 @@ nnoremap <Leader>cs  :Unite -auto-preview colorscheme<CR>
 nnoremap <Leader>k  :Unite -no-split mapping<CR>
 nnoremap <Leader>l :Unite -no-split line<CR>
 
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+
 " vim-eunuch
 map <Leader>sw :SudoWrite<CR>
 map <Leader>f  :Find<Space>
@@ -481,6 +490,7 @@ map <Leader>gb :Gblame<CR>
 map <Leader>gp :Git pull<CR>
 map <Leader>gP :Git push<CR>
 
+map <Leader>du :diffupdate<CR>
 " snipMate
 let g:snips_author="Alejandro Gómez <alejandro@dialelo.com>"
 
@@ -507,12 +517,7 @@ let g:virtualenv_stl_format = '<%n>'
 
 map <Leader>e :VirtualEnvActivate<Space>
 
-" tmux interaction
-map <Leader>tc :call VimuxRunCommand("
-map <Leader>tt :call VimuxRunLastCommand()<CR>
-
 " Neocomplcache
-
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
