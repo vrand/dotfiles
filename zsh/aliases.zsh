@@ -16,6 +16,7 @@ alias d=deactivate
 alias e='emacsclient -tc'
 alias es='translate {=es}'
 alias g=git
+alias lolgit='git commit -m "$(shuf -n 1 ~/.emoji)"'
 alias gr=grunt
 alias h='noglob http'
 alias i=ipython
