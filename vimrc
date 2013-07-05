@@ -16,6 +16,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'tsukkee/unite-help'
+NeoBundle 'h1mesuke/unite-outline'
 
 " External utilities
 "NeoBundle 'rking/ag.vim'
@@ -417,6 +418,7 @@ nnoremap <C-y> :Unite history/yank<CR>
 nnoremap <Leader>cs  :Unite -auto-preview colorscheme<CR>
 nnoremap <Leader>k  :Unite -no-split mapping<CR>
 nnoremap <Leader>l :Unite -no-split line<CR>
+nnoremap <Leader>t :Unite outline<CR>
 
 
 " Custom mappings for the unite buffer
@@ -535,10 +537,13 @@ autocmd InsertLeave * :silent! update
 " automatically reload .vimrc when it's saved
 autocmd BufWritePost vimrc source %
 
+au BufRead xmonad.hs set makeprg=xmonad\ --recompile
+
 " filetype specific settings
 
 " syntax highlighting
 au BufRead,BufNewFile nginx.conf set filetype=nginx
+
 
 " Vagrantfile
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
