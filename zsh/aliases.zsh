@@ -51,6 +51,10 @@ alias so=source
 alias sys='sudo systemctl'
 alias za='zathura --fork'
 
+# copy-paste
+alias y='xclip -i '
+alias p='xclip -o'
+
 # Useful
 alias pyclean='find -name "*.pyc" -exec rm {} \;'
 alias networks='sudo iw wlan0 scan | grep -o "SSID:.*" | cut -d " " -f 2 | sort -iu'
@@ -58,7 +62,6 @@ alias jklocal='jekyll --auto --pygments --server --base-url "/" . _site'
 alias mostused='cat ~/.history | sort | uniq -c | sort -nr | head -n 10 | nl'
 
 # packer
-alias y=packer
 alias yu='packer -Syu --noconfirm'
 alias yi='packer -S --noconfirm'
 alias ys='packer -Ss'
@@ -66,18 +69,17 @@ alias yr='packer -Rdd'
 alias yclean='sudo pacman -Scc && sudo pacman -Rs $(pacman -Qtdq)'
 
 # Python
-alias p=python2
-alias p3=python3
+alias py=python2
+alias py3=python3
 alias serve='python3 -m http.server'
 
 # pip
 alias pips='pip search'
-alias -g pipi='pip install'
-alias -g pipu='pip uninstall'
+alias pipi='pip install'
+alias pipu='pip uninstall'
 alias pipf='pip freeze'
 
 # pypy
-alias py='pypy'
 alias pyp='/opt/pypy/bin/pip'
 
 # external screens
