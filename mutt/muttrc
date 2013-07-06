@@ -97,6 +97,10 @@ macro index O "<shell-escape>mbsync --all<enter>"
 bind index N search-opposite
 bind pager N search-opposite
 
+# jump between unread emails
+bind index n next-unread
+bind index p previous-unread
+
 # show all
 macro index a "<limit>all\n"
 
