@@ -1,0 +1,4 @@
+#!/bin/sh
+
+percentage=$(amixer sget 'Master' | grep Mono: | sed 's/^[^[]*\[/[/g' | sed 's/\[[^%]*dB\] //g' | sed 's/^\[.*off\]/[-]/g' | sed 's/ \[on\]//g' | tr -d '[]')
+echo "♫ $percentage"

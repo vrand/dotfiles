@@ -1,6 +1,6 @@
 #!/bin/sh
 
 
-trayer --edge top --align right --widthtype percent --width 10 --expand true \
-       --SetDockType true --SetPartialStrut true --transparent true --alpha 100 \
-       --tint 0x000000 --expand true --heighttype percent --height 20 --padding 1
+trayer --edge top --align right --widthtype pixel --width 166 --expand true \
+       --SetDockType true --SetPartialStrut true --transparent true --alpha 0 \
+       --tint 0x00000 --expand true --heighttype percent --height 24 --padding 1

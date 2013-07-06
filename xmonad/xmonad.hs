@@ -1,16 +1,20 @@
-import XMonad
-import XMonad.Hooks.DynamicLog
-import Data.Monoid
+import System.IO (hPutStrLn)
 import System.Exit
 
+import Data.Monoid
+import qualified Data.Map as M
+
+import XMonad
+import XMonad.Hooks.DynamicLog
+import XMonad.Layout.Spacing
+import XMonad.Util.Run (spawnPipe)
 import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
 
 myTerminal      = "urxvt"
 myLauncher      = "/home/dialelo/bin/launcher"
 
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
@@ -23,7 +27,7 @@ myWorkspaces = ["org", "dev", "social", "www", "media", "sys", "etc"]
 myWorkspacesKeys = [xK_o, xK_d, xK_i, xK_w, xK_m, xK_y, xK_e]
 
 myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myFocusedBorderColor = "#cb4030"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
@@ -146,7 +150,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+     tiled   = spacing 3 $ Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -193,10 +197,53 @@ myEventHook = mempty
 ------------------------------------------------------------------------
 -- Status bars and logging
 
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
-myLogHook = return ()
+-- Forward the window information to the left dzen bar and format it
+myLogHook h = dynamicLogWithPP $ myDzenPP { ppOutput = hPutStrLn h }
+
+
+-- dzen styles
+surroundWithTicks :: String -> String
+surroundWithTicks s = "'" ++ s ++ "'"
+
+myDzen = "dzen2"
+myDzenYOffset = "0"
+myDzenHeight = "24"
+
+myDzenStyle  = " -h " ++ surroundWithTicks myDzenHeight ++
+               " -y " ++ surroundWithTicks myDzenYOffset
+
+-- Left bar contains XMonad information
+myLeftBarWidth = "800"
+myLeftBarXOffset = "0"
+myLeftBarAlignment = "l"
+
+myLeftBar = myDzen ++
+            " -x " ++ surroundWithTicks myLeftBarXOffset ++
+            " -w " ++ surroundWithTicks myLeftBarWidth ++
+            " -ta " ++ surroundWithTicks myLeftBarAlignment ++ myDzenStyle
+
+-- Right bar contains system stats
+myRightBarWidth = "400"
+myRightBarXOffset = myLeftBarWidth
+myRightBarAlignment = "r"
+
+myRightBar = "conky -c ~/.conkyrc | " ++
+                myDzen ++
+                " -x " ++ surroundWithTicks myRightBarXOffset ++
+                " -w " ++ surroundWithTicks myRightBarWidth ++
+                " -ta " ++ surroundWithTicks myRightBarAlignment ++ myDzenStyle
+
+-- Very plain formatting, non-empty workspaces are highlighted,
+-- urgent workspaces (e.g. active IM window) are highlighted in red
+myDzenPP  = dzenPP
+    { ppCurrent = dzenColor "#ff9326" "" . wrap " " " "
+    , ppHidden  = dzenColor "#dddddd" "" . wrap " " " "
+    , ppHiddenNoWindows = dzenColor "#777777" "" . wrap " " " "
+    , ppUrgent  = dzenColor "#ff0000" "" . wrap " " " "
+    , ppSep     = "  "
+    , ppLayout  = \y -> map head $ words y
+    , ppTitle   = dzenColor "#ffffff" "" . wrap " " " "
+    }
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -213,9 +260,11 @@ myStartupHook = return ()
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad =<< xmobar defaults
+main = do
+        status <- spawnPipe myLeftBar
+        conky <- spawnPipe myRightBar
 
-defaults = defaultConfig {
+        xmonad =<< xmobar defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -234,6 +283,6 @@ defaults = defaultConfig {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        logHook            = myLogHook status,
         startupHook        = myStartupHook
     }

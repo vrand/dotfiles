@@ -30,6 +30,9 @@ xset b off
 # set Spanish keyboard layout
 setxkbmap -layout us,es -variant altgr-intl, -option grp:alt_space_toggle -option grp_led:caps -option ctrl:nocaps
 
+# key mappings
+xmodmap ~/.Xmodmap
+
 # backlight
 xbacklight -set 30
 
@@ -85,5 +88,7 @@ $HOME/bin/tray &
 ##
 xrandr --addmode HDMI1 1366x768
 xrandr --output HDMI1 --mode 1366x768
+
+urxvt -e mux org &
 
 exec xmonad

@@ -7,13 +7,17 @@
 !
 
 !Font
-URxvt*font:            xft:terminus:normal:pixelsize=18
+URxvt*font:            xft:Inconsolata:medium:pixelsize=16
 URxvt*foreground:      white
 
 ! Appearance
 URxvt*depth:           32
 URxvt*background:      rgba:0000/0000/0000/aaaa
 URxvt*scrollBar:       off
+
+dzen2.font:       xft:Inconsolata:medium:pixelsize=12
+dzen2.foreground: #22EE11
+dzen2*background: black
 
 ! Colors
 

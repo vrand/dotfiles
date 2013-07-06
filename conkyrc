@@ -1,0 +1,18 @@
+#!/bin/sh
+
+background yes
+out_to_x no
+out_to_console yes
+update_interval 3
+total_run_times 0
+use_spacer none
+own_window_transparent yes
+own_window_argb_visual yes
+own_window_argb_value ffffff00
+
+TEXT
+^p(5)^i($HOME/.dzen/icons/cpu.xbm)^pa(20)${cpu}% \
+^fg(\#FF0000)${execi 1 /home/dialelo/bin/battery}^fg() \
+^fg(\#F3FFD9)${execi 1 /home/dialelo/bin/unread}^fg() \
+^fg(\#FFEC40)${execi 1 /home/dialelo/bin/volume}^fg() \
+^fg(\#FFFFFF)${execi 1 /home/dialelo/bin/datetime}^fg() \

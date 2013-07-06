@@ -3,3 +3,4 @@ text/plain; vim -
 image/*; feh %s;
 application/pdf; zathura %s;
 application/msword; libreoffice %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s;
