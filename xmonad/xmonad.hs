@@ -8,6 +8,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Spacing
 import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.Scratchpad (scratchpadManageHook, scratchpadSpawnActionTerminal)
 import qualified XMonad.StackSet as W
 
 myTerminal      = "urxvt"
@@ -29,6 +30,8 @@ myWorkspacesKeys = [xK_o, xK_d, xK_i, xK_w, xK_m, xK_y, xK_e]
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#cb4030"
 
+myScratchPad = myTerminal -- ++ " -e mux scratchpad"
+
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -36,6 +39,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launcher
     , ((modm,               xK_r     ), spawn myLauncher)
+
+    -- scratchpad
+    , ((modm,               xK_s     ), scratchpadSpawnActionTerminal myScratchPad)
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -179,9 +185,16 @@ myLayout = tiled ||| Mirror tiled ||| Full
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
-    , className =? "Tilda"          --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore ] <+> manageScratchpad
+
+manageScratchpad :: ManageHook
+manageScratchpad = scratchpadManageHook (W.RationalRect l t w h)
+    where
+        h = 0.4    -- height
+        w = 1      -- width
+        t = 0.2    -- top offset
+        l = 0      -- left offset
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -198,7 +211,56 @@ myEventHook = mempty
 -- Status bars and logging
 
 -- Forward the window information to the left dzen bar and format it
-myLogHook h = dynamicLogWithPP $ myDzenPP { ppOutput = hPutStrLn h }
+noScratchpad :: String -> String
+noScratchpad ws = if ws == "NSP" then "" else ws
+
+myLeftBarColor = "#FFFFFF"
+myLeftBarBackgroundColor = "#000000"
+
+myCurrentColor = "#FFA826"
+myCurrentBackgroundColor = myLeftBarBackgroundColor
+myPPCurrent = dzenColor myCurrentColor myCurrentBackgroundColor
+
+myLeftBarHiddenColor = "#EEEEEE"
+myLeftBarHiddenBackgroundColor = myLeftBarBackgroundColor
+myPPHidden s = dzenColor myLeftBarHiddenColor myLeftBarHiddenBackgroundColor $ noScratchpad s
+
+myLeftBarHiddenNoWindowsColor = "#AAAAAA"
+myPPHiddenNoWindows s = dzenColor myLeftBarHiddenNoWindowsColor myLeftBarHiddenBackgroundColor $ noScratchpad s
+
+myLeftBarWsColor = myLeftBarColor
+myLeftBarWsBackgroundColor = myLeftBarBackgroundColor
+
+myLeftBarUrgentColor = myLeftBarColor
+myLeftBarUrgentBackgroundColor = "#FF2626"
+myPPUrgent = dzenColor myLeftBarUrgentColor myLeftBarUrgentBackgroundColor
+
+myLeftBarTitleColor = "#CCB90A"
+myLeftBarTitleBackgroundColor = myLeftBarBackgroundColor
+myPPTitle = dzenColor myLeftBarTitleColor myLeftBarTitleBackgroundColor
+
+myWsSeparatorColor = "#00FFB3"
+myWsSeparatorBackgroundColor = myLeftBarBackgroundColor
+myPPWsSep = dzenColor myWsSeparatorColor myWsSeparatorBackgroundColor sep
+    where
+        sep = wrap " " " " "·"
+
+mySeparatorColor = "#33FFC2"
+mySeparatorBackgroundColor = myLeftBarBackgroundColor
+myPPSep = dzenColor mySeparatorColor mySeparatorBackgroundColor sep
+    where
+        sep = wrap " " " " "|"
+
+myLogHook h = dynamicLogWithPP $ myDzenPP
+    { ppCurrent = myPPCurrent
+    , ppTitle = myPPTitle
+    , ppHidden = myPPHidden
+    , ppHiddenNoWindows = myPPHiddenNoWindows
+    , ppSep = myPPSep
+    , ppWsSep = myPPWsSep
+    , ppUrgent = myPPUrgent
+    , ppOutput = hPutStrLn h
+    }
 
 
 -- dzen styles

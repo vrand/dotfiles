@@ -70,9 +70,6 @@ caffeine -a &
 # music player daemon
 mpd $HOME/.mpdconf
 
-# scratchpad
-tilda --hidden &
-
 # background
 $HOME/bin/randombg
 
@@ -80,14 +77,14 @@ $HOME/bin/randombg
 $HOME/bin/mailnotifier &
 $HOME/bin/workmailnotifier &
 
+# systray
 $HOME/bin/tray &
-
 
 ##
 #  Window manager
 ##
-xrandr --addmode HDMI1 1366x768
-xrandr --output HDMI1 --mode 1366x768
+#xrandr --addmode HDMI1 1366x768
+#xrandr --output HDMI1 --mode 1366x768
 
 urxvt -e mux org &
 
