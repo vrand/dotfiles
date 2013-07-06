@@ -203,7 +203,7 @@ myLogHook h = dynamicLogWithPP $ myDzenPP { ppOutput = hPutStrLn h }
 
 -- dzen styles
 surroundWithTicks :: String -> String
-surroundWithTicks s = "'" ++ s ++ "'"
+surroundWithTicks = wrap "'" "'"
 
 myDzen = "dzen2"
 myDzenYOffset = "0"
