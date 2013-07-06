@@ -11,3 +11,4 @@ turses/token
 *.swp
 .extra
 *.tar.xz
+irc.conf
