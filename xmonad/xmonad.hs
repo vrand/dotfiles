@@ -12,8 +12,8 @@ import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Util.Scratchpad (scratchpadManageHook, scratchpadSpawnActionTerminal)
 import qualified XMonad.StackSet as W
 
-myTerminal      = "urxvt"
-myLauncher      = "/home/dialelo/bin/launcher"
+myTerminal = "urxvt"
+myLauncher = "/home/dialelo/bin/launcher"
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
@@ -244,13 +244,17 @@ myWsSeparatorColor = "#00FFB3"
 myWsSeparatorBackgroundColor = myLeftBarBackgroundColor
 myPPWsSep = dzenColor myWsSeparatorColor myWsSeparatorBackgroundColor sep
     where
-        sep = wrap " " " " "·"
+        spacing = "  "
+        symbol = "·"
+        sep = wrap spacing spacing symbol
 
 mySeparatorColor = "#33FFC2"
 mySeparatorBackgroundColor = myLeftBarBackgroundColor
 myPPSep = dzenColor mySeparatorColor mySeparatorBackgroundColor sep
     where
-        sep = wrap " " " " "|"
+        spacing = "      "
+        symbol = "|"
+        sep = wrap spacing spacing symbol
 
 myLogHook h = dynamicLogWithPP $ myDzenPP
     { ppCurrent = myPPCurrent
