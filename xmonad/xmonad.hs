@@ -8,6 +8,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.Spacing
 import XMonad.Util.Run (spawnPipe)
+import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Util.Scratchpad (scratchpadManageHook, scratchpadSpawnActionTerminal)
 import qualified XMonad.StackSet as W
 
@@ -153,7 +154,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = tiled ||| Mirror tiled ||| noBorders Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = spacing 3 $ Tall nmaster delta ratio
