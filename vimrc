@@ -9,6 +9,9 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
+" shortcut for installing bundles
+map <Leader>I :NeoBundleInstall<CR>
+
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -19,12 +22,12 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'h1mesuke/unite-outline'
 
 " External utilities
-"NeoBundle 'rking/ag.vim'
+""NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'Shougo/vimproc.vim'
 
 " Windows
-NeoBundle 'jimsei/winresizer'
+"NeoBundle 'jimsei/winresizer'
 
 " Colors
 NeoBundle 'tpope/vim-vividchalk'
@@ -42,59 +45,49 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 
 " Text editing
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'Shougo/neocomplcache'
-"NeoBundle 'SuperTab-continued.'
-
-" tmux
-NeoBundle 'benmills/vimux'
-
-"" Undo tree
-"NeoBundle 'Gundo'
+"NeoBundle 'tpope/vim-surround'
+"NeoBundle 'tpope/vim-repeat'
+"NeoBundle 'Shougo/neocomplcache'
+""NeoBundle 'SuperTab-continued.'
 
 " Comments
 NeoBundle 'scrooloose/nerdcommenter'
 
 " Navigation
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'taglist.vim'
 "
 " Linters
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 
-"" Formatters
-"NeoBundle 'godlygeek/tabular'
-"
 " Syntax highlighting
-NeoBundle 'kchmck/vim-coffee-script'
-"NeoBundle 'groenewege/vim-less'
-NeoBundle 'skammer/vim-css-color'
-"NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'saltstack/salt-vim'
-NeoBundle 'nginx.vim'
+"NeoBundle 'kchmck/vim-coffee-script'
+""NeoBundle 'groenewege/vim-less'
+"NeoBundle 'skammer/vim-css-color'
+""NeoBundle 'hail2u/vim-css3-syntax'
+"NeoBundle 'saltstack/salt-vim'
+"NeoBundle 'nginx.vim'
 
 " Python
 NeoBundle 'klen/python-mode'
 NeoBundle 'jmcantrell/vim-virtualenv'
 
 " Haskell
-NeoBundle 'lukerandall/haskellmode-vim'
-NeoBundle 'Twinside/vim-hoogle'
+"NeoBundle 'lukerandall/haskellmode-vim'
+"NeoBundle 'Twinside/vim-hoogle'
 
 " Clojure
-NeoBundle 'paredit.vim'
+"NeoBundle 'paredit.vim'
 
 " HTML
-NeoBundle 'othree/html5.vim'
+"NeoBundle 'othree/html5.vim'
 
 " Misc
 NeoBundle 'vimwiki'
-NeoBundle 'scratch'
+"NeoBundle 'scratch'
 NeoBundle 'ZoomWin'
 
 " Tasks
-NeoBundle 'LStinson/TagmaTasks'
+"NeoBundle 'LStinson/TagmaTasks'
 
 filetype plugin indent on
 
@@ -106,8 +99,6 @@ set nocompatible
 
 set nobackup
 set noswapfile
-"set backupdir=~/.vim/backup
-"set directory=~/.vim/swap
 
 " save undo history for each file
 set undodir=~/.vim/undo
@@ -156,13 +147,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 function! DarkColorScheme()
     set bg=dark
-    "colorscheme neverland-darker
     colorscheme hemisu
 endfunc
 
 function! LightColorScheme()
-    "colorscheme louver
-    "colorscheme calmar256-light
     set bg=light
     colorscheme hemisu
 endfunc
@@ -196,12 +184,12 @@ set ruler
 set cursorline
 set cursorcolumn
 
-"" wrap long lines
+" wrap long lines
 set wrap
 set textwidth=79
 "set formatoptions=tcqn
 
-"" visual indicator in 80-th column
+" visual indicator in 80-th column
 set colorcolumn=80
 
 " Editing
@@ -211,7 +199,7 @@ set colorcolumn=80
 nmap <leader>tl :set list!<CR>
 set list
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:↷,precedes:↶
-
+"
 function! Spanish()
     set spell
     set spelllang=es
@@ -225,17 +213,18 @@ endfunc
 " *t*oggle *s*pelling / switch language
 nmap <leader>ts :set spell!<CR>
 set spelllang=en
-
+"
 nmap <leader>ss :call Spanish()<CR>
 nmap <leader>se :call English()<CR>
 
 " show relative line number
 set relativenumber
+"set number
 set numberwidth=3
 
 " read changes to files outside Vim
 set autoread
-
+"
 " 4 spaces instead of <Tab>
 set tabstop=4
 set softtabstop=4
@@ -245,7 +234,7 @@ set expandtab
 " indentation behaviour
 set autoindent
 set copyindent
-
+"
 " folding
 set foldmethod=indent
 
@@ -269,28 +258,28 @@ set cpoptions+=$
 
 " incremental searching
 set incsearch
-
-"" wrap the bottom and top of the file while searching
+"
+" wrap the bottom and top of the file while searching
 set wrapscan
-
-"" case insensitive search unless pattern contains upper case characters
+"
+" case insensitive search unless pattern contains upper case characters
 set ignorecase
 set smartcase
-
-"" highlight all matches with the search pattern
+"
+" highlight all matches with the search pattern
 set hlsearch
-
+"
 " global flag automatically on with the substitute command
 set gdefault
-
+"
 " Commands
 " ~~~~~~~~
 
 " remove trailing whitespaces in the whole file
 command! -nargs=* StripTrailingWhitespace :%s/\s\+$//g
 map <Leader>st :StripTrailingWhitespace<CR>''
-
-" remove those nasty ^M from a file
+"
+"" remove those nasty ^M from a file
 command! -nargs=* StripCarriageReturn :%s/\r$//g
 map <Leader>sc :StripCarriageReturn<CR>''
 
@@ -300,13 +289,6 @@ cmap WQ wq
 cmap Wq wq
 cmap wQ wq
 cmap w1 w!
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-                \ | wincmd p | diffthis
-endif
 
 " Mappings
 " ~~~~~~~~
@@ -325,7 +307,7 @@ nmap <Leader>Q :qa!<CR>
 nmap j gj
 nmap k gk
 
-" Search on esteroids
+" Very magin search
 map / /\v
 
 " window movement
@@ -333,7 +315,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
-
+"
 " toggle paste mode
 map <Leader>tp :set invpaste<CR>
 
@@ -348,18 +330,13 @@ map <Leader>j :nohlsearch<CR>
 
 " select the text that I've just putted
 nmap <Leader>s V']
-
+"
 " edit $MYVIMRC
 nnoremap <Leader>rc :e $MYVIMRC<CR>
 
 " populate file with cURL
 command! -nargs=1 CurlAndPut :.!curl <args> 2> /dev/null
 nnoremap <Leader>cp :CurlAndPut<Space>
-
-
-" faster exit
-nmap <leader>q :q<CR>
-nmap <leader>Q :qa<CR>
 
 " split and focus window
 nnoremap <Leader>v <C-w>v<C-w>l
@@ -377,9 +354,6 @@ noremap <Leader>a <C-^>
 
 " save
 nmap <Leader>w :silent! update<CR>
-
-" install bundles
-map <Leader>I :NeoBundleInstall<CR>
 
 " easier increment/decrement
 nnoremap + <C-a>
@@ -405,13 +379,14 @@ let g:unite_prompt = '» '
 let g:unite_enable_start_insert = 1
 let g:unite_source_history_yank_limit = 10000
 let g:unite_split_rule = 'botright'
-"let g:unite_source_history_yank_file = $HOME/.vim/yanks
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_history_yank_file = "/home/dialelo/.vim/yanks"
+" FIXME
+"let g:unite_source_grep_command = 'ag'
+"let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+"let g:unite_source_grep_recursive_opt = ''
 
-" TODO: Fix grep
-nnoremap <Leader>/ :Unite grep<CR>
+
+"nnoremap <Leader>/ :Unite grep<CR>
 nnoremap <C-o> :Unite -no-split file_rec<CR>
 nnoremap <C-b> :Unite -no-split buffer<CR>
 nnoremap <C-y> :Unite history/yank<CR>
@@ -429,18 +404,10 @@ function! s:unite_settings()
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
 
-" vim-eunuch
+"" vim-eunuch
 map <Leader>sw :SudoWrite<CR>
 map <Leader>f  :Find<Space>
-
-" gundo
-"let g:gundo_help = 0
-"let g:gundo_width = 40
-"let g:gundo_preview_bottom = 1
-"let g:gundo_right = 1
-"let g:gundo_close_on_revert = 1
-
-"map <Leader>u :GundoToggle<CR>
+map <Leader>x  :Chmod +x<CR>
 
 " NERDCommenter
 let g:NERDCommentWholeLinesInVMode = 1
@@ -453,39 +420,36 @@ let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
 let NERDTreeWinSize = 30
 let NERDTreeShowBookmarks=1
 let NERDTreeMinimalUI = 1
-
+"
 " toggle NERDTree in the directory of the file that I'm editing
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>N :NERDTree<CR>
+"
+"" Syntastic
+"let g:syntastic_auto_jump = 1
+"let g:syntastic_enable_signs = 1
+"let g:syntastic_auto_loc_list = 2
+"let g:syntastic_quiet_warnings = 1
 
-" Syntastic
-let g:syntastic_auto_jump = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_quiet_warnings = 1
-
-" Vimwiki
-map <Leader>vs :VimwikiSearch
-
-" python-mode
-let g:pymode_lint_ignore = "E501"
-let g:pymode_lint_cwindow = 0
-let g:pymode_breakpoint_key = '<Leader>B'
-let g:pymode_options = 0
-
-" pydoc
-" TODO
-
-" RopeVim
-map <Leader>xm :RopeExtractMethod<CR>
-map <Leader>g :RopeGotoDefinition<CR>
-
-" Fugitive
+"" python-mode
+"let g:pymode_lint_ignore = "E501"
+"let g:pymode_lint_cwindow = 0
+"let g:pymode_breakpoint_key = '<Leader>B'
+"let g:pymode_options = 0
+"
+"" pydoc
+"" TODO
+"
+"" RopeVim
+"map <Leader>xm :RopeExtractMethod<CR>
+"map <Leader>g :RopeGotoDefinition<CR>
+"
+"" Fugitive
 map <Leader>gw :Gwrite<CR>
-"map <Leader>gA :Git add -u<CR>
-map <Leader>gr:Gread<CR>
+map <Leader>gA :Git add -u<CR>
+map <Leader>gr :Gread<CR>
 map <Leader>gd :Gdiff<CR>
-map <Leader>gR:Gremove<CR>
+map <Leader>gR :Gremove<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gb :Gblame<CR>
@@ -493,37 +457,17 @@ map <Leader>gp :Git pull<CR>
 map <Leader>gP :Git push<CR>
 
 map <Leader>du :diffupdate<CR>
-" snipMate
-let g:snips_author="Alejandro Gómez <alejandro@dialelo.com>"
-
-" SuperTab
-let g:SuperTabDefaultCompletionType="context"
-
-" Tabular
-let g:Tabular_loaded = 1
-
-" Taglist
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Use_Right_Window = 1
-let Tlist_Auto_Highlight_Tag = 1
-let Tlist_Auto_Update = 1
-let Tlist_WinWidth = 35
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Show_Menu = 1
-let Tlist_Show_One_File = 1
-
-map <Leader>T :TlistToggle<CR>
 
 " Virtualenv
 let g:virtualenv_stl_format = '<%n>'
 
 map <Leader>e :VirtualEnvActivate<Space>
 
-" Neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
+"" Neocomplcache
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_enable_camel_case_completion = 1
+"let g:neocomplcache_enable_underbar_completion = 1
 
 " Autocommands
 " ~~~~~~~~~~~~
@@ -532,16 +476,16 @@ let g:neocomplcache_enable_underbar_completion = 1
 autocmd InsertLeave * set nopaste
 
 " save when leaving Insert Mode
-autocmd InsertLeave * :silent! update
+"autocmd InsertLeave * :silent! update
 
 " automatically reload .vimrc when it's saved
-autocmd BufWritePost vimrc source %
+"autocmd BufWritePost vimrc source %
 
 au BufRead xmonad.hs set makeprg=xmonad\ --recompile
 
 " filetype specific settings
 
-" syntax highlighting
+"" syntax highlighting
 au BufRead,BufNewFile nginx.conf set filetype=nginx
 
 
@@ -569,6 +513,3 @@ au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
 " Save and load the state of the document (folding and cursor line)
 au BufWinLeave * mkview
 au BufWinEnter * silent! loadview
-
-" templates
-autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
