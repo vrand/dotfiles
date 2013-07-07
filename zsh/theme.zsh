@@ -48,8 +48,8 @@ function zle-line-init zle-keymap-select {
     # info
     git_branch='%{$bg[red]%}%{$fg[white]%}$(current_branch)%}%{$reset_color%}'
     virtualenv='%{$bg[yellow]%}%{$fg[black]%}$(current_virtualenv)%}%{$reset_color%}'
-    hostname='%{$bg[blue]%}%m%{$reset_color%}'
-    info="${git_branch} ${virtualenv} ${hostname}"
+    #hostname='%{$bg[blue]%}%m%{$reset_color%}'
+    info="${git_branch} ${virtualenv}"
 
     # vi mode
     mode="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
@@ -68,10 +68,10 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-local user='%{$fg[yellow]%}%n%{$reset_color%}'
+#local user='%{$fg[yellow]%}%n%{$reset_color%}'
 local cwd='%{$fg[magenta]%}%~%{$reset_color%}'
 #local datetime='%{$bg[white]${fg[black]%}%T $(date +%a\ %d.%m.%y)%{$reset_color%}'
 #local battery='%{$fg[red]%}$(~/bin/battery)%{$reset_color%}'
 local prompt_char='%{$fg[cyan]%}$(prompt_char)'
 
-PROMPT="${user} in ${cwd} ${prompt_char} "
+PROMPT="${cwd} ${prompt_char} "
