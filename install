@@ -96,7 +96,7 @@ echo "Initializing & updating submodules"
 initialize_submodules
 
 echo "Installing & updating vim bundles"
-update_vundles
+update_vim_plugins
 
 #echo "Installing fonts"
 #install_fonts
