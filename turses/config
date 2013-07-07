@@ -103,7 +103,7 @@ editor_vertical_align = middle
 box_around_status = false
 status_bar = True
 status_divider = True
-header_template =  {username}{retweeted}{retweeter} - {time}{reply}{retweet_count}
+header_template =  {username}{retweeted}{retweeter} - {time}{reply} {retweet_count}
 url_format = display
 statuses_in_user_info = 3
 
