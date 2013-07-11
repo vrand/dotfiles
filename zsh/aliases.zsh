@@ -89,18 +89,6 @@ alias samescreen='xrandr --output HDMI1 --mode $(xrandr | grep LVDS1 | cut -d " 
 # Django
 alias pm='python manage.py'
 
-# Files by suffix
-alias -s c=$EDITOR
-alias -s com=$BROWSER
-alias -s h=$EDITOR
-alias -s html=$BROWSER
-alias -s java=$EDITOR
-alias -s jpg=feh
-alias -s org=$BROWSER
-alias -s png=feh
-alias -s py=python
-alias -s PKGBUILD=$EDITOR
-
 # Common piping idioms
 alias -g G='| grep'
 alias -g L='| less'

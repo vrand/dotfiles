@@ -77,6 +77,8 @@ $HOME/bin/randombg
 $HOME/bin/mailnotifier &
 $HOME/bin/workmailnotifier &
 
+xmodmap $HOME/.Xmodmap
+
 # systray
 $HOME/bin/tray &
 
