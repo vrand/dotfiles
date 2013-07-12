@@ -11,5 +11,5 @@ SELECTED_BG=""
 SELECTED_FG=""
 
 
-dmenu_run -i -l 10 -fn $FONT -p $PROMPT
+yeganesh -- -i -l 10 -fn $FONT -p $PROMPT
 # -nb $NORMAL_BG -nf $NORMAL_FG -sb $SELECTED_BG -sf $SELECTED_FG
