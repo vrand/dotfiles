@@ -1,5 +1,8 @@
 set nocompatible
 
+" <Space> is easier to type than "\"
+let mapleader = " "
+
 " Plugins
 " ~~~~~~~
 
@@ -47,7 +50,7 @@ NeoBundle 'airblade/vim-gitgutter'
 " Text editing
 "NeoBundle 'tpope/vim-surround'
 "NeoBundle 'tpope/vim-repeat'
-"NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache'
 ""NeoBundle 'SuperTab-continued.'
 
 " Comments
@@ -72,8 +75,8 @@ NeoBundle 'klen/python-mode'
 NeoBundle 'jmcantrell/vim-virtualenv'
 
 " Haskell
-"NeoBundle 'lukerandall/haskellmode-vim'
-"NeoBundle 'Twinside/vim-hoogle'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
 
 " Clojure
 "NeoBundle 'paredit.vim'
@@ -107,9 +110,6 @@ set undolevels=1000
 
 " encoding
 set encoding=utf-8
-
-" <Space> is easier to type than "\"
-let mapleader = " "
 
 " redraw instead of insert/delete
 set ttyfast
@@ -463,11 +463,11 @@ let g:virtualenv_stl_format = '<%n>'
 
 map <Leader>e :VirtualEnvActivate<Space>
 
-"" Neocomplcache
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_underbar_completion = 1
+" Neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
 
 " Autocommands
 " ~~~~~~~~~~~~
@@ -513,3 +513,5 @@ au BufRead,BufNewFile */templates/*.html setlocal filetype=htmldjango
 " Save and load the state of the document (folding and cursor line)
 au BufWinLeave * mkview
 au BufWinEnter * silent! loadview
+
+autocmd BufWritePost *.hs :GhcModCheckAndLintAsync
