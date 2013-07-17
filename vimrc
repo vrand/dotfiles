@@ -469,6 +469,9 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 
+" neco-ghc
+let g:necoghc_enable_detailed_browse = 1
+
 " Autocommands
 " ~~~~~~~~~~~~
 
